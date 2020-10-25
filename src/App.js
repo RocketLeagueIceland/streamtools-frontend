@@ -1,25 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Countdown from './components/Countdown/Countdown';
+import ResetButton from './components/ResetButton/ResetButton';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Route path="/counter" exact component={Countdown} />
+        <Route path="/counter" exact component={ResetButton} />
+        {/* <div>
+          <Countdown></Countdown>
+          <ResetButton></ResetButton>
+        </div> */}
+        {/* <Route path="/boost-information" exact component={BoostInformation} /> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
