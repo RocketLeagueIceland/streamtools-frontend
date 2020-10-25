@@ -1,0 +1,22 @@
+.BoostOverlay {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+  opacity: 0.75;
+}
+
+.BlueSide {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  position: relative;
+}
+
+.OrangeSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 50%;
+  position: relative;
+}
