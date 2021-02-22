@@ -167,10 +167,6 @@ class BoostInformationOverlay extends Component {
         const orangePlayers = playersArray.filter( (p) => {
           return p.team === 1;
         });
-        // console.log(playersArray);
-        // console.log(d);
-        // console.log(bluePlayers)
-        // console.log(orangePlayers)
   
         this.setState({
           bluePlayer1Name: bluePlayers[0]['name'],
@@ -185,6 +181,11 @@ class BoostInformationOverlay extends Component {
           OrangePlayer2Boost: orangePlayers[1]['boost'],
           OrangePlayer3Name: orangePlayers[2]['name'],
           OrangePlayer3Boost: orangePlayers[2]['boost'],
+        });
+      }
+      else {
+        this.setState({
+          bluePlayer1Name: 'Too many or too few players',
         });
       }
     });

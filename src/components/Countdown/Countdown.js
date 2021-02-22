@@ -51,7 +51,7 @@ class Countdown extends Component {
   render(){
     return (
       <div>
-        <p className={styles.timer}>{Math.floor(this.state.counter/60)}:{this.oneNumber.includes(this.state.counter%60) ? "0" : null}{this.state.counter%60}</p>
+        <p className={styles.timer}>{Math.floor(this.state.counter/60%60)}:{this.oneNumber.includes(this.state.counter%60) ? "0" : null}{this.state.counter%60}</p>
       </div>
     );
   }

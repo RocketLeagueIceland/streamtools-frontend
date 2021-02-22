@@ -1,0 +1,20 @@
+.MatchupTeam  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.MatchupTeam  p{
+  font-size: 2em;
+  color: white;
+}
+
+.MatchupTeam img{
+  padding: 20px;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.Reverse {
+  flex-direction: row-reverse;
+}
