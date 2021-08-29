@@ -1,4 +1,9 @@
 import React, {Component} from 'react';
+import styles from './ResetButton.module.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 class ResetButton extends Component {
 
@@ -9,15 +14,13 @@ class ResetButton extends Component {
     }
 
 
-    
-    
     this.setNewTimerValue = (e) => {
       this.setState({ newTimerValue: e.target.value });
     };
   
     this.resetTimer = () => {
       (async () => {
-        const rawResponse = await fetch('http://localhost:3002/', {
+        fetch('http://localhost:3002/', {
           method: 'POST',
           headers: {
             'Accept': 'application/json',
@@ -31,9 +34,13 @@ class ResetButton extends Component {
 
   render() {
     return (
-      <div>
-        <input onChange={this.setNewTimerValue} type='number'></input>
-        <button onClick={this.resetTimer}>Reset timer</button>
+      <div className={styles.container}>
+        <Form onSubmit={(e) => {e.preventDefault(); this.resetTimer()}}>
+          <Form.Group className={styles.bestOfInput} controlId="bestofValue">
+            <Form.Control type="number" onChange={this.setNewTimerValue}/>
+          </Form.Group>
+        </Form>
+        <Button className={styles.resetButton} onClick={this.resetTimer}>Reset timer</Button>
       </div>
     );
   } 

@@ -1,0 +1,452 @@
+- match_created: kemur þegar þú ferð í lobby-ið í einhverjum leik (eftir countdown kemur nýtt Guid). Er bara Guid á því matchi.
+    { match_guid: 'C332A53211EBE9BA29BD1D804E4801B1' }
+
+match_destroyed: kemur þegar lobby er klárað (tíminn rennur út og næsta lobby er byrjað, eða þegar maður gerir leave game). Er bara Guid á því matchi.
+    { match_guid: 'C332A53211EBE9BA29BD1D804E4801B1' }
+
+match_ended: Kemur þegar leikurinn klárast, 0 sek og bolti lendir... kemur trúlega eftir replay ef það er 0 second goal eða overtime goal, ekki viss samt.
+    { match_guid: 'C332A53211EBE9BA29BD1D804E4801B1', winner_team_num: 0 }
+
+initialized: Kemur um leið og countdown byrjar
+    { match_guid: 'B1B2641C11EBEA2A6E05379263E6D63F' }
+
+pre_countdown_begin: Veit ekki hver er munurinn á þessu og post, en kemur þegar niðurtalningin byrjar
+    { match_guid: 'B1B2641C11EBEA2A6E05379263E6D63F' }
+
+post_countdown_begin: Veit ekki hver er munurinn á þessu og post, en kemur þegar niðurtalningin byrjar
+    { match_guid: 'B1B2641C11EBEA2A6E05379263E6D63F' }
+
+round_started_go: kemur þegar niðurtalning er búin og leikur byrjar (í hvert skipti, líka á milli marka)
+    game_round_started_go (ekkert guid eða json, bara þessi texti)
+
+clock_started: kemur þegar klukkan byrjar (þegar það er snert boltann eftir kickoff)
+    { match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F' }
+
+clock_updated_seconds: alltaf þegar klukkan slær/uppfærist. (Væntanlega líka í overtime)
+    { match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F' }
+
+clock_stopped: þegar það er skorað mark eða þegar leikur klárast (basicly þegar klukkan stoppar)
+    { match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F' }
+
+statfeed_event:
+    {
+        event_name: 'Shot',
+        main_target: { id: 'Hound_3', name: 'Hound', team_num: 0 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Shot on Goal'
+    }
+    {
+        event_name: 'Goal',
+        main_target: { id: 'Hound_3', name: 'Hound', team_num: 0 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Goal'
+    }
+    {
+        event_name: 'Shot',
+        main_target: { id: 'Poncho_7', name: 'Poncho', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Shot on Goal'
+    }
+    {
+        event_name: 'Save',
+        main_target: { id: 'Sundown_1', name: 'Sundown', team_num: 0 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Save'
+    }
+    {
+        event_name: 'EpicSave',
+        main_target: { id: 'Imp_7', name: 'Imp', team_num: 1 },
+        match_guid: 'C407C6AE11EBEA3274F0BF8FB7956A0A',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Epic Save'
+    }
+    {
+        event_name: 'Savior',
+        main_target: { id: 'Cougar_1', name: 'Cougar', team_num: 0 },
+        match_guid: 'FDBD2A8C11EBEA3399C2BF8F5776FF5B',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Savior'
+    }
+    {
+        event_name: 'Demolish',
+        main_target: { id: 'Hound_3', name: 'Hound', team_num: 0 }, // Sá sem demo-ar
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: 'Poncho_7', name: 'Poncho', team_num: 1 }, // Sá sem er demo-aður
+        type: 'Demolition'
+    }
+    {
+        event_name: 'OvertimeGoal',
+        main_target: { id: 'Armstrong_5', name: 'Armstrong', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Overtime Goal'
+    }
+    {
+        event_name: 'Assist',
+        main_target: { id: 'Poncho_7', name: 'Poncho', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Assist'
+    }
+    {
+        event_name: 'Playmaker',
+        main_target: { id: 'Dingo_7', name: 'Dingo', team_num: 1 },
+        match_guid: 'AEA0453611EBEA449E0D5DA98BF616A9',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Playmaker'
+    }
+    {
+        event_name: 'Win',
+        main_target: { id: 'Armstrong_5', name: 'Armstrong', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Win'
+    }
+    {
+        event_name: 'Win',
+        main_target: { id: 'Fury_6', name: 'Fury', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Win'
+    }
+    {
+        event_name: 'Win',
+        main_target: { id: 'Poncho_7', name: 'Poncho', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Win'
+    }
+    {
+        event_name: 'MVP',
+        main_target: { id: 'Poncho_7', name: 'Poncho', team_num: 1 },
+        match_guid: '0173BEAC11EBEA2F60EFBF8F4B79BA5F',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'MVP'
+    }
+    {
+        event_name: 'HatTrick',
+        main_target: { id: 'Centice_1', name: 'Centice', team_num: 0 },
+        match_guid: '3A87920811EBEA301FABBF8F18155A90',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Hat Trick'
+    }
+    {
+        event_name: 'BicycleHit',
+        main_target: { id: 'Marley_6', name: 'Marley', team_num: 1 },
+        match_guid: '75B6300411EBEA311B9DBF8F561A5846',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Bicycle Hit'
+    }
+    {
+        event_name: 'TurtleGoal',
+        main_target: { id: 'Dingo_7', name: 'Dingo', team_num: 1 },
+        match_guid: 'AEA0453611EBEA449E0D5DA98BF616A9',
+        secondary_target: { id: '', name: '', team_num: -1 },
+        type: 'Turtle Goal'
+    }
+
+ball_hit: þegar einhver hittir boltann
+    {
+        ball: {
+            location: {
+                X: 180.7171173095703,
+                Y: -0.13600043952465057,
+                Z: 0.852200448513031
+            },
+            post_hit_speed: 37.110992431640625,
+            pre_hit_speed: 11.057372093200684
+        },
+        match_guid: '37BC4B7A11EBEA466A5587B886B9BEA2',
+        player: { id: 'Wolfman_5', name: 'Wolfman' }
+    }
+    {
+        ball: {
+            location: {
+                X: 219.8426513671875,
+                Y: -0.7626956105232239,
+                Z: -0.5732170343399048
+            },
+            post_hit_speed: 77.20036315917969,
+            pre_hit_speed: 84.93022918701172
+        },
+        match_guid: '37BC4B7A11EBEA466A5587B886B9BEA2',
+        player: { id: 'Roundhouse_1', name: 'Roundhouse' }
+    }
+
+goal_scored: þegar það er skorað mark.
+    {
+        assister: { id: 'Saltie_1', name: 'Saltie' },
+        ball_last_touch: { player: 'Goose_5', speed: 101.43555450439453 },
+        goalspeed: 36.935997009277344, // namundað að næstu tölu.
+        goaltime: 11, // tími frá síðasta marki eða upphafi leiks.
+        impact_location: { X: 0.3260277509689331, Y: 0.25107812881469727 },
+        scorer: { id: 'Boomer_3', name: 'Boomer', teamnum: 0 }
+    }
+    {
+        assister: { id: '', name: '' },
+        ball_last_touch: { player: 'Rex_7', speed: 46.03406524658203 },
+        goalspeed: 73.00799560546875,
+        goaltime: 73,
+        impact_location: { X: 0.6042888760566711, Y: 0.8544843792915344 },
+        scorer: { id: 'Rex_7', name: 'Rex', teamnum: 1 }
+    }
+    {
+        assister: { id: 'Jester_2', name: 'Jester' },
+        ball_last_touch: { player: 'Rex_7', speed: 57.95811080932617 },
+        goalspeed: 102.13199615478516,
+        goaltime: 56,
+        impact_location: { X: 0.22673888504505157, Y: 0.3361719250679016 },
+        scorer: { id: 'Saltie_1', name: 'Saltie', teamnum: 0 }
+    }
+
+replay_start: Kemur stundum 2, þar sem fyrra er ekki með neitt data, sem veldur json villu.
+    { match_guid: '8FBDBE7E11EBEA48046F99BF6B943DD3' }
+
+replay_will_end: þegar það er búið að skora markið í replay-inu
+    { match_guid: 'D757F23A11EBEA49410799BF5B373F52' }
+
+replay_end: þegar replay-ið er búið 
+    { match_guid: 'D757F23A11EBEA49410799BF5B373F52' }
+
+update_state:
+    {
+        "event": "gamestate",
+        "game": {
+            "arena": "cs_p",
+            "ball": {
+                "location": {
+                    "X": 1618.9144287109375,
+                    "Y": -1730.7481689453125,
+                    "Z": 481.8409423828125
+                },
+                "speed": 40,
+                "team": 0
+            },
+            "hasTarget": true,
+            "hasWinner": false,
+            "isOT": false,
+            "isReplay": false,
+            "target": "Cougar_7",
+            "teams": [
+                {
+                    "color_primary": "1873FF",
+                    "color_secondary": "E5E5E5",
+                    "name": "FISKIFLUGUR",
+                    "score": 5
+                },
+                {
+                    "color_primary": "C26418",
+                    "color_secondary": "E5E5E5",
+                    "name": "FLEDERMAUSMäNNER",
+                    "score": 0
+                }
+            ],
+            "time_milliseconds": 180.89988708496094,
+            "time_seconds": 181,
+            "winner": ""
+        },
+        "hasGame": true,
+        "match_guid": "B56A2A9211EBEA4B754B99BF27B6CAA2",
+        "players": {
+            "Armstrong_2": {
+                "assists": 0,
+                "attacker": "",
+                "boost": 0,
+                "cartouches": 27,
+                "demos": 0,
+                "goals": 1,
+                "hasCar": true,
+                "id": "Armstrong_2",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": 1189.3673095703125,
+                    "Y": -1760.4500732421875,
+                    "Z": 17.010000228881836,
+                    "pitch": -103,
+                    "roll": 0,
+                    "yaw": -17445
+                },
+                "name": "Armstrong",
+                "onGround": true,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 0,
+                "score": 138,
+                "shortcut": 2,
+                "shots": 1,
+                "speed": 20,
+                "team": 0,
+                "touches": 13
+            },
+            "C-Block_1": {
+                "assists": 0,
+                "attacker": "",
+                "boost": 0,
+                "cartouches": 18,
+                "demos": 0,
+                "goals": 3,
+                "hasCar": true,
+                "id": "C-Block_1",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": 2244.947509765625,
+                    "Y": -1392.417724609375,
+                    "Z": 162.78152465820312,
+                    "pitch": 1590,
+                    "roll": 7058,
+                    "yaw": 23638
+                },
+                "name": "C-Block",
+                "onGround": false,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 0,
+                "score": 397,
+                "shortcut": 1,
+                "shots": 4,
+                "speed": 40,
+                "team": 0,
+                "touches": 14
+            },
+            "Cougar_7": {
+                "assists": 0,
+                "attacker": "",
+                "boost": 12,
+                "cartouches": 33,
+                "demos": 0,
+                "goals": 0,
+                "hasCar": true,
+                "id": "Cougar_7",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": 2381.201904296875,
+                    "Y": -2000.183837890625,
+                    "Z": 50.78432846069336,
+                    "pitch": 1479,
+                    "roll": 5023,
+                    "yaw": -9571
+                },
+                "name": "Cougar",
+                "onGround": false,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 0,
+                "score": 22,
+                "shortcut": 7,
+                "shots": 0,
+                "speed": 59,
+                "team": 1,
+                "touches": 16
+            },
+            "Hollywood_3": {
+                "assists": 3,
+                "attacker": "",
+                "boost": 0,
+                "cartouches": 19,
+                "demos": 1,
+                "goals": 1,
+                "hasCar": true,
+                "id": "Hollywood_3",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": 311.2158203125,
+                    "Y": -5277.68603515625,
+                    "Z": 18.333168029785156,
+                    "pitch": -178,
+                    "roll": 1,
+                    "yaw": 17022
+                },
+                "name": "Hollywood",
+                "onGround": true,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 0,
+                "score": 357,
+                "shortcut": 3,
+                "shots": 2,
+                "speed": 6,
+                "team": 0,
+                "touches": 20
+            },
+            "Junker_6": {
+                "assists": 0,
+                "attacker": "",
+                "boost": 96,
+                "cartouches": 27,
+                "demos": 0,
+                "goals": 0,
+                "hasCar": true,
+                "id": "Junker_6",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": -1953.3577880859375,
+                    "Y": -360.8179016113281,
+                    "Z": 17.00925636291504,
+                    "pitch": -100,
+                    "roll": 0,
+                    "yaw": -3528
+                },
+                "name": "Junker",
+                "onGround": true,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 0,
+                "score": 28,
+                "shortcut": 6,
+                "shots": 0,
+                "speed": 49,
+                "team": 1,
+                "touches": 14
+            },
+            "Saltie_5": {
+                "assists": 0,
+                "attacker": "",
+                "boost": 96,
+                "cartouches": 10,
+                "demos": 0,
+                "goals": 0,
+                "hasCar": true,
+                "id": "Saltie_5",
+                "isDead": false,
+                "isPowersliding": false,
+                "isSonic": false,
+                "location": {
+                    "X": -2479.79052734375,
+                    "Y": 4443.41015625,
+                    "Z": 17.01287841796875,
+                    "pitch": -99,
+                    "roll": -1,
+                    "yaw": -14186
+                },
+                "name": "Saltie",
+                "onGround": true,
+                "onWall": false,
+                "primaryID": "0",
+                "saves": 1,
+                "score": 98,
+                "shortcut": 5,
+                "shots": 0,
+                "speed": 37,
+                "team": 1,
+                "touches": 12
+            }
+        }
+    }
+
+
+
+

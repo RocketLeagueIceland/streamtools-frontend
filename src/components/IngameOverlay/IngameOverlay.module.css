@@ -1,0 +1,220 @@
+/* div {
+  box-sizing: border-box;
+  border: 1px solid #000000;
+  background-color: pink;
+} */
+
+/* div {
+  background-color: rgba(245, 168, 187, 0.3);
+} */
+
+
+html {
+  --logo-container-margin: 4px;
+  --slide-animation-distance: 500px;
+}
+
+p {
+  margin: 0;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.inBack {
+  z-index: -1;
+}
+
+.teamOverlayContainer {
+  font-family: "LEMONMILK";
+  color: white;
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.timerAndScoreComponent {
+  width: 360px;
+}
+
+.teamContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.leftTeamContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.leftTeamContainerSlideIn {
+  transition: 2s ease-in-out all;
+}
+
+.leftTeamContainerSlideOut {
+  transform: translate(var(--slide-animation-distance));
+  transition: 2s ease-in-out all;  
+  transition-delay: 1s;
+}
+
+.leftLogoBar {
+  background-image: url(./images/left_logo_bar.png);
+  background-repeat: no-repeat;
+  height: 76px;
+  width: 95px;
+  margin-right: var(--logo-container-margin);
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.leftLogoBarSlideIn {
+  transition: 1s ease-in-out all;
+  transition-delay: 2s;
+}
+
+.leftLogoBarSlideOut {
+  transform: translate(100px);
+  transition: 1s ease-in-out all;  
+}
+
+.leftBar {
+  background-image: url(./images/left_bar_bigger.png);
+  background-repeat: no-repeat;
+  height: 76px;
+	width: 392px;
+  font-size: 35px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.leftBarText {
+  padding: 25px;
+  margin: 0;
+}
+
+
+.rightTeamContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.rightTeamContainerSlideIn {
+  transition: 2s ease-in-out all;
+}
+
+.rightTeamContainerSlideOut {
+  transform: translate(calc(-1 * var(--slide-animation-distance)));
+  transition: 2s ease-in-out all;  
+  transition-delay: 1s;
+}
+
+.rightLogoBar {
+  background-image: url(./images/right_logo_bar.png);
+  background-repeat: no-repeat;
+  height: 76px;
+  width: 95px;
+  margin-left: var(--logo-container-margin);
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+}
+
+.rightLogoBarSlideIn {
+  transition: 1s ease-in-out all;
+  transition-delay: 2s;
+}
+
+.rightLogoBarSlideOut {
+  transform: translate(-100px);
+  transition: 1s ease-in-out all;  
+}
+
+.rightBar {
+  background-image: url(./images/right_bar_bigger.png);
+  background-repeat: no-repeat;
+  height: 76px;
+	width: 392px;  display: flex;
+  font-size: 35px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.rightBarText {
+  padding: 25px;
+  margin: 0;
+}
+
+.logoImage {
+  box-sizing: border-box;
+  padding: 5px;
+  height: 76px;
+  width: 76px;
+}
+
+.teamOverlayBottomContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* margin-top: 4px; */
+}
+
+.teamOverlayBottomContainerSlideIn {
+  transition: 1s ease-in-out all;
+  transition-delay: 2s;
+}
+
+.teamOverlayBottomContainerSlideOut {
+  transform: translateY(-40px);
+  transition: 1s ease-in-out all;  
+}
+
+.leftPoints {
+  background-image: url(./images/left_pip_empty.png);
+  background-repeat: no-repeat;
+  position: relative;
+  width: 164px;
+  height: 24px;
+  display: flex;
+}
+
+.leftPoints img {
+  width: 100%;
+  padding: 0;
+}
+
+.rightPoints {
+  background-image: url(./images/left_pip_empty.png);
+  background-repeat: no-repeat;
+  position: relative;
+  width: 164px;
+  height: 24px;
+  display: flex;
+}
+
+.rightPoints img {
+  width: 100%;
+  padding: 0;
+}
+
+.boContainer {
+  background-image: url(./images/bottom_bar.png);
+  background-repeat: no-repeat;
+  width: 201px;
+  height: 33px;
+  margin: 0 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boContainerText {
+  font-size: 18px;
+  margin: 0;
+}

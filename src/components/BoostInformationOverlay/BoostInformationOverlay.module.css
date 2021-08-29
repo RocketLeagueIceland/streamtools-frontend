@@ -1,9 +1,15 @@
+html {
+  --logo-container-margin: 4px;
+  --slide-animation-distance: 100px;
+}
+
 .BoostOverlay {
   display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
   opacity: 0.75;
+  margin-top: 200px;
 }
 
 .BlueSide {
@@ -13,10 +19,114 @@
   position: relative;
 }
 
+.BlueSideSlideIn {
+  transition: 2s ease-in-out all;
+}
+
+.BlueSideSlideOut {
+  transform: translate(calc(-1 * var(--slide-animation-distance)));
+  transition: 2s ease-in-out all;
+  transition-delay: 1s;
+}
+
 .OrangeSide {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   width: 50%;
   position: relative;
+}
+
+.OrangeSideSlideIn {
+  transition: 2s ease-in-out all;
+}
+
+.OrangeSideSlideOut {
+  transform: translate(var(--slide-animation-distance));
+  transition: 2s ease-in-out all;  
+  transition-delay: 1s;
+}
+
+.ExtraInfoContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 500px;
+}
+
+.ExtraInfo {
+  width: 16%;
+}
+
+.BlueContainer {
+  border: 4px solid #305bd5;
+  background: rgb(249,249,249);
+  background: linear-gradient(180deg, rgba(249,249,249,0.80) 0%, rgba(203,203,203,0.85) 100%);
+}
+
+.OrangeContainer {
+  border: 4px solid	#a8421a;
+  opacity: 0.75;
+}
+
+
+.CurrentPlayerOuterContainer{
+  margin-top: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.CurrentPlayerContainer {
+  border: 4px solid #305bd5;
+  border-radius: 10px;
+  background: rgb(249,249,249);
+  background: rgb(59,59,59);
+  background: linear-gradient(180deg, rgba(59, 59, 59, 0.8) 0%, rgba(65, 65, 65, 0.85) 100%);
+  font-family: "LEMONMILK";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CurrentPlayerName{
+  font-family: "LEMONMILK";
+  color: white;
+  font-size: 25px;
+  margin: 0;
+}
+
+.CurrentPlayerName p{
+  margin: 0;
+}
+
+.statContainer{
+  display: flex;
+}
+
+.statItem {
+  width: 65px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.statItem img {
+  height: 40px;
+}
+
+.statItem p {
+  margin: 0;
+}
+
+.SmallText {
+  font-size: 10px;
+}
+
+.LowerLeftCorner{
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }

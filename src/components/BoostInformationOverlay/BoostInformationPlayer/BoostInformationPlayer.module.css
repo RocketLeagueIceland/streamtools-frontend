@@ -1,28 +1,35 @@
 .Player {
-  width: 12%;
+  width: 20%;
   min-width: 100px;
-  background: rgb(249,249,249);
-  background: linear-gradient(180deg, rgba(249,249,249,0.80) 0%, rgba(203,203,203,0.85) 100%);
+  background: rgb(59,59,59);
+  background: linear-gradient(180deg, rgba(59, 59, 59, 0.8) 0%, rgba(65, 65, 65, 0.85) 100%);
 }
 
 .Name {
   margin: 0;
   font-size: 1.5em;
+  font-family: "LEMONMILK";
+  color: white;
+  text-align:center;
 }
 
 .Boost {
+  padding: 5px;
   font-size: 3em;
   margin: 0;
+  text-align:center;
 }
 
 .Blue {
   border: 4px solid #305bd5;
   border-radius: 0 10px 10px 0;
+  border-left:none;
 }
 
 .Red {
-  border: 4px solid	#f99257;
+  border: 4px solid	#ff711f;
   border-radius: 10px 0 0 10px;
+  border-right:none;
 }
 
 .Blue .Boost {
@@ -31,7 +38,7 @@
 }
 
 .Red .Boost {
-  color:	#c25312;
+  color:	#ff6e1b;
   text-shadow:1px 1px 10px 	#c96125, 1px 1px 10px #a8421a;
 }
 

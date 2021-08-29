@@ -1,0 +1,10 @@
+Game Schedule scene:
+
+# Væri gott að geta sett inn hvernig leikir sem eru búnir fóru (kannski þar sem tíminn er)
+
+Væri almennt gott að geta tengt streamtools við stream grafiks fyrir öll scenes.
+
+# Ingame overlay
+	- boost staða
+	- player staða (goals, assists, saves, current hraði)
+	- camera á player?

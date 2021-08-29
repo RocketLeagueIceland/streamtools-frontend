@@ -1,0 +1,43 @@
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 50px;
+    font-family: "LEMONMILK";
+    color: white;
+}
+
+.nextGame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.firstTeamText {
+    position: absolute;
+    top: 26px;
+    left: 43vw;
+}
+
+.secondTeamText {
+    position: absolute;
+    top: 26px;
+    right: 43vw;
+}
+
+.logoImage1 {
+    position: absolute;
+    top: 16px;
+    left: 66.6vw;
+    height: 176px;
+}
+
+.logoImage2 {
+    position: absolute;
+    top: 16px;
+    right: 66.6vw;
+    height: 176px;
+}
