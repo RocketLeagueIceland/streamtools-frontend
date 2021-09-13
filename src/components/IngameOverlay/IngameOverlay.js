@@ -38,7 +38,7 @@ class IngameOverlay extends Component {
               boostOverlayShowing: result.boostOverlayShowing,
               hasCustomTimeAndScore: result.hasCustomTimeAndScore,
               targetOverlayShowing: result.targetOverlayShowing,
-              targetOverlayShowing: result.playerShowing,
+              playerShowing: result.playerShowing,
             });
           },
           (error) => {
@@ -57,6 +57,7 @@ class IngameOverlay extends Component {
     let rightTeamSlideAnimate = this.state.overlayShowing ? styles.rightTeamContainerSlideIn : styles.rightTeamContainerSlideOut;
     let rightLogoBarSlideAnimate = this.state.overlayShowing ? styles.rightLogoBarSlideIn : styles.rightLogoBarSlideOut;
     let bottomTeamSlideAnimate = this.state.overlayShowing ? styles.teamOverlayBottomContainerSlideIn : styles.teamOverlayBottomContainerSlideOut;
+    let teamOverlayContainerSlideAnimate = this.state.overlayShowing ? styles.teamOverlayContainerSlideIn : styles.teamOverlayContainerSlideOut;
 
     let team1 = this.state.currentTeams.length === 2 ? this.state.currentTeams[0].name : '' 
     let team2 = this.state.currentTeams.length === 2 ? this.state.currentTeams[1].name : '' 
@@ -123,7 +124,7 @@ class IngameOverlay extends Component {
 
     return (
       <div>
-        <div className={styles.teamOverlayContainer} style={transformSpeed}>
+        <div className={[styles.teamOverlayContainer, teamOverlayContainerSlideAnimate].join(' ')} style={transformSpeed}>
           <div className={styles.teamContainer}>
             <div className={styles.overflowHidden}>
               <div className={[styles.leftTeamContainer, leftTeamSlideAnimate].join(' ')}>
@@ -172,7 +173,8 @@ class IngameOverlay extends Component {
           <BoostInformationOverlay 
             overlayShowing = {this.state.overlayShowing}
             boostOverlayShowing={this.state.boostOverlayShowing}
-            targetOverlayShowing={this.state.targetOverlayShowing} />
+            targetOverlayShowing={this.state.targetOverlayShowing}
+            playerShowing={this.state.playerShowing} />
         </div>
       </div>
     );

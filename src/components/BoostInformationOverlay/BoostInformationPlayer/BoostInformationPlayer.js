@@ -12,6 +12,10 @@ const boostInformationPlayer = (props) => {
     classStyles.push(styles.Red)
   }
 
+  if(props.selectedPlayer){
+    classStyles.push(styles.SelectedPlayer)
+  }
+
   // if(props.boostAmount > 80){
   //   classStyles.push(styles.Red)
   // }

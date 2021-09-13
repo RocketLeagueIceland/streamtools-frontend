@@ -8,6 +8,21 @@
   src: url('./assets/fonts/LEMONMILK-Medium.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'MontBlack';
+  src: url('./assets/fonts/mont/Fontfabric---Mont-Black.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'MontBold';
+  src: url('./assets/fonts/mont/Fontfabric---Mont-Bold.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'MontRegular';
+  src: url('./assets/fonts/mont/Fontfabric---Mont-Regular.otf') format('opentype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

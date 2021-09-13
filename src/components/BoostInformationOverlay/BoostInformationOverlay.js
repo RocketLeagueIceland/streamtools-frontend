@@ -414,34 +414,51 @@ class BoostInformationOverlay extends Component {
     let CurrentPlayerContainerStyle = { display: 'none' }
     if (this.props.overlayShowing && this.props.targetOverlayShowing && this.state.hasTarget) {
       if (currentPlayerTeam === 0) {
-        CurrentPlayerContainerStyle = { borderColor: '#305bd5' }
+        CurrentPlayerContainerStyle = { 
+          borderColor: '#1c2e4a',
+          background: 'linear-gradient(180deg, rgba(28, 46, 74, 0.8) 0%, rgba(29, 47, 75, 0.85) 100%)'
+         }
       }
       else {
-        CurrentPlayerContainerStyle = { borderColor: '#c96125' }
+        CurrentPlayerContainerStyle = { 
+          borderColor: '#681b1d',
+          background: 'linear-gradient(180deg, rgba(104, 27, 29, 0.8) 0%, rgba(105, 28, 30, 0.8) 100%)'
+        }
+        
       }
     }
 
     let blueBoostSlideAnimate = this.props.overlayShowing && this.props.boostOverlayShowing ? styles.BlueSideSlideIn : styles.BlueSideSlideOut;
     let orangeBoostSlideAnimate = this.props.overlayShowing && this.props.boostOverlayShowing ? styles.OrangeSideSlideIn : styles.OrangeSideSlideOut;
 
+    let playerImage = null
+    if (this.props.playerShowing) {
+      playerImage = (
+        <div className={styles.LowerLeftCorner}>
+          <PlayerImage player={currentPlayer.name} />
+        </div>
+      )
+    }
+
     return (
       <div>
         <div className={styles.BoostOverlay}>
           <div className={[styles.BlueSide, blueBoostSlideAnimate].join(' ')}>
-            <BoostInformationPlayer name={this.state.bluePlayer1.name} boostAmount={this.state.bluePlayer1.boost} blue />
-            <BoostInformationPlayer name={this.state.bluePlayer2.name} boostAmount={this.state.bluePlayer2.boost} blue />
-            <BoostInformationPlayer name={this.state.bluePlayer3.name} boostAmount={this.state.bluePlayer3.boost} blue />
+            <BoostInformationPlayer name={this.state.bluePlayer1.name} boostAmount={this.state.bluePlayer1.boost} blue selectedPlayer={this.state.bluePlayer1.name === currentPlayer.name} />
+            <BoostInformationPlayer name={this.state.bluePlayer2.name} boostAmount={this.state.bluePlayer2.boost} blue selectedPlayer={this.state.bluePlayer2.name === currentPlayer.name} />
+            <BoostInformationPlayer name={this.state.bluePlayer3.name} boostAmount={this.state.bluePlayer3.boost} blue selectedPlayer={this.state.bluePlayer3.name === currentPlayer.name} />
           </div>
           <div className={[styles.OrangeSide, orangeBoostSlideAnimate].join(' ')}>
-            <BoostInformationPlayer name={this.state.orangePlayer1.name} boostAmount={this.state.orangePlayer1.boost} />
-            <BoostInformationPlayer name={this.state.orangePlayer2.name} boostAmount={this.state.orangePlayer2.boost} />
-            <BoostInformationPlayer name={this.state.orangePlayer3.name} boostAmount={this.state.orangePlayer3.boost} />
+            <BoostInformationPlayer name={this.state.orangePlayer1.name} boostAmount={this.state.orangePlayer1.boost} selectedPlayer={this.state.orangePlayer1.name === currentPlayer.name} />
+            <BoostInformationPlayer name={this.state.orangePlayer2.name} boostAmount={this.state.orangePlayer2.boost} selectedPlayer={this.state.orangePlayer2.name === currentPlayer.name} />
+            <BoostInformationPlayer name={this.state.orangePlayer3.name} boostAmount={this.state.orangePlayer3.boost} selectedPlayer={this.state.orangePlayer3.name === currentPlayer.name} />
           </div>
         </div>
+
         <div className={styles.CurrentPlayerOuterContainer}>
           <div className={styles.CurrentPlayerContainer} style={CurrentPlayerContainerStyle}>
             <div>
-              <div className={styles.CurrentPlayerName}>
+              <div className={styles.CurrentTargetText}>
                 <p>{currentPlayer.name}</p>
               </div>
             </div>
@@ -466,20 +483,28 @@ class BoostInformationOverlay extends Component {
                 <img src={shotImage}></img>
                 <p>{currentPlayer.shots}</p>
               </div>
-              <div className={styles.statItem} style={{alignItems: 'flex-end'}}>
+              {/* <div className={styles.statItem} style={{ alignItems: 'flex-end' }}>
                 <img src={speedImage}></img>
                 <p>{currentPlayer.speed} <span className={styles.SmallText}>km/h</span></p>
-              </div>
+              </div> */}
               {/* <div className={styles.statItem}>
               <p>score: {currentPlayer.score}</p>
             </div> */}
             </div>
           </div>
-        </div>
-        <div className={styles.LowerLeftCorner}>
-          <PlayerImage player={currentPlayer.name}/>
+          <div className={styles.CurrentBoostContainer} style={CurrentPlayerContainerStyle}>
+            <div className={styles.CurrentBoostTextContainer}>
+              <div className={styles.CurrentBoostText}>
+                <p>Boost</p>
+              </div>
+            </div>
+            <div className={styles.CurrentBoostNumber}>
+                <p className={styles.CurrentBoostNumber}>{currentPlayer.boost}</p>
+            </div>
+          </div>
         </div>
 
+        {playerImage}
         <div className={styles.ExtraInfoContainer}>
           <div className={[styles.ExtraInfo, styles.BlueContainer].join(' ')}>
             <p>name: {this.state.bluePlayer1.name}</p>

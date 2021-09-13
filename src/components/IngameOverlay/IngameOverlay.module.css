@@ -31,6 +31,19 @@ p {
   color: white;
   font-size: 25px;
   margin-top: 10px;
+
+  
+}
+
+.teamOverlayContainerSlideIn {
+  transition: 2s ease-in-out all;
+}
+
+.teamOverlayContainerSlideOut {
+  /* transform: translate(calc(3 * var(--slide-animation-distance))); */
+  transform: translateY(calc(-0.2 * var(--slide-animation-distance)));
+  transition: 2s ease-in-out all;  
+  transition-delay: 1s;
 }
 
 .timerAndScoreComponent {
@@ -154,8 +167,12 @@ p {
 .logoImage {
   box-sizing: border-box;
   padding: 5px;
-  height: 76px;
-  width: 76px;
+  /* height: 76px;
+  width: 76px; */
+  max-width:76px;
+  max-height:76px;
+  width: auto;
+  height: auto;
 }
 
 .teamOverlayBottomContainer {
