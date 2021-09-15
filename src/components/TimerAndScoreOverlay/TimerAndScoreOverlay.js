@@ -10,6 +10,7 @@ class TimeAndScoreOverlay extends Component {
             timer: 0,
             blueScore: 0,
             orangeScore: 0,
+            isOvertime: 0,
         };
         this.oneNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -148,6 +149,7 @@ class TimeAndScoreOverlay extends Component {
                 timer: d.game.time_seconds,
                 blueScore: blueScore,
                 orangeScore: orangeScore,
+                isOvertime: d.game.isOT,
             })
         });
     }
@@ -159,7 +161,7 @@ class TimeAndScoreOverlay extends Component {
                     <p className={styles.blueScore}>{this.state.blueScore}</p>
                 </div>
                 <div className={styles.timerContainer}>
-                    <p className={styles.timer}>{Math.floor(this.state.timer / 60 % 60)}:{this.oneNumber.includes(this.state.timer % 60) ? "0" : null}{this.state.timer % 60}</p>    
+                    <p className={styles.timer}>{this.state.isOvertime ? '+' : ''}{Math.floor(this.state.timer / 60 % 60)}:{this.oneNumber.includes(this.state.timer % 60) ? "0" : null}{this.state.timer % 60}</p>    
                 </div>
                 <div className={styles.orangeScoreContainer}>
                     <p className={styles.orangeScore}>{this.state.orangeScore}</p>

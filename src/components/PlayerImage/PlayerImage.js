@@ -63,7 +63,7 @@ class PlayerImage extends Component {
       player = (
         <img src={mundi}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'pabbi'){
+    } else if(this.props.player.toLowerCase() === 'pabbi4'){
       player = (
         <img src={pabbi}></img>
       )
@@ -119,7 +119,7 @@ class PlayerImage extends Component {
       player = (
         <img src={mediumreyr}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'slapi'){
+    } else if(this.props.player.toLowerCase() === 'slapi36'){
       player = (
         <img src={slapi}></img>
       )
@@ -131,7 +131,7 @@ class PlayerImage extends Component {
       player = (
         <img src={bobbi}></img>
       )
-    }
+    } 
 
 
     return (

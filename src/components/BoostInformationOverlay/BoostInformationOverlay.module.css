@@ -72,8 +72,8 @@ html {
 
 .CurrentPlayerOuterContainer{
   margin-top: 220px;
-  margin-left: 232px;
-  margin-right: 232px;
+  margin-left: 252px;
+  margin-right: 267px;
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
@@ -163,5 +163,6 @@ html {
   position: absolute;
   bottom: 0;
   left: 0;
+  margin-left: 20px;
   z-index: -1 ;
 }
