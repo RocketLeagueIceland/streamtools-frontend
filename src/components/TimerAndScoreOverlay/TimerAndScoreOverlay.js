@@ -142,7 +142,7 @@ class TimeAndScoreOverlay extends Component {
         this.WsSubscribers.init(49322, true);
 
         this.WsSubscribers.subscribe("game", "update_state", (d) => {
-            console.log(`time: ${d.game.time_seconds}`)
+            // console.log(`time: ${d.game.time_seconds}`)
             let blueScore = d.game.teams.length === 2 ? d.game.teams[0].score : 0;
             let orangeScore = d.game.teams.length === 2 ? d.game.teams[1].score : 0;
             this.setState({

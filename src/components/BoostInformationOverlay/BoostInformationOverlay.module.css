@@ -159,6 +159,50 @@ html {
   margin: 0;
 }
 
+.CurrentReplayOuterContainer{
+  margin-left: 252px;
+  display: flex;
+  justify-content: flex-start;
+  /* align-items: center; */
+  z-index: 2;
+}
+
+.CurrentReplayContainer {
+  border: 4px solid #1c2e4a;
+  width: 333px;
+  height: 124px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, rgba(28, 46, 74, 0.8) 0%, rgba(29, 47, 75, 0.85) 100%);
+  font-family: "LEMONMILK";
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.replayStatContainer{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.replayStatItem {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5px;
+}
+
+.replayStatItem img {
+  height: 40px;
+}
+
+.replayStatItem p {
+  margin: 0;
+}
+
 .LowerLeftCorner{
   position: absolute;
   bottom: 0;

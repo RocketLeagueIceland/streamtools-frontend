@@ -9,6 +9,7 @@ import saveImage from '../../assets/images/IngameIcons/Save_points_icon.png'
 import goalImage from '../../assets/images/IngameIcons/Goal_points_icon.png'
 import demoImage from '../../assets/images/IngameIcons/Demolition_points_icon.png'
 import shotImage from '../../assets/images/IngameIcons/Shot_on_Goal_points_icon.png'
+import assistsImage from '../../assets/images/IngameIcons/Assist_points_icon.png'
 import speedImage from '../../assets/images/speedometer_icon.png'
 
 class BoostInformationOverlay extends Component {
@@ -110,6 +111,15 @@ class BoostInformationOverlay extends Component {
       isOT: false,
       isReplay: false,
       ballspeed: 0,
+
+      goalInfo: {
+        assister: { id: '', name: '' },
+        ball_last_touch: { player: '', speed: 0 },
+        goalspeed: 0, // namundað að næstu tölu.
+        goaltime: 0, // tími frá síðasta marki eða upphafi leiks.
+        impact_location: { X: 0, Y: 0 },
+        scorer: { id: '', name: '', teamnum: 0 }
+      },
 
       time_seconds: 0,
     };
@@ -244,7 +254,7 @@ class BoostInformationOverlay extends Component {
     this.WsSubscribers.subscribe("game", "update_state", (d) => {
       const players = Object.keys(d['players'])
       const game = d.game
-      console.log(game)
+      // console.log(game)
       // console.log(players);
       if (players.length === 6) {
         const playersArray = players.map((p) => {
@@ -362,6 +372,13 @@ class BoostInformationOverlay extends Component {
       }
     });
 
+    this.WsSubscribers.subscribe("game", "goal_scored", (d) => {
+      console.log(d);
+      this.setState({
+        goalInfo: d,
+      });
+    });
+
   }
 
   render() {
@@ -414,28 +431,80 @@ class BoostInformationOverlay extends Component {
     let CurrentPlayerContainerStyle = { display: 'none' }
     if (this.props.overlayShowing && this.props.targetOverlayShowing && this.state.hasTarget) {
       if (currentPlayerTeam === 0) {
-        CurrentPlayerContainerStyle = { 
+        CurrentPlayerContainerStyle = {
           borderColor: '#1c2e4a',
           background: 'linear-gradient(180deg, rgba(28, 46, 74, 0.8) 0%, rgba(29, 47, 75, 0.85) 100%)'
-         }
+        }
       }
       else {
-        CurrentPlayerContainerStyle = { 
+        CurrentPlayerContainerStyle = {
           borderColor: '#681b1d',
           background: 'linear-gradient(180deg, rgba(104, 27, 29, 0.8) 0%, rgba(105, 28, 30, 0.8) 100%)'
         }
-        
+
       }
     }
+
+    let CurrentReplayContainerStyle = { display: 'none' }
+    if (this.props.overlayShowing && this.props.targetOverlayShowing && this.state.isReplay) {
+      if (this.state.goalInfo.scorer.teamnum === 0) {
+        CurrentReplayContainerStyle = {
+          borderColor: '#1c2e4a',
+          background: 'linear-gradient(180deg, rgba(28, 46, 74, 0.8) 0%, rgba(29, 47, 75, 0.85) 100%)'
+        }
+      }
+      else {
+        CurrentReplayContainerStyle = {
+          borderColor: '#681b1d',
+          background: 'linear-gradient(180deg, rgba(104, 27, 29, 0.8) 0%, rgba(105, 28, 30, 0.8) 100%)'
+        }
+      }
+    }
+
+    let currentReplayAssistInfo = this.state.goalInfo.assister.name === '' ? null : (
+      <div className={styles.replayStatItem}>
+        <img src={assistsImage}></img>
+        {/* <p>mediuMReyr</p> */}
+        <p>{this.state.goalInfo.assister.name}</p>
+      </div>
+    )
+
+    let currentReplayInfo = (
+      <div className={styles.CurrentReplayOuterContainer} >
+        <div className={styles.CurrentReplayContainer} style={CurrentReplayContainerStyle}>
+          <div>
+            <div className={styles.CurrentTargetText}>
+              {/* <p>mediuMReyr Skorar</p> */}
+              <p>{this.state.goalInfo.scorer.name} Skorar</p>
+            </div>
+          </div>
+          <div className={styles.replayStatContainer}>
+            <div className={styles.replayStatItem}>
+              <img src={speedImage}></img>
+              <p>{this.state.goalInfo.goalspeed.toFixed(1)} km/h</p>
+            </div>
+            {currentReplayAssistInfo}
+          </div>
+        </div>
+      </div>
+    );
+
 
     let blueBoostSlideAnimate = this.props.overlayShowing && this.props.boostOverlayShowing ? styles.BlueSideSlideIn : styles.BlueSideSlideOut;
     let orangeBoostSlideAnimate = this.props.overlayShowing && this.props.boostOverlayShowing ? styles.OrangeSideSlideIn : styles.OrangeSideSlideOut;
 
     let playerImage = null
-    if (this.props.playerShowing) {
+    if (this.props.overlayShowing && this.props.playerShowing) {
       playerImage = (
         <div className={styles.LowerLeftCorner}>
           <PlayerImage player={currentPlayer.name} />
+        </div>
+      )
+    }
+    if (this.props.overlayShowing && this.state.isReplay) {
+      playerImage = (
+        <div className={styles.LowerLeftCorner}>
+          <PlayerImage player={this.state.goalInfo.scorer.name} />
         </div>
       )
     }
@@ -483,13 +552,6 @@ class BoostInformationOverlay extends Component {
                 <img src={shotImage}></img>
                 <p>{currentPlayer.shots}</p>
               </div>
-              {/* <div className={styles.statItem} style={{ alignItems: 'flex-end' }}>
-                <img src={speedImage}></img>
-                <p>{currentPlayer.speed} <span className={styles.SmallText}>km/h</span></p>
-              </div> */}
-              {/* <div className={styles.statItem}>
-              <p>score: {currentPlayer.score}</p>
-            </div> */}
             </div>
           </div>
           <div className={styles.CurrentBoostContainer} style={CurrentPlayerContainerStyle}>
@@ -499,10 +561,12 @@ class BoostInformationOverlay extends Component {
               </div>
             </div>
             <div className={styles.CurrentBoostNumber}>
-                <p className={styles.CurrentBoostNumber}>{currentPlayer.boost}</p>
+              <p className={styles.CurrentBoostNumber}>{currentPlayer.boost}</p>
             </div>
           </div>
         </div>
+
+        {currentReplayInfo}
 
         {playerImage}
         <div className={styles.ExtraInfoContainer}>
@@ -589,6 +653,7 @@ class BoostInformationOverlay extends Component {
           <p>isOT: {this.state.isOT.toString()}</p>
           <p>isReplay: {this.state.isReplay.toString()}</p>
           <p>ballspeed: {this.state.ballspeed}</p>
+          <p>Goal speed: {this.state.goalBallSpeed}</p>
           <p>time_seconds: {this.state.time_seconds}</p>
         </div>
       </div>

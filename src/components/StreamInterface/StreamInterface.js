@@ -477,10 +477,17 @@ class StreamInterface extends Component {
 
     this.WsSubscribers.subscribe("game", "match_ended", (d) => {
       if (this.state.automaticSaveScoreboard){
-        console.log('match ended...')
-        this.saveScoreboard()
+        console.log('match ended...');
+        this.saveScoreboard();
+        this.hideOverlay();
       }
+    });
 
+    this.WsSubscribers.subscribe("game", "initialized", (d) => {
+      if (this.state.automaticSaveScoreboard){
+        console.log('match initialized...');
+        this.showOverlay();
+      }
     });
 
   }
@@ -515,6 +522,18 @@ class StreamInterface extends Component {
       )
   }
 
+  hideOverlay = () => {
+    if(this.state.overlayShowing){
+      this.changeOverlayShowingState(null)
+    }
+  }
+
+  showOverlay = () => {
+    if(!this.state.overlayShowing){
+      this.changeOverlayShowingState(null)
+    }
+  }
+
   changeOverlayShowingState = (e) => {
     let overlayShowing = !this.state.overlayShowing;
     let teams = this.state.currentTeams.map(({ id, gamesWon }) => ({ id, gamesWon }))
@@ -532,7 +551,6 @@ class StreamInterface extends Component {
     this.setState({
       overlayShowing: overlayShowing,
     });
-
 
     this.updateCurrentGameBackend(body)
   }
