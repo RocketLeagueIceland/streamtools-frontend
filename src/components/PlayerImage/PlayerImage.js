@@ -165,31 +165,31 @@ class PlayerImage extends Component {
       // )
     } 
 
-    else if(this.props.player.toLowerCase() === 'rex'){           // BOT
-      player = (
-        <img src={bnz}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'samara'){      // BOT
-      player = (
-        <img src={emilvald}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'merlin'){      // BOT
-      player = (
-        <img src={vaddimah}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'stinger'){         // BOT
-      player = (
-        <img src={atli}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'fury'){        // BOT
-      player = (
-        <img src={smushball}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'swabbie'){           // BOT
-      player = (
-        <img src={snorrigaming}></img>
-      )
-    } 
+    // else if(this.props.player.toLowerCase() === 'rex'){           // BOT
+    //   player = (
+    //     <img src={bnz}></img>
+    //   )
+    // } else if(this.props.player.toLowerCase() === 'samara'){      // BOT
+    //   player = (
+    //     <img src={emilvald}></img>
+    //   )
+    // } else if(this.props.player.toLowerCase() === 'merlin'){      // BOT
+    //   player = (
+    //     <img src={vaddimah}></img>
+    //   )
+    // } else if(this.props.player.toLowerCase() === 'stinger'){         // BOT
+    //   player = (
+    //     <img src={atli}></img>
+    //   )
+    // } else if(this.props.player.toLowerCase() === 'fury'){        // BOT
+    //   player = (
+    //     <img src={smushball}></img>
+    //   )
+    // } else if(this.props.player.toLowerCase() === 'swabbie'){           // BOT
+    //   player = (
+    //     <img src={snorrigaming}></img>
+    //   )
+    // } 
 
 
     return (
