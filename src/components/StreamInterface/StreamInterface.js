@@ -976,39 +976,6 @@ class StreamInterface extends Component {
               />
               <p>Show Player Image</p>
             </div>
-            {/* <ToggleButton
-              className={styles.toggleButton}
-              id="toggle-check"
-              type="checkbox"
-              variant="outline-primary"
-              checked={this.state.boostOverlayShowing}
-              value="1"
-              onChange={(e) => { this.setBoostOverlayShowing(e) }}
-            >
-              Boost
-            </ToggleButton> */}
-            {/* <ToggleButton
-              className={styles.toggleButton}
-              id="toggle-check-2"
-              type="checkbox"
-              variant="outline-primary"
-              checked={this.state.targetOverlayShowing}
-              value="1"
-              onChange={(e) => { this.setTargetOverlayShowing(e) }}
-            >
-              Target
-            </ToggleButton>
-            <ToggleButton
-              className={styles.toggleButton}
-              id="toggle-check-3"
-              type="checkbox"
-              variant="outline-primary"
-              checked={this.state.hasCustomTimeAndScore}
-              value="1"
-              onChange={(e) => { this.setCustomTimeAndScore(e) }}
-            >
-              Time&Score
-            </ToggleButton> */}
           </div>
           <div className={styles.selectTeamContainer}>
             <div className={styles.team1LogoContainer}>

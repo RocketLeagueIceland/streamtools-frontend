@@ -1,0 +1,67 @@
+.background {
+  background-image: url(../../assets/images/Current-Standings.png);
+  background-repeat: no-repeat;
+  height: 100vh; 
+
+  font-family: "MontBold";
+  font-size: 39px;
+  color: white;
+  padding-top: 240px;
+}
+
+.StandingsRow {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 10px;
+  padding-left: 165px;
+  height: 86px;
+}
+
+.StandingsRow p {
+  padding-top: 8px;
+}
+
+.pname {
+  width: 300px;
+  font-size: 37px;
+
+}
+
+.pplayed {
+  width: 197px;
+  text-align: center;
+}
+
+.pwon {
+  width: 197px;
+  text-align: center;
+}
+
+.plost {
+  width: 196px;
+  text-align: center;
+}
+
+.pgameswon {
+  width: 196px;
+  text-align: center;
+}
+
+.pgameslost {
+  width: 196px;
+  text-align: center;
+}
+
+.ppoints {
+  width: 196px;
+  text-align: center;
+  font-family: "MontBlack";
+}
+
+
+.Logo {
+  height: 70px;
+  width: 70px;
+  margin-right: 80px;
+}
+

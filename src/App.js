@@ -6,6 +6,8 @@ import Countdown from './components/Countdown/Countdown';
 import BoostInformationOverlay from './components/BoostInformationOverlay/BoostInformationOverlay'
 import IngameOverlay from './components/IngameOverlay/IngameOverlay';
 import NextGame from './components/NextGame/NextGame';
+import CurrentStanding from './components/CurrentStanding/CurrentStanding';
+import CurrentStandingEdit from './components/CurrentStandingEdit/CurrentStandingEdit';
 import StreamInterface from './components/StreamInterface/StreamInterface';
 
 
@@ -19,6 +21,8 @@ function App() {
 
         <Route path="/ingame-overlay" exact component={IngameOverlay} />
         <Route path="/next-game" exact component={NextGame} />
+        <Route path="/current-standing" exact component={CurrentStanding} />
+        <Route path="/current-standing-edit" exact component={CurrentStandingEdit} />
         <Route path="/" exact component={StreamInterface} />
       </div>
     </BrowserRouter>
