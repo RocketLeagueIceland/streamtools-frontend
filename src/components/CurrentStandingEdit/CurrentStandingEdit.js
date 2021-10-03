@@ -63,6 +63,70 @@ class CurrentStandingEdit extends Component {
       );
   }
 
+  onPlayedChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].played = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  onWonChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].won = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  onLostChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].lost = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  onGameswonChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].gameswon = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  onGameslostChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].gameslost = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  onPointsChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].points = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
+  updateCurrentStandings = (body) => {
+    fetch("http://localhost:3002/current-standing", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => res.json())
+      .then(
+        (result) => { console.log(result) },
+        (error) => { console.log(error) }
+      )
+  }
+
+  updateButtonPressed = () => {
+    console.log('lala')
+    let currentStanding = JSON.parse(JSON.stringify(this.state.currentStanding));
+    for(let i = 0; i < currentStanding.length; i++){
+      delete currentStanding[0].name
+      delete currentStanding[0].logo
+    }
+    let body = {
+      currentStanding : currentStanding
+    }
+    this.updateCurrentStandings(body);
+  }
+
   render() {
 
     let standings = null
@@ -90,12 +154,12 @@ class CurrentStandingEdit extends Component {
                             <div className={styles.StandingsRow}>
                               <img {...provided.dragHandleProps} className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + standing.logo} alt=''></img>
                               <p className={styles.pname}>{standing.name}</p>
-                              <p className={styles.pplayed}>{standing.played}</p>
-                              <p className={styles.pwon}>{standing.won}</p>
-                              <p className={styles.plost}>{standing.lost}</p>
-                              <p className={styles.pgameswon}>{standing.gameswon}</p>
-                              <p className={styles.pgameslost}>{standing.gameslost}</p>
-                              <p className={styles.ppoints}>{standing.points}</p>
+                              <input type='text' value={standing.played} onChange={e => this.onPlayedChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.won} onChange={e => this.onWonChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.lost} onChange={e => this.onLostChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.gameswon} onChange={e => this.onGameswonChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.gameslost} onChange={e => this.onGameslostChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.points} onChange={e => this.onPointsChanged(e.target.value, idx)}/>
                             </div>
                           </div>
                         )}
@@ -132,6 +196,7 @@ class CurrentStandingEdit extends Component {
     return (
       <div className={styles.background}>
         {standings}
+        <Button onClick={this.updateButtonPressed}>Update</Button>
       </div>
     );
   }
