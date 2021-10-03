@@ -36,9 +36,9 @@ import bobbi from '../../assets/images/PlayerImages/bobbi.png'
 // import snazz from '../../assets/images/PlayerImages/snazz.png'
 // import wunder from '../../assets/images/PlayerImages/wunder.png'
 
-// import dabbi789 from '../../assets/images/PlayerImages/dabbi789.png'
-// import stormur from '../../assets/images/PlayerImages/stormur.png'
-// import bafga from '../../assets/images/PlayerImages/bafga.png'
+import dabbi789 from '../../assets/images/PlayerImages/dabbi789.png'
+import stormur from '../../assets/images/PlayerImages/stormur.png'
+import bafga from '../../assets/images/PlayerImages/bafga.png'
 // import rikkibesti from '../../assets/images/PlayerImages/rikkibesti.png'
 
 class PlayerImage extends Component {
@@ -148,17 +148,17 @@ class PlayerImage extends Component {
       //   <img src={wunder}></img>
       // )
     } else if(this.props.player.toLowerCase() === 'dabbi789'){        // Somnio
-      // player = (
-      //   <img src={dabbi789}></img>
-      // )
+      player = (
+        <img src={dabbi789}></img>
+      )
     } else if(this.props.player.toLowerCase() === 'stormur'){
-      // player = (
-      //   <img src={stormur}></img>
-      // )
+      player = (
+        <img src={stormur}></img>
+      )
     } else if(this.props.player.toLowerCase() === 'bafga'){        
-      // player = (
-      //   <img src={bafga}></img>
-      // )
+      player = (
+        <img src={bafga}></img>
+      )
     } else if(this.props.player.toLowerCase() === 'rikkibesti'){
       // player = (
       //   <img src={rikkibesti}></img>

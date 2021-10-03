@@ -127,6 +127,21 @@ class CurrentStandingEdit extends Component {
     this.updateCurrentStandings(body);
   }
 
+  getToornamentData = () => {
+    fetch("http://localhost:3002/toornament-current-standing")
+    .then(res => res.json())
+    .then(
+      (result) => {
+        this.setState({
+          currentStanding: result
+        });
+      },
+      (error) => {
+
+      }
+    );
+  }
+
   render() {
 
     let standings = null
@@ -166,6 +181,7 @@ class CurrentStandingEdit extends Component {
                       </Draggable>
                     );
                   })}
+                  {provided.placeholder}
                 </div>
               )}
             </Droppable>
@@ -196,7 +212,8 @@ class CurrentStandingEdit extends Component {
     return (
       <div className={styles.background}>
         {standings}
-        <Button onClick={this.updateButtonPressed}>Update</Button>
+        <Button style={{marginLeft: '20px'}} onClick={this.updateButtonPressed}>Update</Button>
+        <Button style={{marginLeft: '20px'}} onClick={this.getToornamentData}>Get Toornament Data</Button>
       </div>
     );
   }
