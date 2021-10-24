@@ -115,7 +115,6 @@ class CurrentStandingEdit extends Component {
   }
 
   updateButtonPressed = () => {
-    console.log('lala')
     let currentStanding = JSON.parse(JSON.stringify(this.state.currentStanding));
     for(let i = 0; i < currentStanding.length; i++){
       delete currentStanding[0].name
@@ -186,24 +185,6 @@ class CurrentStandingEdit extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          {/* <Draggable>
-            {this.state.currentStanding.map((standing, idx) => {
-              return (
-                <div key={idx}>
-                  <div className={styles.StandingsRow}>
-                    <img className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + standing.logo} alt=''></img>
-                    <p>{standing.name}</p>
-                    <p>{standing.played}</p>
-                    <p>{standing.won}</p>
-                    <p>{standing.lost}</p>
-                    <p>{standing.gameswon}</p>
-                    <p>{standing.gameslost}</p>
-                    <p>{standing.points}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </Draggable> */}
         </div>
       )
     }

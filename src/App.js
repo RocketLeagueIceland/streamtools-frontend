@@ -9,6 +9,8 @@ import NextGame from './components/NextGame/NextGame';
 import CurrentStanding from './components/CurrentStanding/CurrentStanding';
 import CurrentStandingEdit from './components/CurrentStandingEdit/CurrentStandingEdit';
 import StreamInterface from './components/StreamInterface/StreamInterface';
+import GamesOnStream from './components/GamesOnStream/GamesOnStream';
+import GamesOnStreamEdit from './components/GamesOnStreamEdit/GamesOnStreamEdit';
 
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <Route path="/counter" exact component={Countdown} />
 
         <Route path="/boost-information" exact component={BoostInformationOverlay} />
+        <Route path="/games-on-stream" exact component={GamesOnStream} />
+        <Route path="/games-on-stream-edit" exact component={GamesOnStreamEdit} />
 
         <Route path="/ingame-overlay" exact component={IngameOverlay} />
         <Route path="/next-game" exact component={NextGame} />

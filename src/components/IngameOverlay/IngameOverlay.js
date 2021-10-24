@@ -48,6 +48,10 @@ class IngameOverlay extends Component {
     }, 100);
   }
 
+  truncate = (str, n) => {
+    return (str.length > n) ? str.substr(0, n-1) : str;
+  };
+
   render(){
     // let timeAndScore = this.state.hasCustomTimeAndScore 
     //   ? (<TimeAndScoreOverlay></TimeAndScoreOverlay>) 
@@ -133,7 +137,7 @@ class IngameOverlay extends Component {
                     <img src={'http://localhost:3002/images/teamlogos/'+team1Logo} className={styles.logoImage} alt=''/>
                   </div>
                 </div>
-                <div className={styles.leftBar}><p className={styles.leftBarText}>{team1}</p></div>
+                <div className={styles.leftBar}><p className={styles.leftBarText}>{this.truncate(team1,15)}</p></div>
               </div>
             </div>
 
@@ -143,7 +147,7 @@ class IngameOverlay extends Component {
 
             <div className={styles.overflowHidden}>
               <div className={[styles.rightTeamContainer, rightTeamSlideAnimate].join(' ')}>
-                <div className={styles.rightBar}><p className={styles.rightBarText}>{team2}</p></div>
+                <div className={styles.rightBar}><p className={styles.rightBarText}>{this.truncate(team2,15)}</p></div>
                 <div className={styles.inBack}>
                   <div className={[styles.rightLogoBar, rightLogoBarSlideAnimate].join(' ')}>
                     <img src={'http://localhost:3002/images/teamlogos/'+team2Logo} className={styles.logoImage} alt=''/>
