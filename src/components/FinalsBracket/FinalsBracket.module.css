@@ -1,0 +1,120 @@
+.background {
+  background-image: url(../../assets/images/Finals-Bracket.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+
+  font-family: "MontBold";
+  font-size: 35px;
+  color: white;
+  padding-top: 304px;
+}
+
+.topTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.topTitle {
+  text-align: center;
+  font-family: "MontBlack";
+  font-size: 101px;
+  margin: 0;
+}
+
+.topSecondaryTitle {
+  margin-top: -30px;
+  margin-bottom: 35px;
+  text-align: center;
+  font-family: "MontSemiBold";
+  font-size: 48px;
+}
+
+.topSecondaryTitleBold {
+  font-family: "MontHeavy";
+}
+
+.gameOnStreamContainer {
+  height: 628px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.gameOnStreamRowContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.teamline{
+  display: flex;
+}
+
+.bracket {
+  display: flex;
+}
+
+.round1 {
+  margin-right: 80px;
+}
+
+.round2 {
+  margin-right: 95px;
+}
+
+.matchup {
+  margin-top: 76px;
+}
+
+.TeamLogo {
+  height: 80px;
+  width: 80px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  visibility: hidden;
+}
+
+.TeamName {
+  font-family: "MontBold";
+  font-size: 28px;
+  width: 355px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  text-transform:uppercase;
+  text-align: right;
+}
+
+.TeamScore {
+  font-family: "MontBold";
+  font-size: 28px;
+  width: 80px;
+  padding-top: 10px;
+  text-transform:uppercase;
+  text-align: right;
+}
+
+.time {
+  font-family: "MontHeavy";
+  font-size: 57px;
+  width: 265px;
+  text-align: center;
+  margin-right: 35px;
+  margin-left: 35px;
+  margin-top: 5px;
+}
+
+.orangeName {
+  font-family: "MontBold";
+  font-size: 40px;
+  width: 390px;
+  padding-top: 10px;
+  text-transform:uppercase;
+}
+
+.orangeLogo {
+  height: 80px;
+  width: 80px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}

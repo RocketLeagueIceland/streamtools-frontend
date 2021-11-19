@@ -11,6 +11,8 @@ import CurrentStandingEdit from './components/CurrentStandingEdit/CurrentStandin
 import StreamInterface from './components/StreamInterface/StreamInterface';
 import GamesOnStream from './components/GamesOnStream/GamesOnStream';
 import GamesOnStreamEdit from './components/GamesOnStreamEdit/GamesOnStreamEdit';
+import FinalsBracket from './components/FinalsBracket/FinalsBracket';
+import FinalsBracketEdit from './components/FinalsBracket/FinalsBracketEdit';
 
 
 function App() {
@@ -27,6 +29,8 @@ function App() {
         <Route path="/next-game" exact component={NextGame} />
         <Route path="/current-standing" exact component={CurrentStanding} />
         <Route path="/current-standing-edit" exact component={CurrentStandingEdit} />
+        <Route path="/finals-bracket" exact component={FinalsBracket} />
+        <Route path="/finals-bracket-edit" exact component={FinalsBracketEdit} />
         <Route path="/" exact component={StreamInterface} />
       </div>
     </BrowserRouter>

@@ -625,7 +625,7 @@ class StreamInterface extends Component {
       "bestOf": this.state.bestOf,
       "gameNr": this.state.gameNr,
       "overlayShowing": this.state.overlayShowing,
-      "boostOverlayShowing": this.state.overlayShowing,
+      "boostOverlayShowing": this.state.boostOverlayShowing,
       "targetOverlayShowing": this.state.targetOverlayShowing,
       "hasCustomTimeAndScore": this.state.hasCustomTimeAndScore,
       "playerShowing": playerShowing,
