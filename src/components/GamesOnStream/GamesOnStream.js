@@ -33,6 +33,10 @@ class GamesOnStream extends Component {
       )
   }
 
+  truncate = (str, n) => {
+    return (str.length > n) ? str.substr(0, n-1) : str;
+  };
+
 
   render() {
 
@@ -42,7 +46,7 @@ class GamesOnStream extends Component {
       rows = (
         <div>
           <div className={styles.topTitleContainer}>
-            <p className={styles.topTitle}>TÍMABIL 3 - VIKA {this.state.gamesOnStream.week}</p>
+            <p className={styles.topTitle}>TÍMABIL 3 - UMPSIL</p>
             <p className={styles.topSecondaryTitle}>{date.substring(0, date.length - 4)} <span className={styles.topSecondaryTitleBold}>{date.substring(date.length - 4, date.length)}</span></p>
           </div>
           <div className={styles.gameOnStreamContainer}>
