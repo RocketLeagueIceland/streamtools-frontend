@@ -13,6 +13,9 @@ import GamesOnStream from './components/GamesOnStream/GamesOnStream';
 import GamesOnStreamEdit from './components/GamesOnStreamEdit/GamesOnStreamEdit';
 import FinalsBracket from './components/FinalsBracket/FinalsBracket';
 import FinalsBracketEdit from './components/FinalsBracket/FinalsBracketEdit';
+import TvAfterGame from './components/TV-Screen/AfterGame/TvAfterGame';
+import TvBeforeGame from './components/TV-Screen/BeforeGame/TvBeforeGame';
+import TvBeforeGameEdit from './components/TV-Screen/BeforeGameEdit/TvBeforeGameEdit';
 
 
 function App() {
@@ -22,6 +25,9 @@ function App() {
         <Route path="/counter" exact component={Countdown} />
 
         <Route path="/boost-information" exact component={BoostInformationOverlay} />
+        <Route path="/tv-after-game" exact component={TvAfterGame} />
+        <Route path="/tv-before-game" exact component={TvBeforeGame} />
+        <Route path="/tv-before-game-edit" exact component={TvBeforeGameEdit} />
         <Route path="/games-on-stream" exact component={GamesOnStream} />
         <Route path="/games-on-stream-edit" exact component={GamesOnStreamEdit} />
 

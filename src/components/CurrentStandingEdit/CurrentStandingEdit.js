@@ -93,6 +93,12 @@ class CurrentStandingEdit extends Component {
     this.setState({currentStanding: newCurrentStanding})
   }
 
+  onPlusminusChanged = (value, index) => {
+    let newCurrentStanding = [...this.state.currentStanding];
+    newCurrentStanding[index].plusminus = value;
+    this.setState({currentStanding: newCurrentStanding})
+  }
+
   onPointsChanged = (value, index) => {
     let newCurrentStanding = [...this.state.currentStanding];
     newCurrentStanding[index].points = value;
@@ -171,8 +177,7 @@ class CurrentStandingEdit extends Component {
                               <input type='text' value={standing.played} onChange={e => this.onPlayedChanged(e.target.value, idx)}/>
                               <input type='text' value={standing.won} onChange={e => this.onWonChanged(e.target.value, idx)}/>
                               <input type='text' value={standing.lost} onChange={e => this.onLostChanged(e.target.value, idx)}/>
-                              <input type='text' value={standing.gameswon} onChange={e => this.onGameswonChanged(e.target.value, idx)}/>
-                              <input type='text' value={standing.gameslost} onChange={e => this.onGameslostChanged(e.target.value, idx)}/>
+                              <input type='text' value={standing.plusminus} onChange={e => this.onPlusminusChanged(e.target.value, idx)}/>
                               <input type='text' value={standing.points} onChange={e => this.onPointsChanged(e.target.value, idx)}/>
                             </div>
                           </div>

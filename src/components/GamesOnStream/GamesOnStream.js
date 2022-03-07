@@ -45,10 +45,6 @@ class GamesOnStream extends Component {
       let date = this.state.gamesOnStream.currentdate;
       rows = (
         <div>
-          <div className={styles.topTitleContainer}>
-            <p className={styles.topTitle}>TÍMABIL 3 - UMPSIL</p>
-            <p className={styles.topSecondaryTitle}>{date.substring(0, date.length - 4)} <span className={styles.topSecondaryTitleBold}>{date.substring(date.length - 4, date.length)}</span></p>
-          </div>
           <div className={styles.gameOnStreamContainer}>
             {this.state.gamesOnStream.evening.map((row, idx) => {
               return (

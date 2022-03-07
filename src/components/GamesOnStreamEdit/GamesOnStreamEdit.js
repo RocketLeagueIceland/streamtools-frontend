@@ -169,11 +169,7 @@ class GamesOnStreamEdit extends Component {
 
       rows = (
         <div>
-          <div className={styles.topTitleContainer}>
-            <p className={styles.topTitle}>TÍMABIL 3 - VIKA <input type='text' value={this.state.gamesOnStream.week} onChange={e => this.onWeekChanged(e.target.value)}/></p>
-            <input id={styles.dateInput} className={styles.topSecondaryTitle} type='text' value={this.state.gamesOnStream.currentdate} onChange={e => this.onDateChanged(e.target.value)}/>
-          </div>
-          <div>
+          <div className={styles.gameOnStreamContainer}>
             {this.state.gamesOnStream.evening.map((row, idx) => {
               return (
                 <div className={styles.gameOnStreamRowContainer} key={idx}>

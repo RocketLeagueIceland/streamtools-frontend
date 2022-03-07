@@ -82,8 +82,7 @@ class CurrentStanding extends Component {
                         <p className={styles.pplayed}>{standing.played}</p>
                         <p className={styles.pwon}>{standing.won}</p>
                         <p className={styles.plost}>{standing.lost}</p>
-                        <p className={styles.pgameswon}>{standing.gameswon}</p>
-                        <p className={styles.pgameslost}>{standing.gameslost}</p>
+                        <p className={styles.pgameswon}>{standing.plusminus}</p>
                         <p className={styles.ppoints}>{standing.points}</p>
                       </div>
                     </div>
@@ -93,24 +92,6 @@ class CurrentStanding extends Component {
               )}
             </Droppable>
           </DragDropContext>
-          {/* <Draggable>
-            {this.state.currentStanding.map((standing, idx) => {
-              return (
-                <div key={idx}>
-                  <div className={styles.StandingsRow}>
-                    <img className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + standing.logo} alt=''></img>
-                    <p>{standing.name}</p>
-                    <p>{standing.played}</p>
-                    <p>{standing.won}</p>
-                    <p>{standing.lost}</p>
-                    <p>{standing.gameswon}</p>
-                    <p>{standing.gameslost}</p>
-                    <p>{standing.points}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </Draggable> */}
         </div>
       )
     }

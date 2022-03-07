@@ -1,0 +1,143 @@
+.interfaceContainer {
+    background-image: url(../../../assets/images/static-BG.png);
+    background-repeat: no-repeat;
+    height: 1080px;
+    width: 1920px;
+    font-family: "LEMONMILK";
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlayControlsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.containerBorder {
+    /* border: 2px solid white; */
+}
+
+.teamContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title {
+    text-decoration: underline;
+    margin: 20px;
+}
+
+.team2LogoContainer {
+    height: 531px;
+    width: 531px;
+    display: flex;
+    justify-content: center;
+}
+
+.team1LogoContainer {
+    height: 531px;
+    width: 531px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    
+}
+
+.mainButton {
+    width: 420px;
+    margin: 10px;
+} 
+
+.gamesWonInput {
+    width: 40px;
+    margin-top: 30px;
+}
+
+.bestOfContainer {
+    display: flex;
+}
+
+.bestOfButton {
+    margin: 10px;
+}
+
+.bestOfInput {
+    width: 40px;
+    margin: 10px;
+}
+
+.toggleButtonContainer {
+
+}
+
+.toggleButtonContainerInner {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.toggleButtonContainerInner p {
+    margin-left: 10px;
+}
+
+.toggleButton {
+    margin: 10px;
+}
+
+.toggleButton input {
+    visibility: hidden;
+}
+
+.teamText {
+    margin: 10px 10px 0 10px;
+}
+
+.selectTeamContainer {
+    display: flex;
+    align-items: center;
+}
+
+.pointButton1 {
+    width: 40px;
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.pointButton2 {
+    width: 40px;
+    margin: 10px;
+}
+
+.scoreButtonContainer {
+    display: flex;
+}
+
+.saveToSeriesButton {
+    flex-grow: 10;
+}
+
+.autosaveButton {
+
+}
+
+.autosaveButton input {
+    visibility: hidden;
+}
+
+.spaceBetweenSeriesButtons {
+    flex-grow: 1;
+
+}
+
+.resetButton {
+    flex-grow: 2;
+}

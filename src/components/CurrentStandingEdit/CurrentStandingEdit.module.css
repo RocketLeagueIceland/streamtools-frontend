@@ -3,73 +3,71 @@
   background-repeat: no-repeat;
   height: 100vh; 
 
-  font-family: "MontBold";
-  font-size: 39px;
+  font-family: "LEMONMILK";
+  font-size: 45px;
   color: white;
-  padding-top: 240px;
+  padding-top: 320px;
 }
 
 .StandingsRow {
   display: flex;
   justify-content: flex-start;
-  padding-bottom: 10px;
-  padding-left: 165px;
-  height: 86px;
+  padding-bottom: 20px;
+  padding-left: 233px;
+  height: 88px;
 }
 
 .StandingsRow p {
-  padding-top: 8px;
+  margin-top: -5px;
 }
 
 .pname {
-  width: 300px;
-  font-size: 37px;
-
+  width: 472px;
 }
 
 .pplayed {
-  width: 197px;
+  width: 102px;
   text-align: center;
 }
 
 .pwon {
-  width: 197px;
+  width: 100px;
   text-align: center;
 }
 
 .plost {
-  width: 196px;
+  width: 100px;
   text-align: center;
 }
 
 .pgameswon {
-  width: 196px;
+  width: 100px;
   text-align: center;
 }
 
 .pgameslost {
-  width: 196px;
+  width: 100px;
   text-align: center;
 }
 
 .ppoints {
-  width: 196px;
+  width: 100px;
   text-align: center;
-  font-family: "MontBlack";
 }
 
 
 .Logo {
-  height: 70px;
-  width: 70px;
-  margin-right: 80px;
+  height: 65px;
+  width: 65px;
+  margin-right: 35px;
+  margin-top: -4px;
 }
 
 .background input[type="text"]
 {
     background: transparent;
     border: none;
-    width: 196px;
+    width: 100px;
     text-align: center;
     color: white;
 }

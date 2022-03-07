@@ -1,8 +1,8 @@
 .timer{
-  font-family: "MontBlack";
-  font-size: 200px;
+  font-family: "LEMONMILK";
+  font-size: 150px;
   color: white;
-  /* -webkit-text-fill-color: rgba(0,0,0,0); /* Will override color (regardless of order) */
-  /* -webkit-text-stroke-width: 2px; */
-  /* -webkit-text-stroke-color: white; */
+  -webkit-text-fill-color: rgba(0,0,0,0); /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 2px; 
+  -webkit-text-stroke-color: white;
 }
