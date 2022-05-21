@@ -864,6 +864,8 @@ class StreamInterface extends Component {
   }
 
 
+
+
   render() {
     let mainButtonText = this.state.overlayShowing ? 'Hide' : 'Show'
 
@@ -1050,7 +1052,10 @@ class StreamInterface extends Component {
             <Countdown></Countdown>
             <ResetButton></ResetButton>
           </div>
-          <div style={{ marginTop: '50px' }}>
+          <div>
+            
+          </div>
+          {/* <div style={{ marginTop: '50px' }}>
             <Table responsive="sm">
               <thead>
                 <tr style={{ color: 'white' }}>
@@ -1222,7 +1227,8 @@ class StreamInterface extends Component {
                 </tr>
               </tbody>
             </Table>
-          </div>
+          </div> */}
+
         </div>
         <CreateTeamModal show={this.state.showCreateModal} closeModal={this.closeCreateTeamModal} />
       </div>

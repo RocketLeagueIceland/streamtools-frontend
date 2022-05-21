@@ -4,117 +4,108 @@
   height: 100vh;
   width: 1920px;
 
-  font-family: "MontBold";
+  font-family: "LEMONMILK";
   font-size: 35px;
   color: white;
-  padding-top: 304px;
+  padding-top: 200px;
 }
 
-.topTitleContainer {
+.extra {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 1920px;
+}
+
+.teamline {
+  height: 83px;
+  margin-left: 140px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
-.topTitle {
-  text-align: center;
-  font-family: "MontBlack";
-  font-size: 101px;
-  margin: 0;
+.secondLine {
+  padding-top: 38px;
 }
 
-.topSecondaryTitle {
-  margin-top: -30px;
-  margin-bottom: 35px;
-  text-align: center;
-  font-family: "MontSemiBold";
-  font-size: 48px;
+.secondColumnSecondLine {
+  padding-top: 36px;
 }
 
-.topSecondaryTitleBold {
-  font-family: "MontHeavy";
-}
-
-.gameOnStreamContainer {
-  height: 628px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.gameOnStreamRowContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.teamline{
-  display: flex;
+.thirdPlace {
+  padding-top: 87px;
 }
 
 .bracket {
   display: flex;
+  height: 800px;
 }
 
 .round1 {
-  margin-right: 80px;
+  padding-top: 107px;
+  margin-right: 2px;
 }
 
 .round2 {
-  margin-right: 95px;
+  padding-top: 66px;
+  margin-right: -3px;
+}
+
+.round3 {
+  padding-top: 200px;
+  margin-right: 3px;
 }
 
 .matchup {
-  margin-top: 76px;
+  margin-top: 74px;
 }
 
 .TeamLogo {
-  height: 80px;
-  width: 80px;
-  margin-right: 0px;
-  margin-bottom: 0px;
-  visibility: hidden;
+  height: 60px;
+  width: 60px;
+  margin-right: 10px;
+  margin-top: 6px;
 }
 
 .TeamName {
-  font-family: "MontBold";
-  font-size: 28px;
-  width: 355px;
+  font-family: "LEMONMILK";
+  font-size: 35px;
+  width: 325px;
   padding-top: 10px;
   margin-bottom: 0px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   text-align: right;
 }
 
 .TeamScore {
-  font-family: "MontBold";
-  font-size: 28px;
+  font-family: "LEMONMILK";
+  font-size: 35px;
   width: 80px;
   padding-top: 10px;
-  text-transform:uppercase;
+  text-transform: uppercase;
   text-align: right;
 }
 
-.time {
-  font-family: "MontHeavy";
-  font-size: 57px;
-  width: 265px;
-  text-align: center;
-  margin-right: 35px;
-  margin-left: 35px;
-  margin-top: 5px;
+.UpperScore{
+  margin-top: -30px;
+}
+.LowerScore{
+  margin-top: 30px;
 }
 
-.orangeName {
-  font-family: "MontBold";
-  font-size: 40px;
-  width: 390px;
-  padding-top: 10px;
-  text-transform:uppercase;
+.MoreInFront {
+  z-index: 3;
 }
 
-.orangeLogo {
-  height: 80px;
-  width: 80px;
-  margin-left: 40px;
-  margin-bottom: 10px;
-}
+.qf1T1W { background-image: url(../../assets/images/FinalsExtra/QF1-1-Winner.png); }
+.qf1T2W { background-image: url(../../assets/images/FinalsExtra/QF1-2-Winner.png); }
+.qf2T1W { background-image: url(../../assets/images/FinalsExtra/QF2-1-Winner.png); }
+.qf2T2W { background-image: url(../../assets/images/FinalsExtra/QF2-2-Winner.png); }
+.sf1T1W { background-image: url(../../assets/images/FinalsExtra/SF1-1-Winner.png); }
+.sf1T2W { background-image: url(../../assets/images/FinalsExtra/SF1-2-Winner.png); }
+.sf2T1W { background-image: url(../../assets/images/FinalsExtra/SF2-1-Winner.png); }
+.sf2T2W { background-image: url(../../assets/images/FinalsExtra/SF2-2-Winner.png); }
+/* .fT1W { background-image: url(../../assets/images/FinalsExtra/F1-Winner.png); } */
+.fT2W { background-image: url(../../assets/images/FinalsExtra/F2-Winner.png); }
+.thT1W { background-image: url(../../assets/images/FinalsExtra/3rd-1-Winner.png);}
+.thT2W { background-image: url(../../assets/images/FinalsExtra/3rd-2-Winner.png); }

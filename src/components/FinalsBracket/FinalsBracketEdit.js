@@ -119,7 +119,7 @@ class FinalsBracketEdit extends Component {
     this.setState({ bracket: bracket })
   }
 
-  
+
 
   render() {
 
@@ -138,6 +138,13 @@ class FinalsBracketEdit extends Component {
           <div className={styles.round1}>
             <div className={styles.matchup}>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.m11Team1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'm11Team1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -151,6 +158,13 @@ class FinalsBracketEdit extends Component {
                 <input type='text' value={this.state.bracket.m11Team1Score} onChange={e => this.onScoreChanged(e.target.value, 'm11Team1Score')} />
               </div>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.m11Team2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'm11Team2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -165,8 +179,15 @@ class FinalsBracketEdit extends Component {
 
               </div>
             </div>
-            <div className={styles.matchup}>
+            <div className={[styles.matchup, styles.secondLine].join(" ")}>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.m12Team1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'm12Team1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -181,6 +202,13 @@ class FinalsBracketEdit extends Component {
 
               </div>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.m12Team2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'm12Team2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -199,6 +227,13 @@ class FinalsBracketEdit extends Component {
           <div className={styles.round2}>
             <div className={styles.matchup}>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.semi1Team1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'semi1Team1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -212,6 +247,13 @@ class FinalsBracketEdit extends Component {
                 <input type='text' value={this.state.bracket.semi1Team1Score} onChange={e => this.onScoreChanged(e.target.value, 'semi1Team1Score')} />
               </div>
               <div className={styles.teamline}>
+                <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.semi1Team2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'semi1Team2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -226,8 +268,15 @@ class FinalsBracketEdit extends Component {
 
               </div>
             </div>
-            <div className={styles.matchup}>
+            <div className={[styles.matchup, styles.secondColumnSecondLine].join(" ")}>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.semi2Team1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'semi2Team1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -242,6 +291,13 @@ class FinalsBracketEdit extends Component {
 
               </div>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.semi2Team2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'semi2Team2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -260,6 +316,13 @@ class FinalsBracketEdit extends Component {
           <div className={styles.round3}>
             <div className={styles.matchup}>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.finalTeam1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'finalTeam1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -274,6 +337,13 @@ class FinalsBracketEdit extends Component {
 
               </div>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.finalTeam2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'finalTeam2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -287,8 +357,15 @@ class FinalsBracketEdit extends Component {
                 <input type='text' value={this.state.bracket.finalTeam2Score} onChange={e => this.onScoreChanged(e.target.value, 'finalTeam2Score')} />
               </div>
             </div>
-            <div className={styles.matchup}>
+            <div className={[styles.matchup, styles.thirdPlace].join(" ")}>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.thirdTeam1Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'thirdTeam1Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -303,6 +380,13 @@ class FinalsBracketEdit extends Component {
 
               </div>
               <div className={styles.teamline}>
+              <ToggleButton
+                  id="toggle-check"
+                  type="checkbox"
+                  variant="outline-primary"
+                  checked={this.state.bracket.thirdTeam2Won}
+                  onChange={(e) => { console.log(e.currentTarget.checked); this.setTeam(e.currentTarget.checked, 'thirdTeam2Won') }}
+                >  has won </ToggleButton>
                 <SelectSearch
                   className={["select-search", styles.TeamName].join(' ')}
                   options={options}
@@ -324,7 +408,7 @@ class FinalsBracketEdit extends Component {
     return (
       <div className={styles.background}>
         {bracketTeams}
-        <Button style={{marginLeft: '70px', width: '200px'}} onClick={this.updateButtonPressed}>Update</Button>
+        <Button style={{ marginLeft: '70px', width: '200px' }} onClick={this.updateButtonPressed}>Update</Button>
       </div>
     );
   }
