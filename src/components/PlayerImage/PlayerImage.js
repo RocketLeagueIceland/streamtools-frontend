@@ -1,169 +1,181 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styles from './PlayerImage.module.css'
 
 import vaddimah from '../../assets/images/PlayerImages/vaddimah.png'
-import emilvald from '../../assets/images/PlayerImages/emilvald.png'
 import bnz from '../../assets/images/PlayerImages/bnz.png'
+
+import emilvald from '../../assets/images/PlayerImages/emilvald.png'
 import paxole from '../../assets/images/PlayerImages/paxole.png'
+import smushball from '../../assets/images/PlayerImages/smushball.png'
+import krilli from '../../assets/images/PlayerImages/krilli.png'
 
-import mundi from '../../assets/images/PlayerImages/mundi.png'
-import pabbi from '../../assets/images/PlayerImages/pabbi.png'
 import steb from '../../assets/images/PlayerImages/steb.png'
-import jappi from '../../assets/images/PlayerImages/jappi.png'
+import ousic from '../../assets/images/PlayerImages/ousic.png'
+import hemmigumm from '../../assets/images/PlayerImages/hemmigumm.png'
 
-import smushball from '../../assets/images/PlayerImages/smushball.png'  
-// import einar from '../../assets/images/PlayerImages/1ar.png'
-import atli from '../../assets/images/PlayerImages/atli.png'
-// import oli from '../../assets/images/PlayerImages/óli.png'
-import snorrigaming from '../../assets/images/PlayerImages/snorrigaming.png'
+import drbamboo from '../../assets/images/PlayerImages/drbamboo.png'
+import curli from '../../assets/images/PlayerImages/curli.png'
+import pepsicola from '../../assets/images/PlayerImages/pepsicola.png'
+import eagle from '../../assets/images/PlayerImages/eagle.png'
 
-import hemmi from '../../assets/images/PlayerImages/hemmi.png'
-import kartofla from '../../assets/images/PlayerImages/kartafla.png'
-import smivar from '../../assets/images/PlayerImages/smivar.png'
-import sofasett from '../../assets/images/PlayerImages/sofasett.png'
+import alfarinn from '../../assets/images/PlayerImages/alfarinn.png'
+import sizo from '../../assets/images/PlayerImages/sizophrenic.png'
+import handygoon from '../../assets/images/PlayerImages/handygoon.png'
 
-import gaffall from '../../assets/images/PlayerImages/gaffall.png'
-import bobby from '../../assets/images/PlayerImages/bobby.png'
-import dukc from '../../assets/images/PlayerImages/dukc.png'
-import oooweee from '../../assets/images/PlayerImages/oooweee.png'
+import cereal from '../../assets/images/PlayerImages/cereal.png'
+import bjarnifraendi from '../../assets/images/PlayerImages/bjarnifraendi.png'
 
-import slapi from '../../assets/images/PlayerImages/slapi.png'
-import stuttbuxur from '../../assets/images/PlayerImages/stuttbuxur.png'
-import mediumreyr from '../../assets/images/PlayerImages/mediumreyr.png'
+import gummi from '../../assets/images/PlayerImages/gummi.png'
+import roadman from '../../assets/images/PlayerImages/roadman.png'
+import roadmaneaster from '../../assets/images/PlayerImages/roadmaneaster.png'
 
 import haxfadir from '../../assets/images/PlayerImages/haxfadir.png'
 import bobbi from '../../assets/images/PlayerImages/bobbi.png'
-// import snazz from '../../assets/images/PlayerImages/snazz.png'
-// import wunder from '../../assets/images/PlayerImages/wunder.png'
+import toni from '../../assets/images/PlayerImages/tonichris.png'
 
-import dabbi789 from '../../assets/images/PlayerImages/dabbi789.png'
-import stormur from '../../assets/images/PlayerImages/stormur.png'
-import bafga from '../../assets/images/PlayerImages/bafga.png'
-// import rikkibesti from '../../assets/images/PlayerImages/rikkibesti.png'
 
 class PlayerImage extends Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
-    
+
   };
 
-  render(){
+  render() {
 
     let player = null;
-    if(this.props.player.toLowerCase() === 'vaddimah'){             // Lava
+    if (this.props.player.toLowerCase() === 'vaddimah') {             // Lava
       player = (
         <img src={vaddimah}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'emilvald'){
-      player = (
-        <img src={emilvald}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'bnz'){
+    }
+    else if (this.props.player.toLowerCase() === 'bnz') {
       player = (
         <img src={bnz}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'paxole'){
-      player = (
-        <img src={paxole}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'mundi29'){         // KR
-      player = (
-        <img src={mundi}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'pabbi4'){
-      player = (
-        <img src={pabbi}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'steb'){
-      player = (
-        <img src={steb}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'jappi'){
-      player = (
-        <img src={jappi}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'smushball'){       // Keflavík
+    }
+
+    else if (this.props.player.toLowerCase() === 'smushball') {       // Breiðablik
       player = (
         <img src={smushball}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'atli'){
+    }
+    else if (this.props.player.toLowerCase() === 'emilvald') {
       player = (
-        <img src={atli}></img>
+        <img src={emilvald}></img>
       )
-    }  else if(this.props.player.toLowerCase() === 'smívar'){         // Þór
+    }
+    else if (this.props.player.toLowerCase() === 'krilli') {
       player = (
-        <img src={smivar}></img>
+        <img src={krilli}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'hemmigumm'){
+    }
+    else if (this.props.player.toLowerCase() === 'paxole') {
       player = (
-        <img src={hemmi}></img>
+        <img src={paxole}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'kartofla'){
+    }
+
+    else if (this.props.player.toLowerCase() === 'hemmigumm') {       // Þór
       player = (
-        <img src={kartofla}></img>
+        <img src={hemmigumm}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'dukc'){            // octai
+    }
+    else if (this.props.player.toLowerCase() === 'steb') {
       player = (
-        <img src={dukc}></img>
+        <img src={steb}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'gaffall'){         
+    }
+    else if (this.props.player.toLowerCase() === 'ousic') {
       player = (
-        <img src={gaffall}></img>
+        <img src={ousic}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'oooweee'){
-      player = (
-        <img src={oooweee}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'bobby'){
-      player = (
-        <img src={bobby}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'stuttbuxur'){      // Panda bois 
-      player = (
-        <img src={stuttbuxur}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'mediumreyr'){
-      player = (
-        <img src={mediumreyr}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'slapi36'){
-      player = (
-        <img src={slapi}></img>
-      )
-    } else if(this.props.player.toLowerCase() === 'haxfaðir'){        // Midnight Bulls
+    }
+
+    else if (this.props.player.toLowerCase() === 'haxfaðir') {        // Midnight Bulls
       player = (
         <img src={haxfadir}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'bobbi'){
+    }
+    else if (this.props.player.toLowerCase() === 'bobbi') {
       player = (
         <img src={bobbi}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'snazz'){        
-      // player = (
-      //   <img src={snazz}></img>
-      // )
-    } else if(this.props.player.toLowerCase() === 'wunder'){
-      // player = (
-      //   <img src={wunder}></img>
-      // )
-    } else if(this.props.player.toLowerCase() === 'dabbi789'){        // Somnio
+    }
+    else if (this.props.player.toLowerCase() === 'toni chris') {
       player = (
-        <img src={dabbi789}></img>
+        <img src={toni}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'stormur'){
+    }
+
+    else if (this.props.player.toLowerCase() === 'dr bamboo') {       // BluelaGOONS
       player = (
-        <img src={stormur}></img>
+        <img src={drbamboo}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'bafga'){        
+    }
+    else if (this.props.player.toLowerCase() === 'curli') {
       player = (
-        <img src={bafga}></img>
+        <img src={curli}></img>
       )
-    } else if(this.props.player.toLowerCase() === 'rikkibesti'){
-      // player = (
-      //   <img src={rikkibesti}></img>
-      // )
-    } 
+    }
+    else if (this.props.player.toLowerCase() === 'pepsicola.coca') {
+      player = (
+        <img src={pepsicola}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'eagle') {
+      player = (
+        <img src={eagle}></img>
+      )
+    }
+
+    else if (this.props.player.toLowerCase() === 'alfarinn') {        // BluelaGOONS
+      player = (
+        <img src={alfarinn}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'sizophrenic') {
+      player = (
+        <img src={sizo}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'handygoon') {
+      player = (
+        <img src={handygoon}></img>
+      )
+    }
+
+    else if (this.props.player.toLowerCase() === 'cereal') {        // 354 esports
+      player = (
+        <img src={cereal}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'bjarnifraendi') {
+      player = (
+        <img src={bjarnifraendi}></img>
+      )
+    }
+
+    else if (this.props.player.toLowerCase() === 'roadmane') {       // Pushin P.
+      // let x = Math.floor(Math.random() * 100);
+      // if(x < 1){
+      //   player = (
+      //     <img src={roadmaneaster}></img>
+      //   )
+      // } else {
+      //   player = (
+      //     <img src={roadman}></img>
+      //   )
+      // }
+      player = (
+            <img src={roadman}></img>
+          )
+    }
+    else if (this.props.player.toLowerCase() === 'gummi') {
+      player = (
+        <img src={gummi}></img>
+      )
+    }
 
     // else if(this.props.player.toLowerCase() === 'rex'){           // BOT
     //   player = (
