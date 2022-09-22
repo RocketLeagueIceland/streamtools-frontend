@@ -27,6 +27,7 @@ class GamesOnStreamEdit extends Component {
       allTeams: [],
     };
 
+    this.s5timeArray = ['19:40','20:15','20:50','21:25']
   }
 
 
@@ -87,6 +88,16 @@ class GamesOnStreamEdit extends Component {
     if(this.state.gamesOnStream){
       let gamesOnStream = JSON.parse(JSON.stringify(this.state.gamesOnStream));
       gamesOnStream.evening.pop();
+      this.setState({gamesOnStream: gamesOnStream})
+    }
+  }
+
+  resetTime = () => {
+    if(this.state.gamesOnStream){
+      let gamesOnStream = JSON.parse(JSON.stringify(this.state.gamesOnStream));
+      for(let i = 0; i < gamesOnStream.evening.length; i++){
+        gamesOnStream.evening[i].time = this.s5timeArray[i]
+      }
       this.setState({gamesOnStream: gamesOnStream})
     }
   }
@@ -213,6 +224,7 @@ class GamesOnStreamEdit extends Component {
       <div className={styles.background}>
         {rows}
         <Button style={{marginLeft: '20px'}} onClick={this.updateButtonPressed}>Update</Button>
+        <Button style={{marginLeft: '20px'}} variant="warning" onClick={this.resetTime}>Reset Time</Button>
         <Button style={{marginLeft: '20px'}} variant="success" onClick={this.addRow}>Add Row</Button>
         <Button style={{marginLeft: '20px'}} variant="danger" onClick={this.removeRow}>Delete Row</Button>
       </div>
