@@ -33,6 +33,7 @@ import haxfadir from '../../assets/images/PlayerImages/haxfadir.png'
 import bobbi from '../../assets/images/PlayerImages/bobbi.png'
 import toni from '../../assets/images/PlayerImages/tonichris.png'
 
+import silhouette from '../../assets/images/PlayerImages/silhouette.png'
 
 class PlayerImage extends Component {
 
@@ -47,6 +48,16 @@ class PlayerImage extends Component {
     if (this.props.player.toLowerCase() === 'vaddimah') {             // Lava
       player = (
         <img src={vaddimah}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'bnz') {
+      player = (
+        <img src={bnz}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'cynical') {
+      player = (
+        <img src={bnz}></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'bnz') {
@@ -176,32 +187,12 @@ class PlayerImage extends Component {
         <img src={gummi}></img>
       )
     }
-
-    // else if(this.props.player.toLowerCase() === 'rex'){           // BOT
-    //   player = (
-    //     <img src={bnz}></img>
-    //   )
-    // } else if(this.props.player.toLowerCase() === 'samara'){      // BOT
-    //   player = (
-    //     <img src={emilvald}></img>
-    //   )
-    // } else if(this.props.player.toLowerCase() === 'merlin'){      // BOT
-    //   player = (
-    //     <img src={vaddimah}></img>
-    //   )
-    // } else if(this.props.player.toLowerCase() === 'stinger'){         // BOT
-    //   player = (
-    //     <img src={atli}></img>
-    //   )
-    // } else if(this.props.player.toLowerCase() === 'fury'){        // BOT
-    //   player = (
-    //     <img src={smushball}></img>
-    //   )
-    // } else if(this.props.player.toLowerCase() === 'swabbie'){           // BOT
-    //   player = (
-    //     <img src={snorrigaming}></img>
-    //   )
-    // } 
+    
+    else if (this.props.player.toLowerCase() !== '') {               // Missing
+      player = (
+        <img src={silhouette}></img>
+      )
+    }
 
 
     return (
