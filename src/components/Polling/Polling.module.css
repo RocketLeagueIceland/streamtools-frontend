@@ -1,5 +1,5 @@
 html {
-  --slide-animation-distance: 260px;
+  --slide-animation-distance: 300px;
 }
 
 .background {
@@ -18,7 +18,7 @@ html {
 }
 
 .spacer {
-  height: 260px;
+  height: 300px;
 }
 
 .leftTeam {
