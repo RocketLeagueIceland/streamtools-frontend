@@ -16,6 +16,7 @@ import FinalsBracketEdit from './components/FinalsBracket/FinalsBracketEdit';
 import TvAfterGame from './components/TV-Screen/AfterGame/TvAfterGame';
 import TvBeforeGame from './components/TV-Screen/BeforeGame/TvBeforeGame';
 import TvBeforeGameEdit from './components/TV-Screen/BeforeGameEdit/TvBeforeGameEdit';
+import Polling from './components/Polling/Polling';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path="/games-on-stream" exact component={GamesOnStream} />
         <Route path="/games-on-stream-edit" exact component={GamesOnStreamEdit} />
 
+        <Route path="/polling-results" exact component={Polling} />
         <Route path="/ingame-overlay" exact component={IngameOverlay} />
         <Route path="/next-game" exact component={NextGame} />
         <Route path="/current-standing" exact component={CurrentStanding} />

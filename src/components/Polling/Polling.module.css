@@ -1,0 +1,57 @@
+html {
+  --slide-animation-distance: 260px;
+}
+
+.background {
+  background-image: url(../../assets/images/pollGraphic13.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+
+  font-family: "LEMONMILK";
+  font-size: 70px;
+  color: white;
+
+  display: flex;
+  padding-top: 880px;
+  justify-content: center;
+}
+
+.spacer {
+  height: 260px;
+}
+
+.leftTeam {
+  display: flex;
+  width: 688px;
+}
+
+.rightTeam {
+  display: flex;
+  justify-content: end;
+  width: 688px;
+}
+
+.slideIn {
+  transition: 2s ease-in-out all;
+  transform: translateY(calc(-1 * var(--slide-animation-distance)));
+}
+
+.slideOut {
+  transition: 2s ease-in-out all;  
+}
+
+.Logo {
+  height: 150px;
+  width: 150px;
+  margin-top: -18px;
+}
+
+.leftLogo {
+  margin-right: 50px;
+}
+
+.rightLogo {
+  margin-left: 50px;
+}
+

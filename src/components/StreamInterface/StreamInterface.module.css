@@ -137,3 +137,7 @@
 .resetButton {
     flex-grow: 2;
 }
+
+.twitchPollContainer {
+    padding-top: 200px;
+}

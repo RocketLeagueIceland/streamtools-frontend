@@ -38,6 +38,18 @@ class StreamInterface extends Component {
 
       showCreateModal: false,
 
+      pollingData: {
+        team1Id: 1,
+        team1hash: 'KR',
+        team2Id: 1,
+        team2hash: 'KR',
+
+        isStarted: false,
+        isCreated: false,
+        isShowing: false,
+        isShowingStatistics: false
+      },
+
       bluePlayer1: {
         id: '',
         name: '',
@@ -356,6 +368,8 @@ class StreamInterface extends Component {
 
     this.fetchTeams()
 
+    this.fetchPollingData()
+
     this.WsSubscribers.init(49322, false);
 
     this.WsSubscribers.subscribe("game", "update_state", (d) => {
@@ -476,7 +490,7 @@ class StreamInterface extends Component {
     });
 
     this.WsSubscribers.subscribe("game", "match_ended", (d) => {
-      if (this.state.automaticSaveScoreboard){
+      if (this.state.automaticSaveScoreboard) {
         console.log('match ended...');
         this.saveScoreboard();
         this.hideOverlay();
@@ -484,7 +498,7 @@ class StreamInterface extends Component {
     });
 
     this.WsSubscribers.subscribe("game", "initialized", (d) => {
-      if (this.state.automaticSaveScoreboard){
+      if (this.state.automaticSaveScoreboard) {
         console.log('match initialized...');
         this.showOverlay();
       }
@@ -522,14 +536,29 @@ class StreamInterface extends Component {
       )
   }
 
+  fetchPollingData = () => {
+    fetch("http://localhost:3002/get-poll-statistics")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            pollingData: result,
+          });
+        },
+        (error) => {
+
+        }
+      )
+  }
+
   hideOverlay = () => {
-    if(this.state.overlayShowing){
+    if (this.state.overlayShowing) {
       this.changeOverlayShowingState(null)
     }
   }
 
   showOverlay = () => {
-    if(!this.state.overlayShowing){
+    if (!this.state.overlayShowing) {
       this.changeOverlayShowingState(null)
     }
   }
@@ -848,7 +877,7 @@ class StreamInterface extends Component {
             ]
           })
         },
-        (error) => { console.log(error)}
+        (error) => { console.log(error) }
       );
   }
 
@@ -863,16 +892,119 @@ class StreamInterface extends Component {
     this.setState({ showCreateModal: false })
   }
 
+  setPollingTeam1 = (id) => {
+    console.log(id)
+    let pollingData = JSON.parse(JSON.stringify(this.state.pollingData))
+    pollingData.team1Id = id
+    let team = this.state.allTeams.find(x => x.id === id)
+    pollingData.team1hash = team.acro
+    pollingData.team1Logo = team.logo
+    this.setState({ pollingData: pollingData })
+  }
 
+  setPollingTeam2 = (id) => {
+    let pollingData = JSON.parse(JSON.stringify(this.state.pollingData))
+    pollingData.team2Id = id
+    let team = this.state.allTeams.find(x => x.id === id)
+    pollingData.team2hash = team.acro
+    pollingData.team2Logo = team.logo
+    this.setState({ pollingData: pollingData })
+  }
+
+  createPoll = () => {
+    let body = {
+      team1hash: '#'+this.state.pollingData.team1hash,
+      team1Id: this.state.pollingData.team1Id,
+      team2hash: '#'+this.state.pollingData.team2hash,
+      team2Id: this.state.pollingData.team2Id
+    }
+    fetch("http://localhost:3002/create-new-poll", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body)
+    })
+      .then(res => res.json())
+      .then(
+        (result) => { console.log(result) },
+        (error) => { console.log(error) }
+      )
+  }
+
+  startPoll = () => {
+    fetch("http://localhost:3002/start-poll", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
+
+  stopPoll = () => {
+    fetch("http://localhost:3002/stop-poll", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
+
+  showPoll = () => {
+    fetch("http://localhost:3002/show-poll", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
+
+  hidePoll = () => {
+    fetch("http://localhost:3002/hide-poll", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
+
+  showPollResults = () => {
+    fetch("http://localhost:3002/show-poll-statistics", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
+
+  hidePollResults = () => {
+    fetch("http://localhost:3002/hide-poll-statistics", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({})
+    })
+  }
 
 
   render() {
-    let mainButtonText = this.state.overlayShowing ? 'Hide' : 'Show'
+    let mainButtonText = this.state.overlayShowing ? 'Hide' : 'Show';
 
-    let searchSelectTeam1 = (<div><p>Fetchin teams...</p></div>)
-    let searchSelectTeam2 = (<div><p>Fetchin teams...</p></div>)
-    let team1logo = null
-    let team2logo = null
+    let searchSelectTeam1 = (<div><p>Fetchin teams...</p></div>);
+    let searchSelectTeam2 = (<div><p>Fetchin teams...</p></div>);
+    let team1logo = null;
+    let team2logo = null;
+
+    let searchPollingTeam1 = (<div><p>Fetchin teams...</p></div>);
+    let searchPollingTeam2 = (<div><p>Fetchin teams...</p></div>);
+    let teamPolling1logo = null;
+    let teamPolling2logo = null;
 
     let gamesWon1 = 0
     let gamesWon2 = 0
@@ -915,6 +1047,51 @@ class StreamInterface extends Component {
             options={options}
             value={this.state.currentTeams[1].id}
             onChange={(v) => { this.setCurrentTeam(v, 1) }}
+            search
+            filterOptions={fuzzySearch}
+            emptyMessage={() => <div style={{ textAlign: 'center', fontSize: '0.8em' }}>Not found renderer</div>}
+            placeholder="Select team"
+          />
+        </div>
+      )
+    }
+
+    if (this.state.allTeams.length > 0) {
+
+      teamPolling1logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.pollingData.team1Logo} alt='' />)
+      teamPolling2logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.pollingData.team2Logo} alt='' />)
+
+      const options = this.state.allTeams.map(({
+        id: value,
+        name
+      }) => ({
+        value,
+        name
+      }));
+
+      searchPollingTeam1 = (
+        <div>
+          <p className={styles.teamText}>Team 1</p>
+          <SelectSearch
+            className="select-search"
+            options={options}
+            value={this.state.pollingData.team1Id}
+            onChange={(v) => { this.setPollingTeam1(v) }}
+            search
+            filterOptions={fuzzySearch}
+            emptyMessage={() => <div style={{ textAlign: 'center', fontSize: '0.8em' }}>Not found renderer</div>}
+            placeholder="Select team"
+          />
+        </div>
+      )
+      searchPollingTeam2 = (
+        <div>
+          <p className={styles.teamText}>Team 2</p>
+          <SelectSearch
+            className="select-search"
+            options={options}
+            value={this.state.pollingData.team2Id}
+            onChange={(v) => { this.setPollingTeam2(v) }}
             search
             filterOptions={fuzzySearch}
             emptyMessage={() => <div style={{ textAlign: 'center', fontSize: '0.8em' }}>Not found renderer</div>}
@@ -1053,8 +1230,38 @@ class StreamInterface extends Component {
             <ResetButton></ResetButton>
           </div>
           <div>
-            
+
           </div>
+
+          <div className={styles.twitchPollContainer}>
+            <h1>Twitch Polling</h1>
+            <div className={styles.selectTeamContainer}>
+              <div className={styles.team1LogoContainer}>
+                {teamPolling1logo}
+              </div>
+              {searchPollingTeam1}
+            </div>
+            <div className={styles.selectTeamContainer}>
+              <div className={styles.team2LogoContainer}>
+                {teamPolling2logo}
+              </div>
+              {searchPollingTeam2}
+            </div>
+            <div>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.createPoll}>Create Poll</Button>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.startPoll}>Start Poll</Button>
+              <Button className={styles.toggleButton} variant="success" onClick={this.stopPoll}>Stop Poll</Button>
+            </div>
+            <div>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.showPoll}>Show Poll</Button>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.hidePoll}>Hide Poll</Button>
+            </div>
+            <div>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.showPollResults}>Show Results</Button>
+              <Button className={styles.toggleButton} variant="primary" onClick={this.hidePollResults}>Hide Results</Button>
+            </div>
+          </div>
+
           {/* <div style={{ marginTop: '50px' }}>
             <Table responsive="sm">
               <thead>

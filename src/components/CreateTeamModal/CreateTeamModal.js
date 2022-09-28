@@ -13,6 +13,7 @@ class CreateTeamModal extends Component {
 
     this.state = {
       createTeamName: '',
+      acro: '',
       pictures: null,
     };
   };
@@ -25,6 +26,7 @@ class CreateTeamModal extends Component {
     const data = new FormData()
     data.append('file', this.state.pictures[0], this.state.pictures[0].name)
     data.append('teamName', this.state.createTeamName);
+    data.append('acro', this.state.acro)
 
     fetch("http://localhost:3002/create-team", {
       method: 'POST',
@@ -68,6 +70,10 @@ class CreateTeamModal extends Component {
             <Form.Group className="mb-3" controlId="teameNameId">
               <Form.Label>Team Name</Form.Label>
               <Form.Control type="text" placeholder="Enter team name" onChange={(e) => { this.setState({ createTeamName: e.target.value }) }} />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="teameNameId">
+              <Form.Label>Team Acronym (2 to 4 letters)</Form.Label>
+              <Form.Control type="text" placeholder="Enter team acronym" onChange={(e) => { this.setState({ acro: e.target.value }) }} />
             </Form.Group>
             {/* <Form.Group controlId="teamLogoFileId" className="mb-3">
               <Form.Label style={{ marginRight: '20px' }}>Default file input example</Form.Label>
