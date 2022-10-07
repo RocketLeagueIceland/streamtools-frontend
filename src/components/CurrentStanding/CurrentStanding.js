@@ -34,7 +34,7 @@ class CurrentStanding extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch("http://192.168.90.102:3002/teams")
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +49,7 @@ class CurrentStanding extends Component {
   }
 
   fetchCurrentStanding = () => {
-    fetch("http://localhost:3002/current-standing")
+    fetch("http://192.168.90.102:3002/current-standing")
       .then(res => res.json())
       .then(
         (result) => {
@@ -77,7 +77,7 @@ class CurrentStanding extends Component {
                   return (
                     <div key={idx}>
                       <div className={styles.StandingsRow}>
-                        <img className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + standing.logo} alt=''></img>
+                        <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + standing.logo} alt=''></img>
                         <p className={styles.pname}>{standing.name}</p>
                         <p className={styles.pplayed}>{standing.played}</p>
                         <p className={styles.pwon}>{standing.won}</p>
@@ -107,7 +107,7 @@ class CurrentStanding extends Component {
 
 const standingRow = (props) => {
   <div className={styles.StandingsRow}>
-    <img className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + props.logo} alt=''></img>
+    <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + props.logo} alt=''></img>
     <p>{props.standing.name}</p>
     <p>{props.standing.played}</p>
     <p>{props.standing.won}</p>

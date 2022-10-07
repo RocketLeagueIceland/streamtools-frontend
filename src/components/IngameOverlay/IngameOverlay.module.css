@@ -11,7 +11,7 @@
 
 html {
   --logo-container-margin: 4px;
-  --slide-animation-distance: 500px;
+  --slide-animation-distance2: 500px;
 }
 
 p {
@@ -41,7 +41,7 @@ p {
 
 .teamOverlayContainerSlideOut {
   /* transform: translate(calc(3 * var(--slide-animation-distance))); */
-  transform: translateY(calc(-0.2 * var(--slide-animation-distance)));
+  transform: translateY(calc(-0.2 * var(--slide-animation-distance2)));
   transition: 2s ease-in-out all;  
   transition-delay: 1s;
 }
@@ -68,7 +68,7 @@ p {
 }
 
 .leftTeamContainerSlideOut {
-  transform: translate(var(--slide-animation-distance));
+  transform: translate(var(--slide-animation-distance2));
   transition: 2s ease-in-out all;  
   transition-delay: 1s;
 }
@@ -123,7 +123,7 @@ p {
 }
 
 .rightTeamContainerSlideOut {
-  transform: translate(calc(-1 * var(--slide-animation-distance)));
+  transform: translate(calc(-1 * var(--slide-animation-distance2)));
   transition: 2s ease-in-out all;  
   transition-delay: 1s;
 }

@@ -34,7 +34,7 @@ class Polling extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch("http://192.168.90.102:3002/teams")
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +49,7 @@ class Polling extends Component {
   }
 
   fetchPollingStatistics = () => {
-    fetch("http://localhost:3002/get-poll-statistics")
+    fetch("http://192.168.90.102:3002/get-poll-statistics")
       .then(res => res.json())
       .then(
         (result) => {
@@ -80,12 +80,12 @@ class Polling extends Component {
           </div>
           <div className={[styles.background, slide].join(' ')}>
             <div className={styles.leftTeam}>
-              <img className={[styles.Logo, styles.leftLogo].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.pollStatistics.team1Logo} alt=''></img>
+              <img className={[styles.Logo, styles.leftLogo].join(' ')} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.pollStatistics.team1Logo} alt=''></img>
               {t1Text}
             </div>
             <div className={styles.rightTeam}>
               {t2Text}
-              <img className={[styles.Logo, styles.rightLogo].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.pollStatistics.team2Logo} alt=''></img>
+              <img className={[styles.Logo, styles.rightLogo].join(' ')} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.pollStatistics.team2Logo} alt=''></img>
             </div>
           </div>
         </div>

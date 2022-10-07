@@ -29,7 +29,7 @@ class TvAfterGame extends Component {
   }
 
   fetchCurrentGame = () => {
-    fetch("http://localhost:3002/current-game")
+    fetch("http://192.168.90.102:3002/current-game")
       .then(res => res.json())
       .then(
         (result) => {
@@ -46,7 +46,7 @@ class TvAfterGame extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch("http://192.168.90.102:3002/teams")
       .then(res => res.json())
       .then(
         (result) => {
@@ -72,8 +72,8 @@ class TvAfterGame extends Component {
       gamesWon1 = this.state.currentTeams[0].gamesWon
       gamesWon2 = this.state.currentTeams[1].gamesWon
 
-      team1logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.currentTeams[0].logo} alt='' />)
-      team2logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.currentTeams[1].logo} alt='' />)
+      team1logo = (<img className={styles.logo} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.currentTeams[0].logo} alt='' />)
+      team2logo = (<img className={styles.logo} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.currentTeams[1].logo} alt='' />)
 
       const options = this.state.allTeams.map(({
         id: value,

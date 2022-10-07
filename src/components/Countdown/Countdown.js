@@ -14,7 +14,7 @@ class Countdown extends Component {
 
   componentDidMount() {
     setInterval(() => {
-      fetch("http://localhost:3002/")
+      fetch("http://192.168.90.102:3002/")
         .then(res => res.json())
         .then(
           (result) => {

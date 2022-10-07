@@ -34,7 +34,7 @@ class CurrentStandingEdit extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch("http://192.168.90.102:3002/teams")
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +49,7 @@ class CurrentStandingEdit extends Component {
   }
 
   fetchCurrentStanding = () => {
-    fetch("http://localhost:3002/current-standing")
+    fetch("http://192.168.90.102:3002/current-standing")
       .then(res => res.json())
       .then(
         (result) => {
@@ -106,7 +106,7 @@ class CurrentStandingEdit extends Component {
   }
 
   updateCurrentStandings = (body) => {
-    fetch("http://localhost:3002/current-standing", {
+    fetch("http://192.168.90.102:3002/current-standing", {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -133,7 +133,7 @@ class CurrentStandingEdit extends Component {
   }
 
   getToornamentData = () => {
-    fetch("http://localhost:3002/toornament-current-standing")
+    fetch("http://192.168.90.102:3002/toornament-current-standing")
     .then(res => res.json())
     .then(
       (result) => {
@@ -172,7 +172,7 @@ class CurrentStandingEdit extends Component {
                         {(provided, snapshot) => (
                           <div ref={provided.innerRef} {...provided.draggableProps}>
                             <div className={styles.StandingsRow}>
-                              <img {...provided.dragHandleProps} className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + standing.logo} alt=''></img>
+                              <img {...provided.dragHandleProps} className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + standing.logo} alt=''></img>
                               <p className={styles.pname}>{standing.name}</p>
                               <input type='text' value={standing.played} onChange={e => this.onPlayedChanged(e.target.value, idx)}/>
                               <input type='text' value={standing.won} onChange={e => this.onWonChanged(e.target.value, idx)}/>
@@ -207,7 +207,7 @@ class CurrentStandingEdit extends Component {
 
 const standingRow = (props) => {
   <div className={styles.StandingsRow}>
-    <img className={styles.Logo} src={'http://localhost:3002/images/teamlogos/' + props.logo} alt=''></img>
+    <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + props.logo} alt=''></img>
     <p>{props.standing.name}</p>
     <p>{props.standing.played}</p>
     <p>{props.standing.won}</p>

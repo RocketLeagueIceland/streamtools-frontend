@@ -37,7 +37,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch("http://192.168.90.102:3002/teams")
       .then(res => res.json())
       .then(
         (result) => {
@@ -52,7 +52,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   fetchGamesOnStream = () => {
-    fetch("http://localhost:3002/games-on-stream")
+    fetch("http://192.168.90.102:3002/games-on-stream")
       .then(res => res.json())
       .then(
         (result) => {
@@ -103,7 +103,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   updateGamesOnStream = (body) => {
-    fetch("http://localhost:3002/games-on-stream", {
+    fetch("http://192.168.90.102:3002/games-on-stream", {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -185,7 +185,7 @@ class GamesOnStreamEdit extends Component {
               return (
                 <div className={styles.gameOnStreamRowContainer} key={idx}>
                   <div className={styles.gameOnStreamRow}>
-                    <img className={styles.blueLogo} src={'http://localhost:3002/images/teamlogos/' + row.blueteamLogo} alt=''></img>
+                    <img className={styles.blueLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.blueteamLogo} alt=''></img>
                     {/* <p className={styles.blueName}>{row.blueteamName}</p> */}
                     <SelectSearch
                       className={["select-search", styles.blueName].join(' ')}
@@ -209,7 +209,7 @@ class GamesOnStreamEdit extends Component {
                       placeholder="Select team"
                     />
                     {/* <p className={styles.orangeName}>{row.orangeteamName}</p> */}
-                    <img className={styles.orangeLogo} src={'http://localhost:3002/images/teamlogos/' + row.orangeteamLogo} alt=''></img>
+                    <img className={styles.orangeLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.orangeteamLogo} alt=''></img>
                   </div>
                 </div>
               );

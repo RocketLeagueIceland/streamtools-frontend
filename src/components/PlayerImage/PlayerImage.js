@@ -24,6 +24,7 @@ import handygoon from '../../assets/images/PlayerImages/handygoon.png'
 
 import cereal from '../../assets/images/PlayerImages/cereal.png'
 import bjarnifraendi from '../../assets/images/PlayerImages/bjarnifraendi.png'
+import stormur from '../../assets/images/PlayerImages/stormur.png'
 
 import gummi from '../../assets/images/PlayerImages/gummi.png'
 import roadman from '../../assets/images/PlayerImages/roadman.png'
@@ -57,7 +58,7 @@ class PlayerImage extends Component {
     }
     else if (this.props.player.toLowerCase() === 'cynical') {
       player = (
-        <img src={bnz}></img>
+        <img src={silhouette}></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'bnz') {
@@ -164,6 +165,11 @@ class PlayerImage extends Component {
     else if (this.props.player.toLowerCase() === 'bjarnifraendi') {
       player = (
         <img src={bjarnifraendi}></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'stormur') {
+      player = (
+        <img src={stormur}></img>
       )
     }
 
