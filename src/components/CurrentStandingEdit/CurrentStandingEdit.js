@@ -3,16 +3,7 @@ import styles from './CurrentStandingEdit.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Button from 'react-bootstrap/Button';
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import SelectSearch from 'react-select-search';
-// import fuzzySearch from './fuzzySearch';
-
 import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd'
-// import { Draggable } from "react-drag-reorder";
 
 
 
@@ -34,7 +25,7 @@ class CurrentStandingEdit extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://192.168.90.102:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +40,7 @@ class CurrentStandingEdit extends Component {
   }
 
   fetchCurrentStanding = () => {
-    fetch("http://192.168.90.102:3002/current-standing")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-standing`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -106,7 +97,7 @@ class CurrentStandingEdit extends Component {
   }
 
   updateCurrentStandings = (body) => {
-    fetch("http://192.168.90.102:3002/current-standing", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-standing`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -133,7 +124,7 @@ class CurrentStandingEdit extends Component {
   }
 
   getToornamentData = () => {
-    fetch("http://192.168.90.102:3002/toornament-current-standing")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/toornament-current-standing`)
     .then(res => res.json())
     .then(
       (result) => {
@@ -172,7 +163,7 @@ class CurrentStandingEdit extends Component {
                         {(provided, snapshot) => (
                           <div ref={provided.innerRef} {...provided.draggableProps}>
                             <div className={styles.StandingsRow}>
-                              <img {...provided.dragHandleProps} className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + standing.logo} alt=''></img>
+                              <img {...provided.dragHandleProps} className={styles.Logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${standing.logo}`} alt=''></img>
                               <p className={styles.pname}>{standing.name}</p>
                               <input type='text' value={standing.played} onChange={e => this.onPlayedChanged(e.target.value, idx)}/>
                               <input type='text' value={standing.won} onChange={e => this.onWonChanged(e.target.value, idx)}/>
@@ -203,19 +194,6 @@ class CurrentStandingEdit extends Component {
       </div>
     );
   }
-}
-
-const standingRow = (props) => {
-  <div className={styles.StandingsRow}>
-    <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + props.logo} alt=''></img>
-    <p>{props.standing.name}</p>
-    <p>{props.standing.played}</p>
-    <p>{props.standing.won}</p>
-    <p>{props.standing.lost}</p>
-    <p>{props.standing.gameswon}</p>
-    <p>{props.standing.gameslost}</p>
-    <p>{props.standing.points}</p>
-  </div>
 }
 
 export default CurrentStandingEdit;

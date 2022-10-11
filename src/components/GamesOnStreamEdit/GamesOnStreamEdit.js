@@ -4,18 +4,8 @@ import './GamesOnStreamEdit.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Button from 'react-bootstrap/Button';
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import SelectSearch from 'react-select-search';
 import fuzzySearch from './fuzzySearch';
-
-import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd'
-// import { Draggable } from "react-drag-reorder";
-
-
 
 class GamesOnStreamEdit extends Component {
 
@@ -37,7 +27,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://192.168.90.102:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -52,7 +42,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   fetchGamesOnStream = () => {
-    fetch("http://192.168.90.102:3002/games-on-stream")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/games-on-stream`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -103,7 +93,7 @@ class GamesOnStreamEdit extends Component {
   }
 
   updateGamesOnStream = (body) => {
-    fetch("http://192.168.90.102:3002/games-on-stream", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/games-on-stream`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -185,7 +175,7 @@ class GamesOnStreamEdit extends Component {
               return (
                 <div className={styles.gameOnStreamRowContainer} key={idx}>
                   <div className={styles.gameOnStreamRow}>
-                    <img className={styles.blueLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.blueteamLogo} alt=''></img>
+                    <img className={styles.blueLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + row.blueteamLogo} alt=''></img>
                     {/* <p className={styles.blueName}>{row.blueteamName}</p> */}
                     <SelectSearch
                       className={["select-search", styles.blueName].join(' ')}
@@ -209,7 +199,7 @@ class GamesOnStreamEdit extends Component {
                       placeholder="Select team"
                     />
                     {/* <p className={styles.orangeName}>{row.orangeteamName}</p> */}
-                    <img className={styles.orangeLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.orangeteamLogo} alt=''></img>
+                    <img className={styles.orangeLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + row.orangeteamLogo} alt=''></img>
                   </div>
                 </div>
               );

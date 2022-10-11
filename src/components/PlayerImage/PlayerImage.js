@@ -28,6 +28,7 @@ import stormur from '../../assets/images/PlayerImages/stormur.png'
 
 import gummi from '../../assets/images/PlayerImages/gummi.png'
 import roadman from '../../assets/images/PlayerImages/roadman.png'
+// eslint-disable-next-line
 import roadmaneaster from '../../assets/images/PlayerImages/roadmaneaster.png'
 
 import haxfadir from '../../assets/images/PlayerImages/haxfadir.png'
@@ -38,138 +39,128 @@ import silhouette from '../../assets/images/PlayerImages/silhouette.png'
 
 class PlayerImage extends Component {
 
-  constructor(props) {
-    super(props);
-
-  };
-
   render() {
 
     let player = null;
     if (this.props.player.toLowerCase() === 'vaddimah') {             // Lava
       player = (
-        <img src={vaddimah}></img>
+        <img src={vaddimah} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'bnz') {
       player = (
-        <img src={bnz}></img>
+        <img src={bnz} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'cynical') {
       player = (
-        <img src={silhouette}></img>
-      )
-    }
-    else if (this.props.player.toLowerCase() === 'bnz') {
-      player = (
-        <img src={bnz}></img>
+        <img src={silhouette} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'smushball') {       // Breiðablik
       player = (
-        <img src={smushball}></img>
+        <img src={smushball} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'emilvald') {
       player = (
-        <img src={emilvald}></img>
+        <img src={emilvald} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'krilli') {
       player = (
-        <img src={krilli}></img>
+        <img src={krilli} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'paxole') {
       player = (
-        <img src={paxole}></img>
+        <img src={paxole} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'hemmigumm') {       // Þór
       player = (
-        <img src={hemmigumm}></img>
+        <img src={hemmigumm} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'steb') {
       player = (
-        <img src={steb}></img>
+        <img src={steb} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'ousic') {
       player = (
-        <img src={ousic}></img>
+        <img src={ousic} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'haxfaðir') {        // Midnight Bulls
       player = (
-        <img src={haxfadir}></img>
+        <img src={haxfadir} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'bobbi') {
       player = (
-        <img src={bobbi}></img>
+        <img src={bobbi} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'toni chris') {
       player = (
-        <img src={toni}></img>
+        <img src={toni} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'dr bamboo') {       // BluelaGOONS
       player = (
-        <img src={drbamboo}></img>
+        <img src={drbamboo} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'curli') {
       player = (
-        <img src={curli}></img>
+        <img src={curli} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'pepsicola.coca') {
       player = (
-        <img src={pepsicola}></img>
+        <img src={pepsicola} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'eagle') {
       player = (
-        <img src={eagle}></img>
+        <img src={eagle} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'alfarinn') {        // BluelaGOONS
       player = (
-        <img src={alfarinn}></img>
+        <img src={alfarinn} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'sizophrenic') {
       player = (
-        <img src={sizo}></img>
+        <img src={sizo} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'handygoon') {
       player = (
-        <img src={handygoon}></img>
+        <img src={handygoon} alt=''></img>
       )
     }
 
     else if (this.props.player.toLowerCase() === 'cereal') {        // 354 esports
       player = (
-        <img src={cereal}></img>
+        <img src={cereal} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'bjarnifraendi') {
       player = (
-        <img src={bjarnifraendi}></img>
+        <img src={bjarnifraendi} alt=''></img>
       )
     }
     else if (this.props.player.toLowerCase() === 'stormur') {
       player = (
-        <img src={stormur}></img>
+        <img src={stormur} alt=''></img>
       )
     }
 
@@ -185,18 +176,18 @@ class PlayerImage extends Component {
       //   )
       // }
       player = (
-            <img src={roadman}></img>
+            <img src={roadman} alt=''></img>
           )
     }
     else if (this.props.player.toLowerCase() === 'gummi') {
       player = (
-        <img src={gummi}></img>
+        <img src={gummi} alt=''></img>
       )
     }
     
     else if (this.props.player.toLowerCase() !== '') {               // Missing
       player = (
-        <img src={silhouette}></img>
+        <img src={silhouette} alt=''></img>
       )
     }
 

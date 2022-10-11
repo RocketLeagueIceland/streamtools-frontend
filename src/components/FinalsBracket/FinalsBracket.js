@@ -20,7 +20,7 @@ class FinalsBracket extends Component {
   }
 
   fetchGamesOnStream = () => {
-    fetch("http://localhost:3002/playoffs")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/playoffs`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -76,7 +76,7 @@ class FinalsBracket extends Component {
         sf2T2W = (<div className={[styles.extra, styles.sf2T2W].join(" ")}></div>)
       }
       if(this.state.bracket.finalTeam1Won){
-        fT1W = (<div className={[styles.extra, styles.fT1W].join(" ")}><img src={F1WinnerExtra}></img></div>)
+        fT1W = (<div className={[styles.extra, styles.fT1W].join(" ")}><img src={F1WinnerExtra} alt=''></img></div>)
       }
       if(this.state.bracket.finalTeam2Won){
         fT2W = (<div className={[styles.extra, styles.fT2W].join(" ")}></div>)
@@ -93,24 +93,24 @@ class FinalsBracket extends Component {
           <div className={styles.round1}>
             <div className={styles.matchup}>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.m11Team1logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.m11Team1logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.m11Team1name}</p>
                 <p className={[styles.TeamScore, styles.UpperScore].join(" ")}>{this.state.bracket.m11Team1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.m11Team2logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.m11Team2logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.m11Team2name}</p>
                 <p className={[styles.TeamScore, styles.LowerScore].join(" ")}>{this.state.bracket.m11Team2Score}</p>
               </div>
             </div>
             <div className={[styles.matchup, styles.secondLine].join(" ")}>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.m12Team1logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.m12Team1logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.m12Team1name}</p>
                 <p className={[styles.TeamScore, styles.UpperScore].join(" ")}>{this.state.bracket.m12Team1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.m12Team2logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.m12Team2logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.m12Team2name}</p>
                 <p className={[styles.TeamScore, styles.LowerScore].join(" ")}>{this.state.bracket.m12Team2Score}</p>
               </div>
@@ -119,24 +119,24 @@ class FinalsBracket extends Component {
           <div className={styles.round2}>
             <div className={styles.matchup}>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.semi1Team1logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.semi1Team1logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.semi1Team1name}</p>
                 <p className={[styles.TeamScore, styles.UpperScore].join(" ")}>{this.state.bracket.semi1Team1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.semi1Team2logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.semi1Team2logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.semi1Team2name}</p>
                 <p className={[styles.TeamScore, styles.LowerScore].join(' ')}>{this.state.bracket.semi1Team2Score}</p>
               </div>
             </div>
             <div className={[styles.matchup, styles.secondColumnSecondLine].join(' ')}>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.semi2Team1logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.semi2Team1logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.semi2Team1name}</p>
                 <p className={[styles.TeamScore, styles.UpperScore].join(' ')}>{this.state.bracket.semi2Team1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={styles.TeamLogo} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.semi2Team2logo} alt=''></img>
+                <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.semi2Team2logo} alt=''></img>
                 <p className={styles.TeamName}>{this.state.bracket.semi2Team2name}</p>
                 <p className={[styles.TeamScore, styles.LowerScore].join(' ')}>{this.state.bracket.semi2Team2Score}</p>
               </div>
@@ -145,24 +145,24 @@ class FinalsBracket extends Component {
           <div className={styles.round3}>
             <div className={styles.matchup}>
               <div className={[styles.teamline, styles.MoreInFront].join(' ')}>
-                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.finalTeam1logo} alt=''></img>
+                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.finalTeam1logo} alt=''></img>
                 <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket.finalTeam1name}</p>
                 <p className={styles.TeamScore}>{this.state.bracket.finalTeam1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.finalTeam2logo} alt=''></img>
+                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.finalTeam2logo} alt=''></img>
                 <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket.finalTeam2name}</p>
                 <p className={styles.TeamScore}>{this.state.bracket.finalTeam2Score}</p>
               </div>
             </div>
             <div className={[styles.matchup, styles.thirdPlace].join(" ")}>
               <div className={styles.teamline}>
-                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.thirdTeam1logo} alt=''></img>
+                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.thirdTeam1logo} alt=''></img>
                 <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket.thirdTeam1name}</p>
                 <p className={styles.TeamScore}>{this.state.bracket.thirdTeam1Score}</p>
               </div>
               <div className={styles.teamline}>
-                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={'http://localhost:3002/images/teamlogos/' + this.state.bracket.thirdTeam2logo} alt=''></img>
+                <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket.thirdTeam2logo} alt=''></img>
                 <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket.thirdTeam2name}</p>
                 <p className={styles.TeamScore}>{this.state.bracket.thirdTeam2Score}</p>
               </div>

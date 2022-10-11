@@ -4,14 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Button from 'react-bootstrap/Button';
 import ToggleButton from 'react-bootstrap/ToggleButton'
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import SelectSearch from 'react-select-search';
 import fuzzySearch from './fuzzySearch';
-
-import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 class FinalsBracketEdit extends Component {
 
@@ -31,7 +25,7 @@ class FinalsBracketEdit extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -46,7 +40,7 @@ class FinalsBracketEdit extends Component {
   }
 
   fetchPlayoffs = () => {
-    fetch("http://localhost:3002/playoffs")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/playoffs`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -61,7 +55,7 @@ class FinalsBracketEdit extends Component {
   }
 
   updatePlayoffs = (body) => {
-    fetch("http://localhost:3002/playoffs", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/playoffs`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

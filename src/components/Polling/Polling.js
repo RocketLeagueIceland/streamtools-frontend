@@ -2,20 +2,6 @@ import React, { Component } from 'react';
 import styles from './Polling.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Button from 'react-bootstrap/Button';
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import SelectSearch from 'react-select-search';
-// import fuzzySearch from './fuzzySearch';
-
-import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd'
-// import { Draggable } from "react-drag-reorder";
-
-
-
 class Polling extends Component {
 
   constructor(props) {
@@ -34,7 +20,7 @@ class Polling extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://192.168.90.102:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +35,7 @@ class Polling extends Component {
   }
 
   fetchPollingStatistics = () => {
-    fetch("http://192.168.90.102:3002/get-poll-statistics")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/get-poll-statistics`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -80,12 +66,12 @@ class Polling extends Component {
           </div>
           <div className={[styles.background, slide].join(' ')}>
             <div className={styles.leftTeam}>
-              <img className={[styles.Logo, styles.leftLogo].join(' ')} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.pollStatistics.team1Logo} alt=''></img>
+              <img className={[styles.Logo, styles.leftLogo].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.pollStatistics.team1Logo}`} alt=''></img>
               {t1Text}
             </div>
             <div className={styles.rightTeam}>
               {t2Text}
-              <img className={[styles.Logo, styles.rightLogo].join(' ')} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.pollStatistics.team2Logo} alt=''></img>
+              <img className={[styles.Logo, styles.rightLogo].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.pollStatistics.team2Logo}`} alt=''></img>
             </div>
           </div>
         </div>

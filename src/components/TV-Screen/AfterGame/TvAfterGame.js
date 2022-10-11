@@ -3,13 +3,6 @@ import styles from './TvAfterGame.module.css'
 import './TvAfterGame.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import SelectSearch from 'react-select-search';
-import fuzzySearch from './fuzzySearch';
-
 class TvAfterGame extends Component {
 
   constructor(props) {
@@ -29,7 +22,7 @@ class TvAfterGame extends Component {
   }
 
   fetchCurrentGame = () => {
-    fetch("http://192.168.90.102:3002/current-game")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-game`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -46,7 +39,7 @@ class TvAfterGame extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://192.168.90.102:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -72,16 +65,9 @@ class TvAfterGame extends Component {
       gamesWon1 = this.state.currentTeams[0].gamesWon
       gamesWon2 = this.state.currentTeams[1].gamesWon
 
-      team1logo = (<img className={styles.logo} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.currentTeams[0].logo} alt='' />)
-      team2logo = (<img className={styles.logo} src={'http://192.168.90.102:3002/images/teamlogos/' + this.state.currentTeams[1].logo} alt='' />)
+      team1logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.currentTeams[0].logo}`} alt='' />)
+      team2logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.currentTeams[1].logo}`} alt='' />)
 
-      const options = this.state.allTeams.map(({
-        id: value,
-        name
-      }) => ({
-        value,
-        name
-      }));
     }
 
     return (

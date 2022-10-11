@@ -13,7 +13,7 @@ class Countdown extends Component {
 
   componentDidMount() {
     setInterval(() => {
-      fetch("http://localhost:3002/")
+      fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/`)
         .then(res => res.json())
         .then(
           (result) => {

@@ -19,7 +19,7 @@ class GamesOnStream extends Component {
   }
 
   fetchGamesOnStream = () => {
-    fetch("http://192.168.90.102:3002/games-on-stream")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/games-on-stream`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -42,7 +42,6 @@ class GamesOnStream extends Component {
 
     let rows = null;
     if (this.state.gamesOnStream && this.state.gamesOnStream.currentdate) {
-      let date = this.state.gamesOnStream.currentdate;
       rows = (
         <div>
           <div className={styles.gameOnStreamContainer}>
@@ -50,11 +49,11 @@ class GamesOnStream extends Component {
               return (
                 <div className={styles.gameOnStreamRowContainer} key={idx}>
                   <div className={styles.gameOnStreamRow}>
-                    <img className={styles.blueLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.blueteamLogo} alt=''></img>
+                    <img className={styles.blueLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${row.blueteamLogo}`} alt=''></img>
                     <p className={styles.blueName}>{row.blueteamName}</p>
                     <p className={styles.time}>{row.time}</p>
                     <p className={styles.orangeName}>{row.orangeteamName}</p>
-                    <img className={styles.orangeLogo} src={'http://192.168.90.102:3002/images/teamlogos/' + row.orangeteamLogo} alt=''></img>
+                    <img className={styles.orangeLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${row.orangeteamLogo}`} alt=''></img>
                   </div>
                 </div>
               );

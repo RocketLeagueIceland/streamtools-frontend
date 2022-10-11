@@ -17,7 +17,7 @@ class NextGame extends Component {
   
   componentDidMount() {
     setInterval(() => {
-      fetch("http://localhost:3002/next-game")
+      fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/next-game`)
         .then(res => res.json())
         .then(
           (result) => {
@@ -46,8 +46,8 @@ class NextGame extends Component {
           <img src={intermissionImage} alt=''/>
           <p className={styles.firstTeamText}>{team1}</p>
           <p className={styles.secondTeamText}>{team2}</p>
-          <img src={'http://localhost:3002/images/teamlogos/'+team1Logo} className={styles.logoImage1} alt=''/>
-          <img src={'http://localhost:3002/images/teamlogos/'+team2Src} className={styles.logoImage2} alt=''/>
+          <img src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/`+team1Logo} className={styles.logoImage1} alt=''/>
+          <img src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/`+team2Src} className={styles.logoImage2} alt=''/>
         </div>
       </div>
     );

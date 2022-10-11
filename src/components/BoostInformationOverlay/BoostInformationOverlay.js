@@ -140,7 +140,7 @@ class BoostInformationOverlay extends Component {
             console.warn("To use filters, pass in an array of 'channel:event' strings to the second parameter of the init function");
           }
         }
-        this.WsSubscribers.webSocket = new WebSocket("ws://192.168.90.102:" + port);
+        this.WsSubscribers.webSocket = new WebSocket(`ws://${process.env.REACT_APP_HOST_IP}:${port}`);
         this.WsSubscribers.webSocket.onmessage = (event) => {
           let jEvent = JSON.parse(event.data);
           if (!jEvent.hasOwnProperty('event')) {
@@ -463,7 +463,7 @@ class BoostInformationOverlay extends Component {
 
     let currentReplayAssistInfo = this.state.goalInfo.assister.name === '' ? null : (
       <div className={styles.replayStatItem}>
-        <img src={assistsImage}></img>
+        <img src={assistsImage} alt=''></img>
         {/* <p>mediuMReyr</p> */}
         <p>{this.state.goalInfo.assister.name}</p>
       </div>
@@ -480,7 +480,7 @@ class BoostInformationOverlay extends Component {
           </div>
           <div className={styles.replayStatContainer}>
             <div className={styles.replayStatItem}>
-              <img src={speedImage}></img>
+              <img src={speedImage} alt=''></img>
               <p>{this.state.goalInfo.goalspeed.toFixed(1)} km/h</p>
             </div>
             {currentReplayAssistInfo}
@@ -533,23 +533,23 @@ class BoostInformationOverlay extends Component {
             </div>
             <div className={styles.statContainer}>
               <div className={styles.statItem}>
-                <img src={goalImage}></img>
+                <img src={goalImage} alt=''></img>
                 <p>{currentPlayer.goals}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={assistImage}></img>
+                <img src={assistImage} alt=''></img>
                 <p>{currentPlayer.assists}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={saveImage}></img>
+                <img src={saveImage} alt=''></img>
                 <p>{currentPlayer.saves}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={demoImage}></img>
+                <img src={demoImage} alt=''></img>
                 <p>{currentPlayer.demos}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={shotImage}></img>
+                <img src={shotImage} alt=''></img>
                 <p>{currentPlayer.shots}</p>
               </div>
             </div>

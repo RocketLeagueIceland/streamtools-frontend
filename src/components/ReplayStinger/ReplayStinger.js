@@ -121,7 +121,7 @@ class ReplayStinger extends Component {
             console.warn("To use filters, pass in an array of 'channel:event' strings to the second parameter of the init function");
           }
         }
-        this.WsSubscribers.webSocket = new WebSocket("ws://localhost:" + port);
+        this.WsSubscribers.webSocket = new WebSocket(`ws://${process.env.REACT_APP_HOST_IP}:` + port);
         this.WsSubscribers.webSocket.onmessage = (event) => {
           let jEvent = JSON.parse(event.data);
           if (!jEvent.hasOwnProperty('event')) {

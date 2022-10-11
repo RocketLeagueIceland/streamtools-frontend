@@ -20,7 +20,7 @@ class ResetButton extends Component {
   
     this.resetTimer = () => {
       (async () => {
-        fetch('http://localhost:3002/', {
+        fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/`, {
           method: 'POST',
           headers: {
             'Accept': 'application/json',

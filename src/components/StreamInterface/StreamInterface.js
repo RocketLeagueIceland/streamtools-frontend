@@ -4,10 +4,8 @@ import './StreamInterface.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Button from 'react-bootstrap/Button';
-import ToggleButton from 'react-bootstrap/ToggleButton'
 import Form from 'react-bootstrap/Form'
 import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
 import BootstrapSwitchButton from 'bootstrap-switch-button-react'
 import SelectSearch from 'react-select-search';
 import fuzzySearch from './fuzzySearch';
@@ -224,7 +222,7 @@ class StreamInterface extends Component {
             console.warn("To use filters, pass in an array of 'channel:event' strings to the second parameter of the init function");
           }
         }
-        this.WsSubscribers.webSocket = new WebSocket("ws://192.168.90.102:" + port);
+        this.WsSubscribers.webSocket = new WebSocket(`ws://${process.env.REACT_APP_HOST_IP}:${port}`);
         this.WsSubscribers.webSocket.onmessage = (event) => {
           let jEvent = JSON.parse(event.data);
           if (!jEvent.hasOwnProperty('event')) {
@@ -333,7 +331,7 @@ class StreamInterface extends Component {
 
 
   componentDidMount() {
-    fetch("http://localhost:3002/current-game")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-game`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -353,7 +351,7 @@ class StreamInterface extends Component {
         }
       )
 
-    fetch("http://localhost:3002/scoreboard")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/scoreboard`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -507,7 +505,7 @@ class StreamInterface extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://localhost:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -522,7 +520,7 @@ class StreamInterface extends Component {
   }
 
   updateCurrentGameBackend = (body) => {
-    fetch("http://localhost:3002/current-game", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-game`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -537,7 +535,7 @@ class StreamInterface extends Component {
   }
 
   fetchPollingData = () => {
-    fetch("http://localhost:3002/get-poll-statistics")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/get-poll-statistics`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -696,7 +694,7 @@ class StreamInterface extends Component {
   swapTeams = () => {
     let teams = this.state.currentTeams.reverse()
 
-    fetch("http://localhost:3002/swap-current-teams", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/swap-current-teams`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -769,7 +767,7 @@ class StreamInterface extends Component {
       this.state.orangePlayer2,
       this.state.orangePlayer3,
     ];
-    fetch("http://localhost:3002/scoreboard", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/scoreboard`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -795,7 +793,7 @@ class StreamInterface extends Component {
   }
 
   resetScoreboard = () => {
-    fetch("http://localhost:3002/reset-scoreboard", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/reset-scoreboard`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -918,7 +916,7 @@ class StreamInterface extends Component {
       team2hash: '#'+this.state.pollingData.team2hash,
       team2Id: this.state.pollingData.team2Id
     }
-    fetch("http://localhost:3002/create-new-poll", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/create-new-poll`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -933,7 +931,7 @@ class StreamInterface extends Component {
   }
 
   startPoll = () => {
-    fetch("http://localhost:3002/start-poll", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/start-poll`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -943,7 +941,7 @@ class StreamInterface extends Component {
   }
 
   stopPoll = () => {
-    fetch("http://localhost:3002/stop-poll", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/stop-poll`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -953,7 +951,7 @@ class StreamInterface extends Component {
   }
 
   showPoll = () => {
-    fetch("http://localhost:3002/show-poll", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/show-poll`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -963,7 +961,7 @@ class StreamInterface extends Component {
   }
 
   hidePoll = () => {
-    fetch("http://localhost:3002/hide-poll", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/hide-poll`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -973,7 +971,7 @@ class StreamInterface extends Component {
   }
 
   showPollResults = () => {
-    fetch("http://localhost:3002/show-poll-statistics", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/show-poll-statistics`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -983,7 +981,7 @@ class StreamInterface extends Component {
   }
 
   hidePollResults = () => {
-    fetch("http://localhost:3002/hide-poll-statistics", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/hide-poll-statistics`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -1013,8 +1011,8 @@ class StreamInterface extends Component {
       gamesWon1 = this.state.currentTeams[0].gamesWon
       gamesWon2 = this.state.currentTeams[1].gamesWon
 
-      team1logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.currentTeams[0].logo} alt='' />)
-      team2logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.currentTeams[1].logo} alt='' />)
+      team1logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.currentTeams[0].logo} alt='' />)
+      team2logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.currentTeams[1].logo} alt='' />)
 
       const options = this.state.allTeams.map(({
         id: value,
@@ -1058,8 +1056,8 @@ class StreamInterface extends Component {
 
     if (this.state.allTeams.length > 0) {
 
-      teamPolling1logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.pollingData.team1Logo} alt='' />)
-      teamPolling2logo = (<img className={styles.logo} src={'http://localhost:3002/images/teamlogos/' + this.state.pollingData.team2Logo} alt='' />)
+      teamPolling1logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.pollingData.team1Logo} alt='' />)
+      teamPolling2logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.pollingData.team2Logo} alt='' />)
 
       const options = this.state.allTeams.map(({
         id: value,

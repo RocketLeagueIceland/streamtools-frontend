@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 import styles from './CurrentStanding.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import Button from 'react-bootstrap/Button';
-import ToggleButton from 'react-bootstrap/ToggleButton'
-import Form from 'react-bootstrap/Form'
-import Dropdown from 'react-bootstrap/Dropdown'
-import Table from 'react-bootstrap/Table'
-import BootstrapSwitchButton from 'bootstrap-switch-button-react'
-import SelectSearch from 'react-select-search';
-// import fuzzySearch from './fuzzySearch';
-
-import { Draggable, DragDropContext, Droppable } from 'react-beautiful-dnd'
-// import { Draggable } from "react-drag-reorder";
+import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 
 
 
@@ -34,7 +24,7 @@ class CurrentStanding extends Component {
   }
 
   fetchTeams = () => {
-    fetch("http://192.168.90.102:3002/teams")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/teams`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -49,7 +39,7 @@ class CurrentStanding extends Component {
   }
 
   fetchCurrentStanding = () => {
-    fetch("http://192.168.90.102:3002/current-standing")
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-standing`)
       .then(res => res.json())
       .then(
         (result) => {
@@ -77,7 +67,7 @@ class CurrentStanding extends Component {
                   return (
                     <div key={idx}>
                       <div className={styles.StandingsRow}>
-                        <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + standing.logo} alt=''></img>
+                        <img className={styles.Logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + standing.logo} alt=''></img>
                         <p className={styles.pname}>{standing.name}</p>
                         <p className={styles.pplayed}>{standing.played}</p>
                         <p className={styles.pwon}>{standing.won}</p>
@@ -103,19 +93,6 @@ class CurrentStanding extends Component {
       </div>
     );
   }
-}
-
-const standingRow = (props) => {
-  <div className={styles.StandingsRow}>
-    <img className={styles.Logo} src={'http://192.168.90.102:3002/images/teamlogos/' + props.logo} alt=''></img>
-    <p>{props.standing.name}</p>
-    <p>{props.standing.played}</p>
-    <p>{props.standing.won}</p>
-    <p>{props.standing.lost}</p>
-    <p>{props.standing.gameswon}</p>
-    <p>{props.standing.gameslost}</p>
-    <p>{props.standing.points}</p>
-  </div>
 }
 
 export default CurrentStanding;

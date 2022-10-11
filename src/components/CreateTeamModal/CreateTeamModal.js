@@ -28,7 +28,7 @@ class CreateTeamModal extends Component {
     data.append('teamName', this.state.createTeamName);
     data.append('acro', this.state.acro)
 
-    fetch("http://localhost:3002/create-team", {
+    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/create-team`, {
       method: 'POST',
       body: data
     })
