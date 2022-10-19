@@ -1,0 +1,190 @@
+.Container{
+  background-image: url(../../assets/images/PostGameScreen.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+  z-index: -2 ;
+  font-family: "LEMONMILKREGULAR";
+  font-size: 24px;
+  font-weight: 300;
+  color: white;
+}
+
+.logo {
+  opacity: 0.33;
+  position: absolute;
+  z-index: -1 ;
+  box-sizing: border-box;
+  max-width:370px;
+  max-height:370px;
+  width: auto;
+  height: auto;
+}
+
+.LeftLogo {
+  top: 118px;
+  left: 302px;
+}
+
+.RightLogo {
+  top: 118px;
+  left: 1267px;
+}
+
+.ScoreBoardContainer{
+  display: flex;
+}
+
+.LeftContainer{
+  margin-top: 201px;
+  margin-left: 154px;
+  width: 657px;
+}
+
+.MiddleContainer{
+  width: 310px;
+}
+
+.RightContainer{
+  margin-top: 201px;
+  width: 657px;
+}
+
+.PlayerImageRow{
+  display: flex;
+  align-items: center;
+  width: 218.5px;
+}
+
+.PlayerRow{
+  display: flex;
+  align-items: center;
+  padding-top: 16px;
+  width: 657px;
+  height: 56.5px;
+}
+
+.PlayerRow p{
+  width: 219px;
+  text-align: center;
+}
+
+.Score{
+  width: 310px;
+  margin-top: 435px;
+  display: flex;
+  justify-content: center;
+  font-size: 70px;
+  margin-bottom: -12px;
+}
+
+.Score p{
+  width: 155px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  font-size: 70px;
+}
+
+.RecRatio{
+  margin-right: -1px;
+  display: flex;
+  align-items: flex-end;
+  height: 56.5px;
+}
+
+.BlueRec{
+  height: 13px;
+  width: 154px;
+  /* background: linear-gradient(90deg, rgba(30,44,74,1) 0%, rgba(46,67,113,1) 94%, rgba(63,93,156,1) 100%); */
+  background-image: linear-gradient(
+    90deg,
+    hsl(221deg 42% 20%) 42%,
+    hsl(221deg 42% 22%) 75%,
+    hsl(221deg 42% 24%) 84%,
+    hsl(221deg 42% 26%) 88%,
+    hsl(221deg 42% 28%) 90%,
+    hsl(221deg 43% 30%) 92%,
+    hsl(221deg 43% 32%) 93%,
+    hsl(221deg 43% 34%) 94%,
+    hsl(221deg 43% 36%) 95%,
+    hsl(221deg 43% 39%) 97%,
+    hsl(221deg 42% 41%) 98%,
+    hsl(221deg 42% 43%) 100%
+  );
+}
+
+.WhiteBox{
+  height: 13px;
+  width: 2px;
+  background-color: white;
+}
+
+.RedRec{ 
+  height: 13px;
+  width: 154px;
+  background-image: linear-gradient(
+    90deg,
+    hsl(3deg 74% 52%) 0%,
+    hsl(3deg 70% 49%) 2%,
+    hsl(3deg 70% 46%) 3%,
+    hsl(3deg 71% 43%) 5%,
+    hsl(3deg 71% 41%) 6%,
+    hsl(3deg 71% 38%) 8%,
+    hsl(3deg 72% 35%) 11%,
+    hsl(3deg 73% 33%) 16%,
+    hsl(3deg 73% 30%) 27%,
+    hsl(3deg 74% 27%) 68%
+  );
+}
+
+.PossessionContainer{
+  display: flex;
+  justify-content: center;
+
+}
+
+.PossessionRatio{
+  margin-top: 100px;
+  display: flex;
+  border: 1px solid #eeeeee;
+}
+
+.BluePossessionRec{
+  height: 13px;
+  width: 258px;
+  /* background: linear-gradient(90deg, rgba(30,44,74,1) 0%, rgba(46,67,113,1) 94%, rgba(63,93,156,1) 100%); */
+  background-image: linear-gradient(
+    90deg,
+    hsl(221deg 42% 20%) 42%,
+    hsl(221deg 42% 22%) 75%,
+    hsl(221deg 42% 24%) 84%,
+    hsl(221deg 42% 26%) 88%,
+    hsl(221deg 42% 28%) 90%,
+    hsl(221deg 43% 30%) 92%,
+    hsl(221deg 43% 32%) 93%,
+    hsl(221deg 43% 34%) 94%,
+    hsl(221deg 43% 36%) 95%,
+    hsl(221deg 43% 39%) 97%,
+    hsl(221deg 42% 41%) 98%,
+    hsl(221deg 42% 43%) 100%
+  );
+}
+
+.RedPossessionRec{
+  height: 13px;
+  width: 258px;
+  background-image: linear-gradient(
+    90deg,
+    hsl(3deg 74% 52%) 0%,
+    hsl(3deg 70% 49%) 2%,
+    hsl(3deg 70% 46%) 3%,
+    hsl(3deg 71% 43%) 5%,
+    hsl(3deg 71% 41%) 6%,
+    hsl(3deg 71% 38%) 8%,
+    hsl(3deg 72% 35%) 11%,
+    hsl(3deg 73% 33%) 16%,
+    hsl(3deg 73% 30%) 27%,
+    hsl(3deg 74% 27%) 68%
+  );
+}

@@ -17,6 +17,7 @@ import TvAfterGame from './components/TV-Screen/AfterGame/TvAfterGame';
 import TvBeforeGame from './components/TV-Screen/BeforeGame/TvBeforeGame';
 import TvBeforeGameEdit from './components/TV-Screen/BeforeGameEdit/TvBeforeGameEdit';
 import Polling from './components/Polling/Polling';
+import PostGameScreen from './components/PostGameScreen/PostGameScreen';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/games-on-stream" exact component={GamesOnStream} />
         <Route path="/games-on-stream-edit" exact component={GamesOnStreamEdit} />
 
+        <Route path="/post-game-screen" exact component={PostGameScreen} />
         <Route path="/polling-results" exact component={Polling} />
         <Route path="/ingame-overlay" exact component={IngameOverlay} />
         <Route path="/next-game" exact component={NextGame} />

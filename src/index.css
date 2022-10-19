@@ -1,91 +1,11 @@
-/* @font-face {
-  font-family: 'digital-7';
-  src: url('./assets/fonts/digital-7/digital-7.ttf') format('truetype');
-} */
-
 @font-face {
   font-family: 'LEMONMILK';
   src: url('./assets/fonts/LEMONMILK-Medium.otf') format('opentype');
 }
 
 @font-face {
-  font-family: 'MontBlack';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Black.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontBlackItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Black-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontBold';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontBoldItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Bold-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontExtraLight';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-ExtraLight.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontExtraLightItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-ExtraLight-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontHeavy';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Heavy.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontHeavyItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Heavy-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontLight';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Light.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontLightItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Light-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontRegular';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontRegularItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Regular-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontSemiBold';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-SemiBold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontSemiBoldItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-SemiBold-Italic.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontThin';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Thin.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'MontThinItalic';
-  src: url('./assets/fonts/mont/Fontfabric---Mont-Thin-Italic.otf') format('opentype');
+  font-family: 'LEMONMILKREGULAR';
+  src: url('./assets/fonts/lemon_milk/LEMONMILK-Regular.otf') format('opentype');
 }
 
 body {

@@ -36,6 +36,11 @@ class StreamInterface extends Component {
 
       showCreateModal: false,
 
+      // perhaps this can be outside of state actually
+      matchInitialized: false,
+      matchEnded: false,
+
+
       pollingData: {
         team1Id: 1,
         team1hash: 'KR',
@@ -61,6 +66,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
       bluePlayer2: {
         id: '',
@@ -75,6 +81,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
       bluePlayer3: {
         id: '',
@@ -89,6 +96,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
       orangePlayer1: {
         id: '',
@@ -103,6 +111,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
       orangePlayer2: {
         id: '',
@@ -117,6 +126,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
       orangePlayer3: {
         id: '',
@@ -131,6 +141,7 @@ class StreamInterface extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        totalBoost: 0,
       },
 
       scoreboard: [
@@ -205,6 +216,13 @@ class StreamInterface extends Component {
 
       match_guid: '',
     };
+
+    this.bluePlayer1BoostUsed = 0;
+    this.bluePlayer2BoostUsed = 0;
+    this.bluePlayer3BoostUsed = 0;
+    this.orangePlayer1BoostUsed = 0;
+    this.orangePlayer2BoostUsed = 0;
+    this.orangePlayer3BoostUsed = 0;
 
     this.WsSubscribers = {
       __subscribers: {},
@@ -351,19 +369,6 @@ class StreamInterface extends Component {
         }
       )
 
-    fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/scoreboard`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            scoreboard: result.scoreboard
-          });
-        },
-        (error) => {
-
-        }
-      )
-
     this.fetchTeams()
 
     this.fetchPollingData()
@@ -383,6 +388,35 @@ class StreamInterface extends Component {
         const orangePlayers = playersArray.filter((p) => {
           return p.team === 1;
         });
+        let bluePlayer1BoostUsed = this.state.bluePlayer1.totalBoost;
+        let bluePlayer2BoostUsed = this.state.bluePlayer2.totalBoost;
+        let bluePlayer3BoostUsed = this.state.bluePlayer3.totalBoost;
+        let orangePlayer1BoostUsed = this.state.orangePlayer1.totalBoost;
+        let orangePlayer2BoostUsed = this.state.orangePlayer2.totalBoost;
+        let orangePlayer3BoostUsed = this.state.orangePlayer3.totalBoost;
+
+        if (!bluePlayers[0]['hasCar']) { bluePlayers[0]['boost'] = 33 }
+        if (!bluePlayers[1]['hasCar']) { bluePlayers[1]['boost'] = 33 }
+        if (!bluePlayers[2]['hasCar']) { bluePlayers[2]['boost'] = 33 }
+        if (!orangePlayers[0]['hasCar']) { orangePlayers[0]['boost'] = 33 }
+        if (!orangePlayers[1]['hasCar']) { orangePlayers[1]['boost'] = 33 }
+        if (!orangePlayers[2]['hasCar']) { orangePlayers[2]['boost'] = 33 }
+        if (game.isReplay) {
+          bluePlayers[0]['boost'] = 33
+          bluePlayers[1]['boost'] = 33
+          bluePlayers[2]['boost'] = 33
+          orangePlayers[0]['boost'] = 33
+          orangePlayers[1]['boost'] = 33
+          orangePlayers[2]['boost'] = 33
+        }
+        else {
+          if (this.state.bluePlayer1.boost > bluePlayers[0]['boost']) { bluePlayer1BoostUsed += this.state.bluePlayer1.boost - bluePlayers[0]['boost'] }
+          if (this.state.bluePlayer2.boost > bluePlayers[1]['boost']) { bluePlayer2BoostUsed += this.state.bluePlayer2.boost - bluePlayers[1]['boost'] }
+          if (this.state.bluePlayer3.boost > bluePlayers[2]['boost']) { bluePlayer3BoostUsed += this.state.bluePlayer3.boost - bluePlayers[2]['boost'] }
+          if (this.state.orangePlayer1.boost > orangePlayers[0]['boost']) { orangePlayer1BoostUsed += this.state.orangePlayer1.boost - orangePlayers[0]['boost'] }
+          if (this.state.orangePlayer2.boost > orangePlayers[1]['boost']) { orangePlayer2BoostUsed += this.state.orangePlayer2.boost - orangePlayers[1]['boost'] }
+          if (this.state.orangePlayer3.boost > orangePlayers[2]['boost']) { orangePlayer3BoostUsed += this.state.orangePlayer3.boost - orangePlayers[2]['boost'] }
+        }
 
         this.setState({
           bluePlayer1: {
@@ -398,6 +432,7 @@ class StreamInterface extends Component {
             touches: bluePlayers[0]['touches'],
             cartouches: bluePlayers[0]['cartouches'],
             score: bluePlayers[0]['score'],
+            totalBoost: bluePlayer1BoostUsed,
           },
           bluePlayer2: {
             id: bluePlayers[1]['id'],
@@ -412,6 +447,7 @@ class StreamInterface extends Component {
             touches: bluePlayers[1]['touches'],
             cartouches: bluePlayers[1]['cartouches'],
             score: bluePlayers[1]['score'],
+            totalBoost: bluePlayer2BoostUsed,
           },
           bluePlayer3: {
             id: bluePlayers[2]['id'],
@@ -426,6 +462,7 @@ class StreamInterface extends Component {
             touches: bluePlayers[2]['touches'],
             cartouches: bluePlayers[2]['cartouches'],
             score: bluePlayers[2]['score'],
+            totalBoost: bluePlayer3BoostUsed,
           },
           orangePlayer1: {
             id: orangePlayers[0]['id'],
@@ -440,6 +477,7 @@ class StreamInterface extends Component {
             touches: orangePlayers[0]['touches'],
             cartouches: orangePlayers[0]['cartouches'],
             score: orangePlayers[0]['score'],
+            totalBoost: orangePlayer1BoostUsed,
           },
           orangePlayer2: {
             id: orangePlayers[1]['id'],
@@ -454,6 +492,7 @@ class StreamInterface extends Component {
             touches: orangePlayers[1]['touches'],
             cartouches: orangePlayers[1]['cartouches'],
             score: orangePlayers[1]['score'],
+            totalBoost: orangePlayer2BoostUsed,
           },
           orangePlayer3: {
             id: orangePlayers[2]['id'],
@@ -468,6 +507,7 @@ class StreamInterface extends Component {
             touches: orangePlayers[2]['touches'],
             cartouches: orangePlayers[2]['cartouches'],
             score: orangePlayers[2]['score'],
+            totalBoost: orangePlayer3BoostUsed,
           },
 
           blueTeamScore: 0,
@@ -488,17 +528,116 @@ class StreamInterface extends Component {
     });
 
     this.WsSubscribers.subscribe("game", "match_ended", (d) => {
-      if (this.state.automaticSaveScoreboard) {
+      if (!this.state.matchEnded) {
         console.log('match ended...');
         this.saveScoreboard();
         this.hideOverlay();
+        this.setState({
+          match_ended: true,
+          matchInitialized: false,
+
+          bluePlayer1: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          },
+          bluePlayer2: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          },
+          bluePlayer3: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          },
+          orangePlayer1: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          },
+          orangePlayer2: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          },
+          orangePlayer3: {
+            id: '',
+            name: '',
+            boost: 0,
+            assists: 0,
+            demos: 0,
+            goals: 0,
+            saves: 0,
+            shots: 0,
+            speed: 0,
+            touches: 0,
+            cartouches: 0,
+            score: 0,
+            totalBoost: 0,
+          }
+        });
       }
     });
 
     this.WsSubscribers.subscribe("game", "initialized", (d) => {
-      if (this.state.automaticSaveScoreboard) {
+      if (!this.state.matchInitialized) {
         console.log('match initialized...');
         this.showOverlay();
+        this.setState({
+          match_ended: false,
+          matchInitialized: true
+        });
       }
     });
 
@@ -759,7 +898,7 @@ class StreamInterface extends Component {
   }
 
   saveScoreboard = () => {
-    let gameinfo = [
+    let players = [
       this.state.bluePlayer1,
       this.state.bluePlayer2,
       this.state.bluePlayer3,
@@ -767,29 +906,18 @@ class StreamInterface extends Component {
       this.state.orangePlayer2,
       this.state.orangePlayer3,
     ];
+    let ts = new Date();
+    console.log(ts.toISOString().split('.')[0].replace(/:/g, ''))
+    console.log('saving scoreboard')
     fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/scoreboard`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(gameinfo)
+      body: JSON.stringify(players)
     })
 
-    let scoreboard = [...this.state.scoreboard]
-    for (let i = 0; i < 6; i++) {
-      scoreboard[i].id = gameinfo[i].id
-      scoreboard[i].name = gameinfo[i].name
-      scoreboard[i].assists += gameinfo[i].assists
-      scoreboard[i].demos += gameinfo[i].demos
-      scoreboard[i].goals += gameinfo[i].goals
-      scoreboard[i].saves += gameinfo[i].saves
-      scoreboard[i].shots += gameinfo[i].shots
-      scoreboard[i].touches += gameinfo[i].touches
-      scoreboard[i].cartouches += gameinfo[i].cartouches
-      scoreboard[i].score += gameinfo[i].score
-    }
-
-    this.setState({ scoreboard: scoreboard })
+    // Clean up work
   }
 
   resetScoreboard = () => {
@@ -911,9 +1039,9 @@ class StreamInterface extends Component {
 
   createPoll = () => {
     let body = {
-      team1hash: '#'+this.state.pollingData.team1hash,
+      team1hash: '#' + this.state.pollingData.team1hash,
       team1Id: this.state.pollingData.team1Id,
-      team2hash: '#'+this.state.pollingData.team2hash,
+      team2hash: '#' + this.state.pollingData.team2hash,
       team2Id: this.state.pollingData.team2Id
     }
     fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/create-new-poll`, {

@@ -52,11 +52,6 @@ class PlayerImage extends Component {
         <img src={bnz} alt=''></img>
       )
     }
-    else if (this.props.player.toLowerCase() === 'cynical') {
-      player = (
-        <img src={silhouette} alt=''></img>
-      )
-    }
 
     else if (this.props.player.toLowerCase() === 'smushball') {       // Breiðablik
       player = (
