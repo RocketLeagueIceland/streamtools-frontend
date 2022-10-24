@@ -381,6 +381,10 @@ class BoostInformationOverlay extends Component {
 
   }
 
+  truncate(str, n) {
+    return (str.length > n) ? str.slice(0, n-1) + '&hellip;' : str;
+  };
+
   render() {
 
     let currentPlayer = {
@@ -528,7 +532,7 @@ class BoostInformationOverlay extends Component {
           <div className={styles.CurrentPlayerContainer} style={CurrentPlayerContainerStyle}>
             <div>
               <div className={styles.CurrentTargetText}>
-                <p>{currentPlayer.name}</p>
+                <p>{this.truncate(currentPlayer.name, 13)}</p>
               </div>
             </div>
             <div className={styles.statContainer}>
