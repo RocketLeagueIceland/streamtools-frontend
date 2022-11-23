@@ -35,6 +35,9 @@ import haxfadir from '../../assets/images/PlayerImages/haxfadir.png'
 import bobbi from '../../assets/images/PlayerImages/bobbi.png'
 import toni from '../../assets/images/PlayerImages/tonichris.png'
 
+import stuttbuxur from '../../assets/images/PlayerImages/stuttbuxur.png'
+import slapi from '../../assets/images/PlayerImages/slapi.png'
+
 import silhouette from '../../assets/images/PlayerImages/silhouette.png'
 
 class PlayerImage extends Component {
@@ -177,6 +180,17 @@ class PlayerImage extends Component {
     else if (this.props.player.toLowerCase() === 'gummi') {
       player = (
         <img src={gummi} alt=''></img>
+      )
+    }
+
+    else if (this.props.player.toLowerCase() === 'slapi36') {
+      player = (
+        <img src={slapi} alt=''></img>
+      )
+    }
+    else if (this.props.player.toLowerCase() === 'stuttbuxur') {
+      player = (
+        <img src={stuttbuxur} alt=''></img>
       )
     }
     

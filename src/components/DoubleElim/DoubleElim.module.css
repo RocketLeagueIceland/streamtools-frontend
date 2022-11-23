@@ -1,0 +1,136 @@
+.background {
+  background-image: url(../../assets/images/Double-Elim.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  color: white;
+  padding-top: 200px;
+}
+
+.extra {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 1920px;
+}
+
+.teamline {
+  height: 54px;
+  display: flex;
+}
+
+.secondLine {
+  padding-top: 38px;
+}
+
+.secondColumnSecondLine {
+  padding-top: 36px;
+}
+
+.thirdPlace {
+  padding-top: 87px;
+}
+
+.bracket {
+  display: flex;
+  height: 800px;
+}
+
+.round1 {
+  margin-right: 2px;
+  margin-left: 115px;
+}
+
+.round2 {
+  margin-right: -3px;
+  margin-left: 92px;
+}
+
+.round3 {
+  margin-right: 3px;
+  margin-left: 92px;
+}
+
+.round4 {
+  margin-right: 3px;
+  margin-left: 81px;
+}
+
+.matchup {
+  margin-top: 46px;
+}
+
+.TeamLogo {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.TeamName {
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  width: 210px;
+  padding-top: 7px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.TeamScore {
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  width: 55px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.UpperScore{
+  margin-top: -20px;
+}
+.LowerScore{
+  margin-top: 15px;
+}
+
+.GrandUpperScore{
+  margin-top: -2px;
+}
+
+.GrandLowerScore{
+  margin-top: -3px;
+}
+
+.MoreInFront {
+  z-index: 3;
+}
+
+.wb11T1W { background-image: url(../../assets/images/DoubleElimExtra/WB11-T1-Winner.png); }
+.wb11T2W { background-image: url(../../assets/images/DoubleElimExtra/WB11-T2-Winner.png); }
+.wb12T1W { background-image: url(../../assets/images/DoubleElimExtra/WB12-T1-Winner.png); }
+.wb12T2W { background-image: url(../../assets/images/DoubleElimExtra/WB12-T2-Winner.png); }
+
+.wb21T1W { background-image: url(../../assets/images/DoubleElimExtra/WB21-T1-Winner.png); }
+.wb21T2W { background-image: url(../../assets/images/DoubleElimExtra/WB21-T2-Winner.png); }
+.wb22T1W { background-image: url(../../assets/images/DoubleElimExtra/WB22-T1-Winner.png); }
+.wb22T2W { background-image: url(../../assets/images/DoubleElimExtra/WB22-T2-Winner.png); }
+
+.wbFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/WBFinals-T1-Winner.png); }
+.wbFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/WBFinals-T2-Winner.png); }
+
+.lb11T1W { background-image: url(../../assets/images/DoubleElimExtra/LB11-T1-Winner.png); }
+.lb11T2W { background-image: url(../../assets/images/DoubleElimExtra/LB11-T2-Winner.png); }
+.lb12T1W { background-image: url(../../assets/images/DoubleElimExtra/LB12-T1-Winner.png); }
+.lb12T2W { background-image: url(../../assets/images/DoubleElimExtra/LB12-T2-Winner.png); }
+.lb21T1W { background-image: url(../../assets/images/DoubleElimExtra/LB21-T1-Winner.png); }
+.lb21T2W { background-image: url(../../assets/images/DoubleElimExtra/LB21-T2-Winner.png); }
+
+.lbFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/LBFinals-T1-Winner.png); }
+.lbFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/LBFinals-T2-Winner.png); }
+
+.GrandFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T1-Winner.png); }
+.GrandFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T2-Winner.png); }

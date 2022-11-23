@@ -1,0 +1,173 @@
+.background {
+  background-image: url(../../assets/images/Finals-Bracket.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+
+  font-family: "LEMONMILK";
+  font-size: 35px;
+  color: white;
+  padding-top: 200px;
+}
+
+.extra {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 1920px;
+  background-image: url(../../assets/images/FinalsExtra/QF1-1-Winner.png);
+}
+
+.teamline {
+  height: 83px;
+  display: flex;
+}
+
+.secondLine {
+  padding-top: 38px;
+}
+
+.secondColumnSecondLine {
+  padding-top: 36px;
+}
+
+.thirdPlace {
+  padding-top: 87px;
+}
+
+.bracket {
+  display: flex;
+  height: 800px;
+}
+
+
+.TeamName {
+  font-family: "LEMONMILK";
+  font-size: 35px;
+  width: 325px;
+  padding-top: 10px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.background input[type="text"]
+{
+    background: transparent;
+    border: none;
+    width: 60px;
+    text-align: center;
+    color: white;
+}
+
+.background {
+  background-image: url(../../assets/images/Double-Elim.png);
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 1920px;
+
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  color: white;
+  padding-top: 200px;
+}
+
+.extra {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  height: 100vh;
+  width: 1920px;
+}
+
+.teamline {
+  height: 54px;
+  display: flex;
+}
+
+.secondLine {
+  padding-top: 38px;
+}
+
+.secondColumnSecondLine {
+  padding-top: 36px;
+}
+
+.thirdPlace {
+  padding-top: 87px;
+}
+
+.bracket {
+  display: flex;
+  height: 800px;
+}
+
+.round1 {
+  margin-right: 2px;
+  margin-left: 55px;
+}
+
+.round2 {
+  margin-right: -3px;
+  margin-left: 32px;
+}
+
+.round3 {
+  margin-right: 3px;
+  margin-left: 22px;
+}
+
+.round4 {
+  margin-right: 3px;
+  margin-left: px;
+}
+
+.matchup {
+  margin-top: 46px;
+}
+
+.TeamLogo {
+  height: 35px;
+  width: 35px;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.TeamName {
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  width: 210px;
+  padding-top: 7px;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.TeamScore {
+  font-family: "LEMONMILK";
+  font-size: 23px;
+  width: 55px;
+  padding-top: 10px;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.UpperScore{
+  margin-top: -20px;
+}
+.LowerScore{
+  margin-top: 15px;
+}
+
+.GrandUpperScore{
+  margin-top: -2px;
+}
+
+.GrandLowerScore{
+  margin-top: -3px;
+}
+
+.MoreInFront {
+  z-index: 3;
+}
