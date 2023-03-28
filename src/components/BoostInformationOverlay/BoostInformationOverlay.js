@@ -382,7 +382,7 @@ class BoostInformationOverlay extends Component {
   }
 
   truncate(str, n) {
-    return (str.length > n) ? str.slice(0, n-1) + '&hellip;' : str;
+    return (str.length > n) ? str.slice(0, n-1) : str;
   };
 
   render() {
@@ -479,7 +479,8 @@ class BoostInformationOverlay extends Component {
           <div>
             <div className={styles.CurrentTargetText}>
               {/* <p>mediuMReyr Skorar</p> */}
-              <p>{this.state.goalInfo.scorer.name} Skorar</p>
+              {/* <p>{this.state.goalInfo.scorer.name} Skorar</p> */}
+              <p>{this.state.goalInfo.scorer.name.length > 12 ? this.state.goalInfo.scorer.name.substr(0, 12) : this.state.goalInfo.scorer.name} Skorar</p>
             </div>
           </div>
           <div className={styles.replayStatContainer}>

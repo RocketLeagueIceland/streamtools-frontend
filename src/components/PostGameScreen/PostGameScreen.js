@@ -95,12 +95,12 @@ class PostGameScreen extends Component {
   blueGoalWidth = () => {
     return this.state.scoreboard.blueScore + this.state.scoreboard.redScore === 0
       ? 154
-      : 308 * this.state.scoreboard.blueScore / this.state.scoreboard.blueScore + this.state.scoreboard.redScore;
+      : 308 * this.state.scoreboard.blueScore / (this.state.scoreboard.blueScore + this.state.scoreboard.redScore);
   }
   redGoalWidth = () => {
     return this.state.scoreboard.blueScore + this.state.scoreboard.redScore === 0
       ? 154
-      : 308 * this.state.scoreboard.redScore / this.state.scoreboard.blueScore + this.state.scoreboard.redScore;
+      : 308 * this.state.scoreboard.redScore / (this.state.scoreboard.blueScore + this.state.scoreboard.redScore);
   }
   blueAssistsWidth = () => {
     let total = 0
