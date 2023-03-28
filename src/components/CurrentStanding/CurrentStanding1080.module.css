@@ -1,0 +1,68 @@
+.background {
+  /* background-image: url(../../assets/images/Current-Standings.png); */
+  background-image: url(../../assets/images/Current-Standings-No-Background.png);
+  background-repeat: no-repeat;
+  height: 100vh; 
+
+  font-family: "LEMONMILK";
+  font-size: 35px;
+  color: white;
+  padding-top: 303px;
+}
+
+.StandingsRow {
+  display: flex;
+  justify-content: flex-start;
+  padding-bottom: 20px;
+  padding-left: 167px;
+  height: 66.8px;
+}
+
+.StandingsRow p {
+  margin-top: -5px;
+}
+
+.pname {
+  width: 362px;
+}
+
+.pplayed {
+  width: 70px;
+  padding-right: 15px;
+  text-align: center;
+}
+
+.pwon {
+  width: 80px;
+  text-align: center;
+}
+
+.plost {
+  width: 80px;
+  text-align: center;
+}
+
+.pgameswon {
+  width: 70px;
+  text-align: center;
+}
+
+.pgameslost {
+  width: 80px;
+  text-align: center;
+}
+
+.ppoints {
+  width: 80px;
+  text-align: center;
+  font-weight: 500;
+}
+
+
+.Logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 27px;
+  margin-top: -4px;
+}
+

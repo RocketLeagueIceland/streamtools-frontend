@@ -53,6 +53,10 @@ class CurrentStanding extends Component {
       );
   }
 
+  truncate = (str, n) => {
+    return (str.length > n) ? str.substr(0, n-1) : str;
+  };
+
   render() {
 
     let standings = null
@@ -68,7 +72,7 @@ class CurrentStanding extends Component {
                     <div key={idx}>
                       <div className={styles.StandingsRow}>
                         <img className={styles.Logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + standing.logo} alt=''></img>
-                        <p className={styles.pname}>{standing.name}</p>
+                        <p className={styles.pname}>{this.truncate(standing.name, 15)}</p>
                         <p className={styles.pplayed}>{standing.played}</p>
                         <p className={styles.pwon}>{standing.won}</p>
                         <p className={styles.plost}>{standing.lost}</p>
