@@ -100,7 +100,7 @@ class TvBeforeGameEdit extends Component {
     if (this.state.nextTeams.length === 2 && this.state.allTeams.length > 0) {
 
       team1logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.nextTeams[0].logo}`} alt='' />)
-      team2logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.nextTeams[0].logo}`} alt='' />)
+      team2logo = (<img className={styles.logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${this.state.nextTeams[1].logo}`} alt='' />)
 
       const options = this.state.allTeams.map(({
         id: value,

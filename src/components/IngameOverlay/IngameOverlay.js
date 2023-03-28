@@ -164,7 +164,7 @@ class IngameOverlay extends Component {
                   <img src={leftPointsImage} style={styleLeftPoints} alt=''/>
                 </div>
               </div>
-              <div className={styles.boContainer}><p className={styles.boContainerText}>Game {this.state.gameNr} of {this.state.bestOf}</p></div>
+              <div className={styles.boContainer}><p className={styles.boContainerText}>Game {Math.min(this.state.gameNr, this.state.bestOf)} of {this.state.bestOf}</p></div>
               <div className={styles.overflowHidden}>
                 <div className={styles.rightPoints} style={styleRightEmptyPoints}>
                 <img src={rightPointsImage} style={styleRightPoints} alt=''/>

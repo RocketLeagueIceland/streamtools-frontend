@@ -50,9 +50,9 @@ class GamesOnStream extends Component {
                 <div className={styles.gameOnStreamRowContainer} key={idx}>
                   <div className={styles.gameOnStreamRow}>
                     <img className={styles.blueLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${row.blueteamLogo}`} alt=''></img>
-                    <p className={styles.blueName}>{row.blueteamName}</p>
+                    <p className={styles.blueName}>{this.truncate(row.blueteamName, 15)}</p>
                     <p className={styles.time}>{row.time}</p>
-                    <p className={styles.orangeName}>{row.orangeteamName}</p>
+                    <p className={styles.orangeName}>{this.truncate(row.orangeteamName, 15)}</p>
                     <img className={styles.orangeLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/${row.orangeteamLogo}`} alt=''></img>
                   </div>
                 </div>

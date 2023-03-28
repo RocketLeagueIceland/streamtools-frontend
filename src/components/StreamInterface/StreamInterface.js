@@ -23,6 +23,7 @@ class StreamInterface extends Component {
     this.state = {
       allTeams: [],
       isFirstFrame: true,
+      lastUpdated: 0,
       overlayShowing: false,
       boostOverlayShowing: false,
       targetOverlayShowing: false,
@@ -354,6 +355,7 @@ class StreamInterface extends Component {
       .then(
         (result) => {
           this.setState({
+            lastUpdated: result.lastUpdated,
             currentTeams: result.teams,
             bestOf: result.bestOf,
             gameNr: result.gameNr,
@@ -368,6 +370,31 @@ class StreamInterface extends Component {
 
         }
       )
+
+    setInterval(() => {
+      fetch(`http://${process.env.REACT_APP_HOST_IP}:3002/current-game`)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            if (result.lastUpdated > this.state.lastUpdated) {
+              this.setState({
+                lastUpdated: result.lastUpdated,
+                currentTeams: result.teams,
+                bestOf: result.bestOf,
+                gameNr: result.gameNr,
+                overlayShowing: result.overlayShowing,
+                boostOverlayShowing: result.boostOverlayShowing,
+                hasCustomTimeAndScore: result.hasCustomTimeAndScore,
+                targetOverlayShowing: result.targetOverlayShowing,
+                playerShowing: result.playerShowing,
+              });
+            }
+          },
+          (error) => {
+
+          }
+        )
+    }, 100);
 
     this.fetchTeams()
 
