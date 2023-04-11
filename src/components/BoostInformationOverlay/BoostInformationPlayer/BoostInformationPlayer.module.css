@@ -2,6 +2,7 @@
   width: 20%;
   min-width: 280px;
   margin-bottom: 2px;
+  padding: 1px 0;   /* css fix */
 }
 
 .Name {

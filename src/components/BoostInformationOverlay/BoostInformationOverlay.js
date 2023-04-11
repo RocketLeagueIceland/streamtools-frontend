@@ -4,12 +4,12 @@ import styles from './BoostInformationOverlay.module.css';
 import BoostInformationPlayer from './BoostInformationPlayer/BoostInformationPlayer';
 import PlayerImage from '../PlayerImage/PlayerImage';
 
-import assistImage from '../../assets/images/IngameIcons/Assist_points_icon.png'
-import saveImage from '../../assets/images/IngameIcons/Save_points_icon.png'
-import goalImage from '../../assets/images/IngameIcons/Goal_points_icon.png'
-import demoImage from '../../assets/images/IngameIcons/Demolition_points_icon.png'
-import shotImage from '../../assets/images/IngameIcons/Shot_on_Goal_points_icon.png'
-import assistsImage from '../../assets/images/IngameIcons/Assist_points_icon.png'
+import imageAssist from '../../assets/images/IngameIcons/Assist_points_icon.png'
+import imageSave from '../../assets/images/IngameIcons/Save_points_icon.png'
+import imageEpicSave from '../../assets/images/IngameIcons/Epic_Save_points_icon.png'
+import imageGoal from '../../assets/images/IngameIcons/Goal_points_icon.png'
+import imageDemolish from '../../assets/images/IngameIcons/Demolition_points_icon.png'
+import imageShot from '../../assets/images/IngameIcons/Shot_on_Goal_points_icon.png'
 import speedImage from '../../assets/images/speedometer_icon.png'
 
 class BoostInformationOverlay extends Component {
@@ -30,7 +30,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      bluePlayer1Events: [],
       bluePlayer2: {
         id: '',
         name: '',
@@ -44,7 +46,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      bluePlayer2Events: [],
       bluePlayer3: {
         id: '',
         name: '',
@@ -58,7 +62,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      bluePlayer3Events: [],
       orangePlayer1: {
         id: '',
         name: '',
@@ -72,7 +78,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      orangePlayer1Events: [],
       orangePlayer2: {
         id: '',
         name: '',
@@ -86,7 +94,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      orangePlayer2Events: [],
       orangePlayer3: {
         id: '',
         name: '',
@@ -100,7 +110,9 @@ class BoostInformationOverlay extends Component {
         touches: 0,
         cartouches: 0,
         score: 0,
+        isDead: false,
       },
+      orangePlayer3Events: [],
 
       match_guid: '',
       hasGame: false,
@@ -248,14 +260,81 @@ class BoostInformationOverlay extends Component {
 
   }
 
+  addEventToPlayerState(name, event) {
+    if (this.state.bluePlayer1.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.bluePlayer1Events));
+      events.push(event)
+      this.setState({ bluePlayer1Events: events });
+
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.bluePlayer1Events));
+        events.shift();
+        this.setState({ bluePlayer1Events: events });
+      }, 5000)
+    }
+    else if (this.state.bluePlayer2.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.bluePlayer2Events));
+      events.push(event)
+      this.setState({ bluePlayer2Events: events });
+
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.bluePlayer2Events));
+        events.shift();
+        this.setState({ bluePlayer2Events: events });
+      }, 5000)
+    }
+    else if (this.state.bluePlayer3.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.bluePlayer3Events));
+      events.push(event)
+      this.setState({ bluePlayer3Events: events });
+
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.bluePlayer3Events));
+        events.shift();
+        this.setState({ bluePlayer3Events: events });
+      }, 5000)
+    }
+    else if (this.state.orangePlayer1.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.orangePlayer1Events));
+      events.push(event)
+      this.setState({ orangePlayer1Events: events });
+
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.orangePlayer1Events));
+        events.shift();
+        this.setState({ orangePlayer1Events: events });
+      }, 5000)
+    }
+    else if (this.state.orangePlayer2.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.orangePlayer2Events));
+      events.push(event)
+      this.setState({ orangePlayer2Events: events });
+      
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.orangePlayer2Events));
+        events.shift();
+        this.setState({ orangePlayer2Events: events });
+      }, 5000)
+    }
+    else if (this.state.orangePlayer3.name === name) {
+      const events = JSON.parse(JSON.stringify(this.state.orangePlayer3Events));
+      events.push(event)
+      this.setState({ orangePlayer3Events: events });
+
+      setTimeout(() => {
+        const events = JSON.parse(JSON.stringify(this.state.orangePlayer3Events));
+        events.shift();
+        this.setState({ orangePlayer3Events: events });
+      }, 5000)
+    }
+  }
+
   componentDidMount() {
     this.WsSubscribers.init(49322, true);
 
     this.WsSubscribers.subscribe("game", "update_state", (d) => {
       const players = Object.keys(d['players'])
       const game = d.game
-      // console.log(game)
-      // console.log(players);
       if (players.length === 6) {
         const playersArray = players.map((p) => {
           return d['players'][p]
@@ -281,6 +360,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[0]['touches'],
             cartouches: bluePlayers[0]['cartouches'],
             score: bluePlayers[0]['score'],
+            score: bluePlayers[0]['isDead'],
           },
           bluePlayer2: {
             id: bluePlayers[1]['id'],
@@ -295,6 +375,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[1]['touches'],
             cartouches: bluePlayers[1]['cartouches'],
             score: bluePlayers[1]['score'],
+            score: bluePlayers[1]['isDead'],
           },
           bluePlayer3: {
             id: bluePlayers[2]['id'],
@@ -309,6 +390,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[2]['touches'],
             cartouches: bluePlayers[2]['cartouches'],
             score: bluePlayers[2]['score'],
+            score: bluePlayers[2]['isDead'],
           },
           orangePlayer1: {
             id: orangePlayers[0]['id'],
@@ -323,6 +405,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[0]['touches'],
             cartouches: orangePlayers[0]['cartouches'],
             score: orangePlayers[0]['score'],
+            score: orangePlayers[0]['isDead'],
           },
           orangePlayer2: {
             id: orangePlayers[1]['id'],
@@ -337,6 +420,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[1]['touches'],
             cartouches: orangePlayers[1]['cartouches'],
             score: orangePlayers[1]['score'],
+            score: orangePlayers[1]['isDead'],
           },
           orangePlayer3: {
             id: orangePlayers[2]['id'],
@@ -351,6 +435,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[2]['touches'],
             cartouches: orangePlayers[2]['cartouches'],
             score: orangePlayers[2]['score'],
+            score: orangePlayers[2]['isDead'],
           },
 
           match_guid: d.match_guid,
@@ -379,10 +464,44 @@ class BoostInformationOverlay extends Component {
       });
     });
 
+    this.WsSubscribers.subscribe("game", "statfeed_event", (d) => {
+      console.log(d);
+      const eventPlayerName = d.main_target.name
+      this.addEventToPlayerState(eventPlayerName, d.event_name)
+    });
+
+  }
+
+  getEventImage(name) {
+    if (name === 'Shot') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageShot}></img>);
+    } else if (name === 'Goal') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageGoal}></img>);
+    } else if (name === 'Save') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageSave}></img>);
+    } else if (name === 'EpicSave') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageEpicSave}></img>);
+    } else if (name === 'Savior') {
+      return null;
+    } else if (name === 'Demolish') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageDemolish}></img>);
+    } else if (name === 'Assist') {
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageAssist}></img>);
+    } else if (name === 'Win') {
+      return null;
+    } else if (name === 'MVP') {
+      return null;
+    } else if (name === 'HatTrick') {
+      return null;
+    } else if (name === 'BicycleHit') {
+      return null;
+    } else if (name === 'TurtleGoal') {
+      return null;
+    }
   }
 
   truncate(str, n) {
-    return (str.length > n) ? str.slice(0, n-1) + '&hellip;' : str;
+    return (str.length > n) ? str.slice(0, n - 1) + '&hellip;' : str;
   };
 
   render() {
@@ -467,7 +586,7 @@ class BoostInformationOverlay extends Component {
 
     let currentReplayAssistInfo = this.state.goalInfo.assister.name === '' ? null : (
       <div className={styles.replayStatItem}>
-        <img src={assistsImage} alt=''></img>
+        <img src={imageAssist} alt=''></img>
         {/* <p>mediuMReyr</p> */}
         <p>{this.state.goalInfo.assister.name}</p>
       </div>
@@ -517,14 +636,32 @@ class BoostInformationOverlay extends Component {
       <div>
         <div className={styles.BoostOverlay}>
           <div className={[styles.BlueSide, blueBoostSlideAnimate].join(' ')}>
-            <BoostInformationPlayer name={this.state.bluePlayer1.name} boostAmount={this.state.bluePlayer1.boost} blue selectedPlayer={this.state.bluePlayer1.name === currentPlayer.name} />
-            <BoostInformationPlayer name={this.state.bluePlayer2.name} boostAmount={this.state.bluePlayer2.boost} blue selectedPlayer={this.state.bluePlayer2.name === currentPlayer.name} />
-            <BoostInformationPlayer name={this.state.bluePlayer3.name} boostAmount={this.state.bluePlayer3.boost} blue selectedPlayer={this.state.bluePlayer3.name === currentPlayer.name} />
+            <div style={{ display: 'flex' }}>
+              <BoostInformationPlayer name={this.state.bluePlayer1.name} boostAmount={this.state.bluePlayer1.boost} blue isDead={this.state.bluePlayer1.isDead} selectedPlayer={this.state.bluePlayer1.name === currentPlayer.name} />
+              {this.state.bluePlayer1Events.map((item) => this.getEventImage(item))}
+            </div>
+            <div style={{ display: 'flex' }}>
+              <BoostInformationPlayer name={this.state.bluePlayer2.name} boostAmount={this.state.bluePlayer2.boost} blue isDead={this.state.bluePlayer2.isDead} selectedPlayer={this.state.bluePlayer2.name === currentPlayer.name} />
+              {this.state.bluePlayer2Events.map((item) => this.getEventImage(item) )}
+            </div>
+            <div style={{ display: 'flex' }}>
+              <BoostInformationPlayer name={this.state.bluePlayer3.name} boostAmount={this.state.bluePlayer3.boost} blue isDead={this.state.bluePlayer3.isDead} selectedPlayer={this.state.bluePlayer3.name === currentPlayer.name} />
+              {this.state.bluePlayer3Events.map((item) =>  this.getEventImage(item) )}
+            </div>
           </div>
           <div className={[styles.OrangeSide, orangeBoostSlideAnimate].join(' ')}>
-            <BoostInformationPlayer name={this.state.orangePlayer1.name} boostAmount={this.state.orangePlayer1.boost} selectedPlayer={this.state.orangePlayer1.name === currentPlayer.name} />
-            <BoostInformationPlayer name={this.state.orangePlayer2.name} boostAmount={this.state.orangePlayer2.boost} selectedPlayer={this.state.orangePlayer2.name === currentPlayer.name} />
-            <BoostInformationPlayer name={this.state.orangePlayer3.name} boostAmount={this.state.orangePlayer3.boost} selectedPlayer={this.state.orangePlayer3.name === currentPlayer.name} />
+            <div style={{ display: 'flex' }}>
+            {this.state.orangePlayer1Events.map((item) =>  this.getEventImage(item) )}
+              <BoostInformationPlayer name={this.state.orangePlayer1.name} boostAmount={this.state.orangePlayer1.boost} isDead={this.state.orangePlayer1.isDead} selectedPlayer={this.state.orangePlayer1.name === currentPlayer.name} />
+            </div>
+            <div style={{ display: 'flex' }}>
+            {this.state.orangePlayer2Events.map((item) =>  this.getEventImage(item) )}
+              <BoostInformationPlayer name={this.state.orangePlayer2.name} boostAmount={this.state.orangePlayer2.boost} isDead={this.state.orangePlayer2.isDead} selectedPlayer={this.state.orangePlayer2.name === currentPlayer.name} />
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+            {this.state.orangePlayer3Events.map((item) =>  this.getEventImage(item) )}
+              <BoostInformationPlayer name={this.state.orangePlayer3.name} boostAmount={this.state.orangePlayer3.boost} isDead={this.state.orangePlayer3.isDead} selectedPlayer={this.state.orangePlayer3.name === currentPlayer.name} />
+            </div>
           </div>
         </div>
 
@@ -537,23 +674,23 @@ class BoostInformationOverlay extends Component {
             </div>
             <div className={styles.statContainer}>
               <div className={styles.statItem}>
-                <img src={goalImage} alt=''></img>
+                <img src={imageGoal} alt=''></img>
                 <p>{currentPlayer.goals}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={assistImage} alt=''></img>
+                <img src={imageAssist} alt=''></img>
                 <p>{currentPlayer.assists}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={saveImage} alt=''></img>
+                <img src={imageSave} alt=''></img>
                 <p>{currentPlayer.saves}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={demoImage} alt=''></img>
+                <img src={imageDemolish} alt=''></img>
                 <p>{currentPlayer.demos}</p>
               </div>
               <div className={styles.statItem}>
-                <img src={shotImage} alt=''></img>
+                <img src={imageShot} alt=''></img>
                 <p>{currentPlayer.shots}</p>
               </div>
             </div>
