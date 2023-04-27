@@ -5,12 +5,9 @@ html {
 
 .BoostOverlay {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: 200px;
   align-items: center;
-  /* opacity: 0.75; */
-  /* margin-bottom: 400px;
-  margin-top: 200px; */
 }
 
 .BlueSide {
@@ -210,4 +207,13 @@ html {
   left: 0;
   margin-left: 20px;
   z-index: -1 ;
+}
+
+.fade-out{
+  opacity: 1;
+  transition: opacity 2.5s ease-out;
+}
+
+.fade-out-exit-active {
+  opacity: 0;
 }
