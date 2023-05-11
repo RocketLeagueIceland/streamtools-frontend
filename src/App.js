@@ -20,6 +20,8 @@ import Polling from './components/Polling/Polling';
 import PostGameScreen from './components/PostGameScreen/PostGameScreen';
 import DoubleElim from './components/DoubleElim/DoubleElim';
 import DoubleElimEdit from './components/DoubleElim/DoubleElimEdit';
+import TeamOneLogo from './components/TeamLogos/TeamOneLogo';
+import TeamTwoLogo from './components/TeamLogos/TeamTwoLogo';
 
 
 function App() {
@@ -43,6 +45,9 @@ function App() {
         <Route path="/current-standing-edit" exact component={CurrentStandingEdit} />
         <Route path="/finals-bracket" exact component={FinalsBracket} />
         <Route path="/finals-bracket-edit" exact component={FinalsBracketEdit} />
+
+        <Route path="/team-one-logo" exact component={TeamOneLogo} />
+        <Route path="/team-two-logo" exact component={TeamTwoLogo} />
 
         <Route path="/double-elim" exact component={DoubleElim} />
         <Route path="/double-elim-edit" exact component={DoubleElimEdit} />

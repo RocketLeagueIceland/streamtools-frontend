@@ -219,8 +219,8 @@ update_state:
             "arena": "cs_p",
             "ball": {
                 "location": {
-                    "X": 1618.9144287109375,
-                    "Y": -1730.7481689453125,
+                    "X": 1618.9144287109375,        
+                    "Y": -1730.7481689453125,       // ef y er plús þá er boltinn orange megin. ef y er mínus þá er boltinn blue megin.
                     "Z": 481.8409423828125
                 },
                 "speed": 40,
