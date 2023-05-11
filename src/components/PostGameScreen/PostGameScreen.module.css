@@ -22,12 +22,12 @@
 }
 
 .LeftLogo {
-  top: 118px;
+  top: 77px;
   left: 302px;
 }
 
 .RightLogo {
-  top: 118px;
+  top: 77px;
   left: 1267px;
 }
 
@@ -36,7 +36,7 @@
 }
 
 .LeftContainer{
-  margin-top: 201px;
+  margin-top: 160px;
   margin-left: 154px;
   width: 657px;
 }
@@ -46,7 +46,7 @@
 }
 
 .RightContainer{
-  margin-top: 201px;
+  margin-top: 160px;
   width: 657px;
 }
 
@@ -71,7 +71,7 @@
 
 .Score{
   width: 310px;
-  margin-top: 435px;
+  margin-top: 395px;
   display: flex;
   justify-content: center;
   font-size: 70px;
@@ -145,7 +145,7 @@
 }
 
 .PossessionRatio{
-  margin-top: 100px;
+  margin-top: 80px;
   display: flex;
   border: 1px solid #eeeeee;
 }

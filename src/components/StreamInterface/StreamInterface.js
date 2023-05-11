@@ -215,6 +215,8 @@ class StreamInterface extends Component {
         }
       ],
 
+      fieldDomination: [0, 0],
+
       match_guid: '',
     };
 
@@ -445,6 +447,19 @@ class StreamInterface extends Component {
           if (this.state.orangePlayer3.boost > orangePlayers[2]['boost']) { orangePlayer3BoostUsed += this.state.orangePlayer3.boost - orangePlayers[2]['boost'] }
         }
 
+        let fieldDomination = [...this.state.fieldDomination];
+        if (game.winner === "" && game.ball.location.Y < 0 && !game.isReplay) {
+          fieldDomination[0] += 1;
+          this.setState({
+            fieldDomination: fieldDomination
+          });
+        } else if (game.winner === "" && game.ball.location.Y > 0 && !game.isReplay) {
+          fieldDomination[1] += 1;
+          this.setState({
+            fieldDomination: fieldDomination
+          });
+        }
+
         this.setState({
           bluePlayer1: {
             id: bluePlayers[0]['id'],
@@ -552,6 +567,8 @@ class StreamInterface extends Component {
           time_seconds: game.time_seconds,
         });
       }
+
+
     });
 
     this.WsSubscribers.subscribe("game", "match_ended", (d) => {
@@ -925,6 +942,7 @@ class StreamInterface extends Component {
   }
 
   saveScoreboard = () => {
+    let gameinfo = {};
     let players = [
       this.state.bluePlayer1,
       this.state.bluePlayer2,
@@ -933,6 +951,9 @@ class StreamInterface extends Component {
       this.state.orangePlayer2,
       this.state.orangePlayer3,
     ];
+    gameinfo.players = players;
+    gameinfo.fieldDomination = [...this.state.fieldDomination];
+
     let ts = new Date();
     console.log(ts.toISOString().split('.')[0].replace(/:/g, ''))
     console.log('saving scoreboard')
@@ -941,7 +962,7 @@ class StreamInterface extends Component {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(players)
+      body: JSON.stringify(gameinfo)
     })
 
     // Clean up work

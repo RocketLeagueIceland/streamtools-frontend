@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './CurrentStanding.module.css'
+import styles from './CurrentStanding1080.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'

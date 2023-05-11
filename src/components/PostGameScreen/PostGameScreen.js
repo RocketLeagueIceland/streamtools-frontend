@@ -16,10 +16,12 @@ class PostGameScreen extends Component {
         redScore: 0,
         bluePossession: 0,
         redPossession: 0,
+        fieldDomination: [0,0],
 
         players: [
           {
             name: 'smushball',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -28,6 +30,7 @@ class PostGameScreen extends Component {
             totalBoost: 0
           }, {
             name: 'emilvald',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -36,6 +39,7 @@ class PostGameScreen extends Component {
             totalBoost: 0
           }, {
             name: 'paxole',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -44,6 +48,7 @@ class PostGameScreen extends Component {
             totalBoost: 0
           }, {
             name: 'hemmigumm',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -52,6 +57,7 @@ class PostGameScreen extends Component {
             totalBoost: 0
           }, {
             name: 'ousic',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -60,6 +66,7 @@ class PostGameScreen extends Component {
             totalBoost: 0
           }, {
             name: 'steb',
+            score: 0,
             goals: 0,
             assists: 0,
             saves: 0,
@@ -92,6 +99,28 @@ class PostGameScreen extends Component {
       )
   }
 
+  blueScoreWidth = () => {
+    let total = 0
+    let blue = 0
+    for (let i = 0; i < 6; i++) {
+      total += this.state.scoreboard.players[i].score
+    }
+    for (let i = 0; i < 3; i++) {
+      blue += this.state.scoreboard.players[i].score
+    }
+    return total === 0 ? 154 : 308 * blue / total
+  }
+  redScoreWidth = () => {
+    let total = 0
+    let red = 0
+    for (let i = 0; i < 6; i++) {
+      total += this.state.scoreboard.players[i].score
+    }
+    for (let i = 3; i < 6; i++) {
+      red += this.state.scoreboard.players[i].score
+    }
+    return total === 0 ? 154 : 308 * red / total
+  }
   blueGoalWidth = () => {
     return this.state.scoreboard.blueScore + this.state.scoreboard.redScore === 0
       ? 154
@@ -212,14 +241,26 @@ class PostGameScreen extends Component {
     }
     return total === 0 ? 154 : 308 * red / total
   }
+
   bluePossessionWidth = () => {
-    let total = this.state.scoreboard.bluePossession + this.state.scoreboard.bluePossession
+    let total = this.state.scoreboard.bluePossession + this.state.scoreboard.redPossession
     let blue = this.state.scoreboard.bluePossession
     return total === 0 ? 258 : 516 * blue / total
   }
   redPossessionWidth = () => {
-    let total = this.state.scoreboard.bluePossession + this.state.scoreboard.bluePossession
+    let total = this.state.scoreboard.bluePossession + this.state.scoreboard.redPossession
     let red = this.state.scoreboard.redPossession
+    return total === 0 ? 258 : 516 * red / total
+  }
+
+  blueFieldDominationWidth = () => {
+    let total = this.state.scoreboard.fieldDomination[0] + this.state.scoreboard.fieldDomination[1]
+    let blue = this.state.scoreboard.fieldDomination[0]
+    return total === 0 ? 258 : 516 * blue / total
+  }
+  redFieldDominationWidth = () => {
+    let total = this.state.scoreboard.fieldDomination[0] + this.state.scoreboard.fieldDomination[1]
+    let red = this.state.scoreboard.fieldDomination[1]
     return total === 0 ? 258 : 516 * red / total
   }
 
@@ -249,6 +290,11 @@ class PostGameScreen extends Component {
               <p>{this.state.scoreboard.players[0].name}</p>
               <p>{this.state.scoreboard.players[1].name}</p>
               <p>{this.state.scoreboard.players[2].name}</p>
+            </div>
+            <div className={styles.PlayerRow}>
+              <p>{this.state.scoreboard.players[0].score}</p>
+              <p>{this.state.scoreboard.players[1].score}</p>
+              <p>{this.state.scoreboard.players[2].score}</p>
             </div>
             <div className={styles.PlayerRow}>
               <p>{this.state.scoreboard.players[0].goals}</p>
@@ -286,6 +332,11 @@ class PostGameScreen extends Component {
             <div className={styles.Score}>
               <p>{this.state.scoreboard.blueScore}</p>
               <p>{this.state.scoreboard.redScore}</p>
+            </div>
+            <div className={styles.RecRatio}>
+              <div className={styles.BlueRec} style={{ width: `${this.blueScoreWidth()}px` }}></div>
+              <div className={styles.WhiteBox}></div>
+              <div className={styles.RedRec} style={{ width: `${this.redScoreWidth()}px` }}></div>
             </div>
             <div className={styles.RecRatio}>
               <div className={styles.BlueRec} style={{ width: `${this.blueGoalWidth()}px` }}></div>
@@ -331,6 +382,11 @@ class PostGameScreen extends Component {
               <p>{this.state.scoreboard.players[5].name}</p>
             </div>
             <div className={styles.PlayerRow}>
+              <p>{this.state.scoreboard.players[3].score}</p>
+              <p>{this.state.scoreboard.players[4].score}</p>
+              <p>{this.state.scoreboard.players[5].score}</p>
+            </div>
+            <div className={styles.PlayerRow}>
               <p>{this.state.scoreboard.players[3].goals}</p>
               <p>{this.state.scoreboard.players[4].goals}</p>
               <p>{this.state.scoreboard.players[5].goals}</p>
@@ -364,9 +420,9 @@ class PostGameScreen extends Component {
         </div>
         <div className={styles.PossessionContainer}>
           <div className={styles.PossessionRatio}>
-            <div className={styles.BluePossessionRec} style={{ width: `${this.bluePossessionWidth()}px` }}></div>
+            <div className={styles.BluePossessionRec} style={{ width: `${this.blueFieldDominationWidth()}px` }}></div>
             <div className={styles.WhiteBox}></div>
-            <div className={styles.RedPossessionRec} style={{ width: `${this.redPossessionWidth()}px` }}></div>
+            <div className={styles.RedPossessionRec} style={{ width: `${this.redFieldDominationWidth()}px` }}></div>
           </div>
         </div>
       </div>
