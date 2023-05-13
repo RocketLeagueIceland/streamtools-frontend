@@ -448,12 +448,12 @@ class StreamInterface extends Component {
         }
 
         let fieldDomination = [...this.state.fieldDomination];
-        if (game.winner === "" && game.ball.location.Y < 0 && !game.isReplay) {
+        if (game && game.winner === "" && game.ball.location.Y < 0 && !game.isReplay) {
           fieldDomination[0] += 1;
           this.setState({
             fieldDomination: fieldDomination
           });
-        } else if (game.winner === "" && game.ball.location.Y > 0 && !game.isReplay) {
+        } else if (game && game.winner === "" && game.ball.location.Y > 0 && !game.isReplay) {
           fieldDomination[1] += 1;
           this.setState({
             fieldDomination: fieldDomination
@@ -576,9 +576,13 @@ class StreamInterface extends Component {
         console.log('match ended...');
         this.saveScoreboard();
         this.hideOverlay();
+
+        const game = d.game;
+
         this.setState({
           match_ended: true,
           matchInitialized: false,
+          fieldDomination: [0,0],
 
           bluePlayer1: {
             id: '',
