@@ -1,68 +1,84 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Streamtools - Frontend
 
-## Available Scripts
+Used in production for RLÍS streams (Rocket League Ísland). The resources created can be imported as browser sources into your streaming tool.
 
-In the project directory, you can run:
+## Description
 
-### `yarn start`
+This project should include everything that is needed for an RLÍS broadcast, apart from what should be in the backend **LINK TO BACKEND GITHUB**. You may notice that we use a lot of images instead of CSS to create the visualization. This is because we are always streaming in the same resolution, so responsiveness is not an issue. It also makes it easier to create or update some graphics in Photoshop and replace them here.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Here is a list of its current features:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+  - Control panel (StreamInterface)
+  - Countdown
+  - Ingame Overlay
+    - Teams name/logos
+    - Current score 
+    - Ingame Clock
+    - Boost status (Boostinformation overlay)
+    - Player Images
+  - Current Standing
+  - Double elimination graphic (6 teams)
+  - Single elimination graphic (6 teams)
+  - Games on Stream
+  - Post Game Screen
+  - Team logos
+  - TV screen graphics
+  - Twitch polling
 
-### `yarn test`
+There are some unfinished features, that might just be deleted later:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  - Replay Stinger
+    - Was supposed to be a dynamic stinger that showed who scored, and perhaps also contained some of the sponsors for the team. Having team sponsors visible can help the esports teams grow, which in turn makes RLÍS a more desire-able esports competition platform.
+  - NextGame
+    - I had not completely finished the idea here, but basicly I wanted to be able to set up what the next game in a singular spot, so Tv-NextGame would be updated among other things in a central place.
+  - Matchup
+    - I honestly dont remember what this was supposed to be. Will probably just be deleted.
 
-### `yarn build`
+The Ingame Overlay is a bit scattered, and can be combined or structured better in the project.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I do apologize for the chaos and bad/inconsistant naming. That happens when you are working alone on a project and everything is basicly a prototype :D . Hopefully I fix it before stopping development
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## How to Run It
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `yarn eject`
+To run the project you need `Node.js` and `npm`. Here is a link to download Node.js and npm should come with it.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ - https://nodejs.org/en
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The version I am using right is `v16.11.1` but I dont think future version should break the project. A future project would be to dockerize this project for full version control, but more on that later.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Bakkesmod & SOS
+You need to have `BakkesMod` installed along with the `SOS-plugin`. You also have to have the `SOS-WS-RELAY` running, which is a node project.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Bakkesmod can be installed from here
+ - https://bakkesplugins.com/
 
-## Learn More
+Everything SOS related can be installed from here
+ - https://gitlab.com/bakkesplugins/sos
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I collected some events from the `SOS-WS-RELAY` and they can be found in `sos-documentation.txt`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Installation & Run
 
-### Code Splitting
+If all the prerequisites are there you must simply run 
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```sh
+npm install
+```
 
-### Analyzing the Bundle Size
+To install all the node modules. Then to run the Streamtools front end just run
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```sh
+npm start
+```
 
-### Making a Progressive Web App
+## Future Improvements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+A dream would be to recreate the backend and frontend of the streamtools with next.js and combining them together. I am in favor of Separation Of Concerns, a well known software engineering rule, but in this case the frontend and backend are so highly coupled anyways.
 
-### Advanced Configuration
+I would also like to use streams, instead of polling the backend like I am doing now.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Thirdly having everything dockerized would simplify alot. It would be easier for beginners to start running everything up, because all the prerequisites can be set up in the docker file, or run in another docker container.
 
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+I also wonder if it would have been smarter to connect the backend to the WS relay, and only fetch all the information once, and then send relevant data for each frontend component
