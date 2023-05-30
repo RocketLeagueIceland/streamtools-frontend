@@ -1,4 +1,4 @@
-# Streamtools - Frontend
+# Streamtools - Frontend (React)
 
 Used in production for RLÍS streams (Rocket League Ísland). The resources created can be imported as browser sources into your streaming tool.
 
