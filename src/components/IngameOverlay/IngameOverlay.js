@@ -137,7 +137,7 @@ class IngameOverlay extends Component {
                     <img src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/`+team1Logo} className={styles.logoImage} alt=''/>
                   </div>
                 </div>
-                <div className={styles.leftBar}><p className={styles.leftBarText}>{this.truncate(team1,15)}</p></div>
+                <div className={styles.leftBar}><p className={styles.leftBarText}>{this.truncate(team1,17)}</p></div>
               </div>
             </div>
 
@@ -147,7 +147,7 @@ class IngameOverlay extends Component {
 
             <div className={styles.overflowHidden}>
               <div className={[styles.rightTeamContainer, rightTeamSlideAnimate].join(' ')}>
-                <div className={styles.rightBar}><p className={styles.rightBarText}>{this.truncate(team2,15)}</p></div>
+                <div className={styles.rightBar}><p className={styles.rightBarText}>{this.truncate(team2,17)}</p></div>
                 <div className={styles.inBack}>
                   <div className={[styles.rightLogoBar, rightLogoBarSlideAnimate].join(' ')}>
                     <img src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/`+team2Logo} className={styles.logoImage} alt=''/>
