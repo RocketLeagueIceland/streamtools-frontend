@@ -162,7 +162,7 @@ class PlayerImage extends Component {
         <img src={saltskeggur} alt=''></img>
       )
     }
-    else if (this.props.player.toLowerCase() === 'nogla') {
+    else if (this.props.player.toLowerCase() === 'nógla') {
       player = (
         <img src={nogla} alt=''></img>
       )
