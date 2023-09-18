@@ -670,7 +670,7 @@ class BoostInformationOverlay extends Component {
           <div className={styles.CurrentPlayerContainer} style={CurrentPlayerContainerStyle}>
             <div>
               <div className={styles.CurrentTargetText}>
-                <p>{this.truncate(currentPlayer.name, 13)}</p>
+                <p>{this.truncate(currentPlayer.name, 15)}</p>
               </div>
             </div>
             <div className={styles.statContainer}>
