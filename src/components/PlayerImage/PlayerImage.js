@@ -119,7 +119,7 @@ class PlayerImage extends Component {
         <img src={vano} alt=''></img>
       )
     }
-    else if (this.props.player.toLowerCase() === 'gummi') {  
+    else if (this.props.player.toLowerCase() === 'gummi' || this.props.player.toLowerCase() === 'gummift') {  
       player = (
         <img src={gummi} alt=''></img>
       )
