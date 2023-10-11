@@ -407,6 +407,7 @@ class StreamInterface extends Component {
     this.WsSubscribers.subscribe("game", "update_state", (d) => {
       const players = Object.keys(d['players'])
       const game = d.game
+      console.log(game)
       if (players.length === 6) {
         const playersArray = players.map((p) => {
           return d['players'][p]
