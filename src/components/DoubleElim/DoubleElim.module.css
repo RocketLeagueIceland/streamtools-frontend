@@ -132,5 +132,5 @@
 .lbFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/LBFinals-T1-Winner.png); }
 .lbFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/LBFinals-T2-Winner.png); }
 
-.GrandFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T1-Winner.png); z-index: -1;}
-.GrandFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T2-Winner.png); z-index: -1;}
+.GrandFinalT1W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T1-Winner.png);}
+.GrandFinalT2W { background-image: url(../../assets/images/DoubleElimExtra/GrandFinals-T2-Winner.png);}
