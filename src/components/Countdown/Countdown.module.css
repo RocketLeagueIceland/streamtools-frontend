@@ -1,3 +1,8 @@
+body {
+  background-color: rgba(0,0,0,0) !important;
+  overflow: hidden;
+}
+
 .timer{
   font-family: "LEMONMILK";
   font-size: 150px;
