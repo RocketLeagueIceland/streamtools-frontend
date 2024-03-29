@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './CurrentStanding1080.module.css'
+import styles from './CurrentStanding.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
@@ -72,7 +72,7 @@ class CurrentStanding extends Component {
                     <div key={idx}>
                       <div className={styles.StandingsRow}>
                         <img className={styles.Logo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + standing.logo} alt=''></img>
-                        <p className={styles.pname}>{this.truncate(standing.name, 15)}</p>
+                        <p className={styles.pname}>{this.truncate(standing.name, 17)}</p>
                         <p className={styles.pplayed}>{standing.played}</p>
                         <p className={styles.pwon}>{standing.won}</p>
                         <p className={styles.plost}>{standing.lost}</p>

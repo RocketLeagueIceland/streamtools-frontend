@@ -79,14 +79,14 @@ class DoubleElim extends Component {
       for (let i = 0; i < this.state.bracket.length; i++) {
         let round = (
           <div className={styles.matchup}>
-            <div className={styles.teamline}>
-              <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket[i].Team1logo} alt=''></img>
-              <p className={styles.TeamName}>{this.state.bracket[i].Team1name}</p>
+            <div className={[styles.teamline, styles.MoreInFront].join(' ')}>
+              <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket[i].Team1logo} alt=''></img>
+              <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket[i].Team1name}</p>
               <p className={[styles.TeamScore, i!==this.state.bracket.length-1 ? styles.UpperScore : styles.GrandUpperScore].join(" ")}>{this.state.bracket[i].Team1Score}</p>
             </div>
-            <div className={styles.teamline}>
-              <img className={styles.TeamLogo} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket[i].Team2logo} alt=''></img>
-              <p className={styles.TeamName}>{this.state.bracket[i].Team2name}</p>
+            <div className={[styles.teamline, styles.MoreInFront].join(' ')}>
+              <img className={[styles.TeamLogo, styles.MoreInFront].join(' ')} src={`http://${process.env.REACT_APP_HOST_IP}:3002/images/teamlogos/` + this.state.bracket[i].Team2logo} alt=''></img>
+              <p className={[styles.TeamName, styles.MoreInFront].join(' ')}>{this.state.bracket[i].Team2name}</p>
               <p className={[styles.TeamScore, i!==this.state.bracket.length-1 ? styles.LowerScore : styles.GrandLowerScore].join(" ")}>{this.state.bracket[i].Team2Score}</p>
             </div>
           </div>

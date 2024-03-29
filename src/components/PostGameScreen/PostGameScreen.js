@@ -124,12 +124,12 @@ class PostGameScreen extends Component {
   blueGoalWidth = () => {
     return this.state.scoreboard.blueScore + this.state.scoreboard.redScore === 0
       ? 154
-      : 308 * this.state.scoreboard.blueScore / this.state.scoreboard.blueScore + this.state.scoreboard.redScore;
+      : 308 * this.state.scoreboard.blueScore / (this.state.scoreboard.blueScore + this.state.scoreboard.redScore);
   }
   redGoalWidth = () => {
     return this.state.scoreboard.blueScore + this.state.scoreboard.redScore === 0
       ? 154
-      : 308 * this.state.scoreboard.redScore / this.state.scoreboard.blueScore + this.state.scoreboard.redScore;
+      : 308 * this.state.scoreboard.redScore / (this.state.scoreboard.blueScore + this.state.scoreboard.redScore);
   }
   blueAssistsWidth = () => {
     let total = 0
@@ -253,12 +253,12 @@ class PostGameScreen extends Component {
     return total === 0 ? 258 : 516 * red / total
   }
 
-  blueFieldDominationWidth = () => {
+  redFieldDominationWidth = () => {
     let total = this.state.scoreboard.fieldDomination[0] + this.state.scoreboard.fieldDomination[1]
     let blue = this.state.scoreboard.fieldDomination[0]
     return total === 0 ? 258 : 516 * blue / total
   }
-  redFieldDominationWidth = () => {
+  blueFieldDominationWidth = () => {
     let total = this.state.scoreboard.fieldDomination[0] + this.state.scoreboard.fieldDomination[1]
     let red = this.state.scoreboard.fieldDomination[1]
     return total === 0 ? 258 : 516 * red / total

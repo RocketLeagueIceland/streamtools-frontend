@@ -49,7 +49,7 @@ const boostInformationPlayer = (props) => {
 
   return (
     <div className={classStyles.join(' ')}>
-      <p className={styles.Name}>{props.name.length > 12 ? props.name.substr(0, 12) : props.name} </p>
+      <p className={styles.Name}>{props.name.length > 14 ? props.name.substr(0, 14) : props.name} </p>
       {/* <p className={styles.Boost}>{props.boostAmount}</p> */}
       {boostLine}
     </div>

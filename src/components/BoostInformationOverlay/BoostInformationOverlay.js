@@ -360,7 +360,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[0]['touches'],
             cartouches: bluePlayers[0]['cartouches'],
             score: bluePlayers[0]['score'],
-            score: bluePlayers[0]['isDead'],
+            isDead: bluePlayers[0]['isDead'],
           },
           bluePlayer2: {
             id: bluePlayers[1]['id'],
@@ -375,7 +375,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[1]['touches'],
             cartouches: bluePlayers[1]['cartouches'],
             score: bluePlayers[1]['score'],
-            score: bluePlayers[1]['isDead'],
+            isDead: bluePlayers[1]['isDead'],
           },
           bluePlayer3: {
             id: bluePlayers[2]['id'],
@@ -390,7 +390,7 @@ class BoostInformationOverlay extends Component {
             touches: bluePlayers[2]['touches'],
             cartouches: bluePlayers[2]['cartouches'],
             score: bluePlayers[2]['score'],
-            score: bluePlayers[2]['isDead'],
+            isDead: bluePlayers[2]['isDead'],
           },
           orangePlayer1: {
             id: orangePlayers[0]['id'],
@@ -405,7 +405,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[0]['touches'],
             cartouches: orangePlayers[0]['cartouches'],
             score: orangePlayers[0]['score'],
-            score: orangePlayers[0]['isDead'],
+            isDead: orangePlayers[0]['isDead'],
           },
           orangePlayer2: {
             id: orangePlayers[1]['id'],
@@ -420,7 +420,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[1]['touches'],
             cartouches: orangePlayers[1]['cartouches'],
             score: orangePlayers[1]['score'],
-            score: orangePlayers[1]['isDead'],
+            isDead: orangePlayers[1]['isDead'],
           },
           orangePlayer3: {
             id: orangePlayers[2]['id'],
@@ -435,7 +435,7 @@ class BoostInformationOverlay extends Component {
             touches: orangePlayers[2]['touches'],
             cartouches: orangePlayers[2]['cartouches'],
             score: orangePlayers[2]['score'],
-            score: orangePlayers[2]['isDead'],
+            isDead: orangePlayers[2]['isDead'],
           },
 
           match_guid: d.match_guid,
@@ -474,19 +474,19 @@ class BoostInformationOverlay extends Component {
 
   getEventImage(name) {
     if (name === 'Shot') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageShot}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageShot} alt=""></img>);
     } else if (name === 'Goal') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageGoal}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageGoal} alt=""></img>);
     } else if (name === 'Save') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageSave}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageSave} alt=""></img>);
     } else if (name === 'EpicSave') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageEpicSave}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageEpicSave} alt=""></img>);
     } else if (name === 'Savior') {
       return null;
     } else if (name === 'Demolish') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageDemolish}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageDemolish} alt=""></img>);
     } else if (name === 'Assist') {
-      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageAssist}></img>);
+      return (<img className={styles['fade-out']} style={{ width: '50px', height: '50px' }} src={imageAssist} alt=""></img>);
     } else if (name === 'Win') {
       return null;
     } else if (name === 'MVP') {
@@ -501,7 +501,7 @@ class BoostInformationOverlay extends Component {
   }
 
   truncate(str, n) {
-    return (str.length > n) ? str.slice(0, n - 1) + '&hellip;' : str;
+    return (str.length > n) ? str.slice(0, n-1) : str;
   };
 
   render() {
@@ -598,7 +598,8 @@ class BoostInformationOverlay extends Component {
           <div>
             <div className={styles.CurrentTargetText}>
               {/* <p>mediuMReyr Skorar</p> */}
-              <p>{this.state.goalInfo.scorer.name} Skorar</p>
+              {/* <p>{this.state.goalInfo.scorer.name} Skorar</p> */}
+              <p>{this.state.goalInfo.scorer.name.length > 12 ? this.state.goalInfo.scorer.name.substr(0, 12) : this.state.goalInfo.scorer.name} Skorar</p>
             </div>
           </div>
           <div className={styles.replayStatContainer}>
@@ -669,7 +670,7 @@ class BoostInformationOverlay extends Component {
           <div className={styles.CurrentPlayerContainer} style={CurrentPlayerContainerStyle}>
             <div>
               <div className={styles.CurrentTargetText}>
-                <p>{this.truncate(currentPlayer.name, 13)}</p>
+                <p>{this.truncate(currentPlayer.name, 15)}</p>
               </div>
             </div>
             <div className={styles.statContainer}>
