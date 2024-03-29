@@ -448,12 +448,12 @@ class StreamInterface extends Component {
         }
 
         let fieldDomination = [...this.state.fieldDomination];
-        if (game && game.winner === "" && game.ball.location.Y < 0 && !game.isReplay) {
+        if (game && game.winner === "" && game.ball.location && game.ball.location.Y < 0 && !game.isReplay) {
           fieldDomination[0] += 1;
           this.setState({
             fieldDomination: fieldDomination
           });
-        } else if (game && game.winner === "" && game.ball.location.Y > 0 && !game.isReplay) {
+        } else if (game && game.winner === "" && game.ball.location && game.ball.location.Y > 0 && !game.isReplay) {
           fieldDomination[1] += 1;
           this.setState({
             fieldDomination: fieldDomination
