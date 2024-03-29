@@ -141,7 +141,7 @@ class CurrentStandingEdit extends Component {
   render() {
 
     let standings = null
-    if (this.state.currentStanding && this.state.currentStanding.length === 8) {
+    if (this.state.currentStanding && this.state.currentStanding.length === 6) {
       standings = (
         <div>
           <DragDropContext onDragEnd={(params) => {
