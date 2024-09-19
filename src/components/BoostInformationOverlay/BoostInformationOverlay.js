@@ -625,7 +625,7 @@ class BoostInformationOverlay extends Component {
         </div>
       )
     }
-    if (this.props.overlayShowing && this.state.isReplay) {
+    if (this.props.overlayShowing && this.props.playerShowing && this.state.isReplay) {
       playerImage = (
         <div className={styles.LowerLeftCorner}>
           <PlayerImage player={this.state.goalInfo.scorer.name} />
