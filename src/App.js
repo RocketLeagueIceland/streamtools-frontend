@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import Countdown from './components/Countdown/Countdown';
@@ -28,30 +28,32 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Route path="/counter" exact component={Countdown} />
+        <Routes>
+          <Route path="/counter" element={<Countdown />} />
 
-        <Route path="/boost-information" exact component={BoostInformationOverlay} />
-        <Route path="/tv-after-game" exact component={TvAfterGame} />
-        <Route path="/tv-before-game" exact component={TvBeforeGame} />
-        <Route path="/tv-before-game-edit" exact component={TvBeforeGameEdit} />
-        <Route path="/games-on-stream" exact component={GamesOnStream} />
-        <Route path="/games-on-stream-edit" exact component={GamesOnStreamEdit} />
+          <Route path="/boost-information" element={<BoostInformationOverlay />} />
+          <Route path="/tv-after-game" element={<TvAfterGame />} />
+          <Route path="/tv-before-game" element={<TvBeforeGame />} />
+          <Route path="/tv-before-game-edit" element={<TvBeforeGameEdit />} />
+          <Route path="/games-on-stream" element={<GamesOnStream />} />
+          <Route path="/games-on-stream-edit" element={<GamesOnStreamEdit />} />
 
-        <Route path="/post-game-screen" exact component={PostGameScreen} />
-        <Route path="/polling-results" exact component={Polling} />
-        <Route path="/ingame-overlay" exact component={IngameOverlay} />
-        <Route path="/next-game" exact component={NextGame} />
-        <Route path="/current-standing" exact component={CurrentStanding} />
-        <Route path="/current-standing-edit" exact component={CurrentStandingEdit} />
-        <Route path="/finals-bracket" exact component={FinalsBracket} />
-        <Route path="/finals-bracket-edit" exact component={FinalsBracketEdit} />
+          <Route path="/post-game-screen" element={<PostGameScreen />} />
+          <Route path="/polling-results" element={<Polling />} />
+          <Route path="/ingame-overlay" element={<IngameOverlay />} />
+          <Route path="/next-game" element={<NextGame />} />
+          <Route path="/current-standing" element={<CurrentStanding />} />
+          <Route path="/current-standing-edit" element={<CurrentStandingEdit />} />
+          <Route path="/finals-bracket" element={<FinalsBracket />} />
+          <Route path="/finals-bracket-edit" element={<FinalsBracketEdit />} />
 
-        <Route path="/team-one-logo" exact component={TeamOneLogo} />
-        <Route path="/team-two-logo" exact component={TeamTwoLogo} />
+          <Route path="/team-one-logo" element={<TeamOneLogo />} />
+          <Route path="/team-two-logo" element={<TeamTwoLogo />} />
 
-        <Route path="/double-elim" exact component={DoubleElim} />
-        <Route path="/double-elim-edit" exact component={DoubleElimEdit} />
-        <Route path="/" exact component={StreamInterface} />
+          <Route path="/double-elim" element={<DoubleElim />} />
+          <Route path="/double-elim-edit" element={<DoubleElimEdit />} />
+          <Route path="/" element={<StreamInterface />} />
+        </Routes>
       </div>
     </BrowserRouter>
   );
